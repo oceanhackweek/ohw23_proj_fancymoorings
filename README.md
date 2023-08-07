@@ -9,5 +9,4 @@ Team members (so far): **Seth Travis, Lu Guan, Samantha Huntington, Andrea Hilbo
 
 Person | Python Guru | Github Pages | Plotly | Github comfiness |
 ------|-------|--------| ----- | -----|
-Andrea | not really | a bit | In R! | Pretty comfy
 
