@@ -7,7 +7,7 @@ Team members (so far): **Seth Travis, Lu Guan, Samantha Huntington, Andrea Hilbo
 * We'd like to summarize this in a page hosted on Github Pages.
 * Other things that might be fun include having an interactive map and / or some interactive plots.
 
-Person | Python Guru | Github Pages | Plotly | 
-------|-------|--------| ----- |
-Andrea | not really | a bit | In R!
+Person | Python Guru | Github Pages | Plotly | Github comfiness |
+------|-------|--------| ----- | -----|
+Andrea | not really | a bit | In R! | Pretty comfy
 
