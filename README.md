@@ -1,7 +1,7 @@
 # fancymoorings
 Data page for display and downloading mooring data
 
-Team members (so far): **Seth Travis, Lu Guan, Samantha Huntington, Andrea Hilborn, Tobias Ferreira, Johnathan Evanilla**
+Team members (so far): **Seth Travis, Lu Guan, Samantha Huntington, Andrea Hilborn, Hafeez Opeyemi Oladejo, Tobias Ferreira, Johnathan Evanilla**
 
 * The goal is to download and create plots (temperature, salinity and oxygen) for mooring data from Vancouver Island and Puget Sound.
 * We'd like to summarize this in a page hosted on Github Pages.
