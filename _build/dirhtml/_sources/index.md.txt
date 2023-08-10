@@ -120,5 +120,5 @@ This page was created by folks from the following institutions:
 :hidden:
 
 moorings/index.md
-interactive.md
+interactive/interactive.md
 ```

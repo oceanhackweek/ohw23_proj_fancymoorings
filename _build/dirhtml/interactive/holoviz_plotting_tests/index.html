@@ -1,0 +1,1056 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>&lt;no title&gt; &#8212; Pacific Moorings Page</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'interactive/holoviz_plotting_tests';</script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="prev" title="Interactive Viz" href="../interactive/" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>  
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this site..."
+         aria-label="Search this site..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Pacific Moorings Page</p>
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../moorings/">
+                        Moorings
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../interactive/">
+                        Interactive Viz
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/oceanhackweek/ohw23_proj_fancymoorings" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/orgs/oceanhackweek/ohw23_proj_fancymoorings/issues" title="Discussions" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-comments"></i></span>
+            <label class="sr-only">Discussions</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/about/contact.html" title="Email" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-envelope"></i></span>
+            <label class="sr-only">Email</label></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../moorings/">
+                        Moorings
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../interactive/">
+                        Interactive Viz
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/oceanhackweek/ohw23_proj_fancymoorings" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/orgs/oceanhackweek/ohw23_proj_fancymoorings/issues" title="Discussions" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-comments"></i></span>
+            <label class="sr-only">Discussions</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/about/contact.html" title="Email" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-envelope"></i></span>
+            <label class="sr-only">Email</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><a href="/"><div class="profile-pic"><img src="../../_static/whistling_buoy.jpg" /></div></a>
+
+<div class="bio-info">
+    <div class="name">
+        Moorings Page
+    </div>
+    <div class="focusareas">
+        BC + WA
+    </div>
+
+    <!-- <div class="whatido">
+        What I do
+    </div> -->
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../interactive/" class="nav-link">Interactive Viz</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">&lt;no title&gt;</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                   <p>holoviz plotting - shrinking the time range</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">erddapy</span>
+<span class="kn">from</span> <span class="nn">erddapy</span> <span class="kn">import</span> <span class="n">ERDDAP</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">cf_xarray</span> <span class="k">as</span> <span class="nn">cfxr</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">netCDF4</span>
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="kn">import</span> <span class="nn">pathlib</span>
+
+<span class="kn">import</span> <span class="nn">holoviews</span> <span class="k">as</span> <span class="nn">hv</span>
+<span class="kn">import</span> <span class="nn">hvplot.pandas</span> <span class="c1"># noqa</span>
+<span class="kn">import</span> <span class="nn">hvplot.xarray</span>
+<span class="kn">import</span> <span class="nn">panel</span> <span class="k">as</span> <span class="nn">pn</span>
+
+
+<span class="n">pn</span><span class="o">.</span><span class="n">extension</span><span class="p">(</span><span class="n">template</span><span class="o">=</span><span class="s1">&#39;fast&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_erddap_data</span><span class="p">(</span><span class="n">erddap_url</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">data_protocol</span><span class="o">=</span><span class="s2">&quot;griddap&quot;</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function: get_erddap_data</span>
+<span class="sd">    This function uses the erddapy python library to access data from ERDDAP servers,</span>
+<span class="sd">    and to return it to users in convenient formats for python users.</span>
+<span class="sd">    Data can be pulled from &quot;tabledap&quot; or &quot;griddap&quot; formats, with different</span>
+<span class="sd">    output types, depending on the dap type.</span>
+<span class="sd">    </span>
+<span class="sd">    Inputs:</span>
+<span class="sd">    erddap_url    - The url address of the erddap server to pull data from</span>
+<span class="sd">    variables     - The selected variables within the dataset.</span>
+<span class="sd">    data_protocol - The erddap data protocol for the chosen dataset.</span>
+<span class="sd">                    Options include &quot;tabledap&quot; or &quot;griddap&quot;</span>
+<span class="sd">                    The default option is given as &quot;griddap&quot;</span>
+<span class="sd">    dataset       - The ID for the relevant dataset on the erddap server</span>
+<span class="sd">                    If no variables are given, it is assumed that all variables</span>
+<span class="sd">                    will be pulled.</span>
+<span class="sd">    constraints   - These are set by the user to help restrict the data pull</span>
+<span class="sd">                    to only the area and timeframe of interest.</span>
+<span class="sd">                    If no constraints are given, all data in a dataset is pulled.</span>
+<span class="sd">                    Constraints should be given as a dictionary, where</span>
+<span class="sd">                    each entry is a bound and/or selection of a specific axis variable</span>
+<span class="sd">                    Exs. {&quot;longitude&lt;=&quot;: &quot;min(longitude)+10&quot;, &quot;longitude&gt;=&quot;: &quot;0&quot;}</span>
+<span class="sd">                         {&quot;longitude=&quot;: &quot;140&quot;, &quot;time&gt;=&quot;: &quot;max(time)-30&quot;}</span>
+<span class="sd">    </span>
+<span class="sd">    Outputs:</span>
+<span class="sd">    erddap_data   - This variable contains the pulled data from the erddap server.</span>
+<span class="sd">                    If the data_protocol is &quot;griddap&quot;,  then erddap_data is an xarray dataset</span>
+<span class="sd">                    If the data_protocol is &quot;tabledap&quot;, then erddap_data is a pandas dataframe</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="kn">import</span> <span class="nn">erddapy</span>
+    <span class="kn">from</span> <span class="nn">erddapy</span> <span class="kn">import</span> <span class="n">ERDDAP</span>
+    <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+    <span class="kn">import</span> <span class="nn">xarray</span>
+    
+    
+    <span class="c1">############################################</span>
+    <span class="c1"># Set-up the connection to the ERDDAP server</span>
+    <span class="c1">############################################</span>
+    
+    <span class="c1"># Connect to the erddap server</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">ERDDAP</span><span class="p">(</span><span class="n">server</span><span class="o">=</span><span class="n">erddap_url</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="n">data_protocol</span><span class="p">,</span> <span class="n">response</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># Identify the dataset of interest</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">dataset_id</span> <span class="o">=</span> <span class="n">dataset</span>
+    
+    
+    <span class="c1">#########################################</span>
+    <span class="c1"># Pull the data, based upon protocol type</span>
+    <span class="c1">#########################################</span>
+    
+    <span class="c1"># GRIDDAP Protocol</span>
+    <span class="k">if</span> <span class="n">data_protocol</span> <span class="o">==</span> <span class="s2">&quot;griddap&quot;</span><span class="p">:</span>
+        
+        <span class="c1"># Initialize the connection</span>
+        <span class="n">e</span><span class="o">.</span><span class="n">griddap_initialize</span><span class="p">()</span>
+
+        <span class="c1"># Update the constraints</span>
+        <span class="k">if</span> <span class="n">constraints</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">e</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">constraints</span><span class="p">)</span>
+            <span class="n">e</span><span class="o">.</span><span class="n">griddap_initialize</span><span class="p">()</span>
+            
+        <span class="c1"># Update the selection of the variables</span>
+        <span class="k">if</span> <span class="n">variables</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">e</span><span class="o">.</span><span class="n">variables</span> <span class="o">=</span> <span class="n">variables</span>
+
+        <span class="n">erddap_data</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">to_xarray</span><span class="p">()</span>
+    
+    <span class="c1"># TABLEDAP Protocol</span>
+    <span class="k">elif</span> <span class="n">data_protocol</span> <span class="o">==</span> <span class="s2">&quot;tabledap&quot;</span><span class="p">:</span>
+
+        <span class="c1"># Update the constraints</span>
+        <span class="k">if</span> <span class="n">constraints</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">e</span><span class="o">.</span><span class="n">constraints</span> <span class="o">=</span> <span class="n">constraints</span>
+            
+        <span class="c1"># Update the selection of the variables</span>
+        <span class="k">if</span> <span class="n">variables</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">e</span><span class="o">.</span><span class="n">variables</span> <span class="o">=</span> <span class="n">variables</span>
+            
+        <span class="n">erddap_data</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+    
+    <span class="c1"># Invalid protocol given</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Invalid ERDDAP protocol. Given protocol is: &#39;</span> <span class="o">+</span> <span class="n">data_protocol</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Valid protocols include &quot;griddap&quot; or &quot;tabledap&quot;. Please restart and try again with a valid protocol&#39;</span><span class="p">)</span>
+        <span class="n">erddap_data</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    
+    <span class="c1">#############################</span>
+    <span class="k">return</span> <span class="n">erddap_data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">datetime_to_ordinal_withseconds</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts a datetime object to an ordinal number, </span>
+<span class="sd">    taking into account both the date and time parts of the input.</span>
+<span class="sd">    The resulting ordinal number represents the number of days </span>
+<span class="sd">    since January 1, 1 AD, at 12:00 AM, </span>
+<span class="sd">    plus a fractional portion representing the time part of the input.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Import libraries</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+    <span class="kn">import</span> <span class="nn">datetime</span>
+
+    <span class="c1"># Extract year, month, day, hour, minute, </span>
+    <span class="c1"># and second components from input datetime object</span>
+    <span class="n">year</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">year</span>
+    <span class="n">month</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">month</span>
+    <span class="n">day</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">day</span>
+    <span class="n">hour</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">hour</span>
+    <span class="n">minute</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">minute</span>
+    <span class="n">second</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">second</span>
+
+    <span class="c1"># Create a new datetime object using the </span>
+    <span class="c1"># extracted year, month, and day components</span>
+    <span class="n">date_obj</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
+
+    <span class="c1"># Get the ordinal number of the date</span>
+    <span class="n">date_ordinal</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">toordinal</span><span class="p">(</span><span class="n">date_obj</span><span class="p">)</span>
+
+    <span class="c1"># Calculate the partial ordinal number for the time part of the input</span>
+    <span class="n">date_partial</span> <span class="o">=</span> <span class="p">(</span><span class="n">hour</span> <span class="o">+</span> <span class="p">(</span><span class="n">minute</span> <span class="o">+</span> <span class="p">(</span><span class="n">second</span> <span class="o">/</span> <span class="mi">60</span><span class="p">))</span> <span class="o">/</span> <span class="mi">60</span><span class="p">)</span> <span class="o">/</span> <span class="mi">24</span>
+
+    <span class="c1"># Combine the date and time ordinal numbers</span>
+    <span class="n">x_ordinal</span> <span class="o">=</span> <span class="n">date_ordinal</span> <span class="o">+</span> <span class="n">date_partial</span>
+
+    <span class="c1"># Return the final ordinal number</span>
+    <span class="k">return</span> <span class="n">x_ordinal</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nwem_url</span> <span class="o">=</span> <span class="s1">&#39;http://nwem.apl.washington.edu/erddap&#39;</span>
+
+<span class="n">nwem_dataset</span> <span class="o">=</span> <span class="s1">&#39;orca3_L3_depthgridded_025&#39;</span>
+
+<span class="n">variables</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;sea_water_temperature&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;sea_water_practical_salinity&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;mass_concentration_of_oxygen_in_sea_water&quot;</span><span class="p">]</span>
+
+<span class="n">constraints</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cast_start_time&gt;=&quot;</span><span class="p">:</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%SZ&#39;</span><span class="p">)}</span>
+<span class="c1">#constraints = {&quot;cast_start_time&gt;=&quot;: &quot;max(cast_start_time)-365&quot;}</span>
+
+<span class="n">nwem_grid</span> <span class="o">=</span> <span class="n">get_erddap_data</span><span class="p">(</span><span class="n">nwem_url</span><span class="p">,</span> <span class="n">nwem_dataset</span><span class="p">,</span> 
+                <span class="n">variables</span><span class="o">=</span><span class="n">variables</span><span class="p">,</span> 
+                <span class="n">constraints</span><span class="o">=</span><span class="n">constraints</span><span class="p">,</span>
+                <span class="n">data_protocol</span><span class="o">=</span><span class="s2">&quot;griddap&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">date_slider</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">DateRangeSlider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Earliest Date&#39;</span><span class="p">,</span> 
+                                         <span class="n">start</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> 
+                                         <span class="n">end</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> 
+                                         <span class="n">value</span><span class="o">=</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span><span class="o">.</span><span class="n">servable</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;sidebar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nwem_interactive</span> <span class="o">=</span> <span class="n">nwem_grid</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nwem_interactive</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id='4e6c5c01-9f90-42f9-bad7-b5166fec05c4'>
+  <div id="c7ea6948-d633-4842-80c9-7dada9b6c88e" data-root-id="4e6c5c01-9f90-42f9-bad7-b5166fec05c4" style="display: contents;"></div>
+</div>
+<script type="application/javascript">(function(root) {
+  var docs_json = {"1b9e9ebd-4fd8-4c33-92f6-09215b627c07":{"version":"3.2.1","title":"Bokeh Application","roots":[{"type":"object","name":"Row","id":"4e6c5c01-9f90-42f9-bad7-b5166fec05c4","attributes":{"name":"Row32290","stylesheets":["\n:host(.pn-loading.pn-arc):before, .pn-loading.pn-arc:before {\n  background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJtYXJnaW46IGF1dG87IGJhY2tncm91bmQ6IG5vbmU7IGRpc3BsYXk6IGJsb2NrOyBzaGFwZS1yZW5kZXJpbmc6IGF1dG87IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzNjM2MzIiBzdHJva2Utd2lkdGg9IjEwIiByPSIzNSIgc3Ryb2tlLWRhc2hhcnJheT0iMTY0LjkzMzYxNDMxMzQ2NDE1IDU2Ljk3Nzg3MTQzNzgyMTM4Ij4gICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBkdXI9IjFzIiB2YWx1ZXM9IjAgNTAgNTA7MzYwIDUwIDUwIiBrZXlUaW1lcz0iMDsxIj48L2FuaW1hdGVUcmFuc2Zvcm0+ICA8L2NpcmNsZT48L3N2Zz4=\");\n  background-size: auto calc(min(50%, 400px));\n}",{"type":"object","name":"ImportedStyleSheet","id":"403297a0-58ba-4a1e-a56d-427da9c63449","attributes":{"url":"https://cdn.holoviz.org/panel/1.2.1/dist/css/loading.css"}},{"type":"object","name":"ImportedStyleSheet","id":"81300992-16d2-479c-8e4b-5d7b8048a8eb","attributes":{"url":"https://cdn.holoviz.org/panel/1.2.1/dist/css/listpanel.css"}},{"type":"object","name":"ImportedStyleSheet","id":"5bbabbff-2550-459e-ba14-7fc3674d72ab","attributes":{"url":"https://cdn.holoviz.org/panel/1.2.1/dist/bundled/theme/default.css"}},{"type":"object","name":"ImportedStyleSheet","id":"f042ca10-0f56-47d0-b54b-4eb4b98c09a1","attributes":{"url":"https://cdn.holoviz.org/panel/1.2.1/dist/bundled/theme/native.css"}}],"margin":0,"align":"start","children":[{"type":"object","name":"Column","id":"ff4f1e92-3a79-4281-bcc0-8958901db253","attributes":{"name":"Column32275","stylesheets":["\n:host(.pn-loading.pn-arc):before, .pn-loading.pn-arc:before {\n  background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJtYXJnaW46IGF1dG87IGJhY2tncm91bmQ6IG5vbmU7IGRpc3BsYXk6IGJsb2NrOyBzaGFwZS1yZW5kZXJpbmc6IGF1dG87IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzNjM2MzIiBzdHJva2Utd2lkdGg9IjEwIiByPSIzNSIgc3Ryb2tlLWRhc2hhcnJheT0iMTY0LjkzMzYxNDMxMzQ2NDE1IDU2Ljk3Nzg3MTQzNzgyMTM4Ij4gICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBkdXI9IjFzIiB2YWx1ZXM9IjAgNTAgNTA7MzYwIDUwIDUwIiBrZXlUaW1lcz0iMDsxIj48L2FuaW1hdGVUcmFuc2Zvcm0+ICA8L2NpcmNsZT48L3N2Zz4=\");\n  background-size: auto calc(min(50%, 400px));\n}",{"id":"403297a0-58ba-4a1e-a56d-427da9c63449"},{"id":"81300992-16d2-479c-8e4b-5d7b8048a8eb"},{"id":"5bbabbff-2550-459e-ba14-7fc3674d72ab"},{"id":"f042ca10-0f56-47d0-b54b-4eb4b98c09a1"}],"margin":0,"align":"start","children":[{"type":"object","name":"Column","id":"e31526c0-f2f0-47d4-b538-a34d07a61c86","attributes":{"name":"Column32287","stylesheets":["\n:host(.pn-loading.pn-arc):before, .pn-loading.pn-arc:before {\n  background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJtYXJnaW46IGF1dG87IGJhY2tncm91bmQ6IG5vbmU7IGRpc3BsYXk6IGJsb2NrOyBzaGFwZS1yZW5kZXJpbmc6IGF1dG87IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzNjM2MzIiBzdHJva2Utd2lkdGg9IjEwIiByPSIzNSIgc3Ryb2tlLWRhc2hhcnJheT0iMTY0LjkzMzYxNDMxMzQ2NDE1IDU2Ljk3Nzg3MTQzNzgyMTM4Ij4gICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBkdXI9IjFzIiB2YWx1ZXM9IjAgNTAgNTA7MzYwIDUwIDUwIiBrZXlUaW1lcz0iMDsxIj48L2FuaW1hdGVUcmFuc2Zvcm0+ICA8L2NpcmNsZT48L3N2Zz4=\");\n  background-size: auto calc(min(50%, 400px));\n}",{"id":"403297a0-58ba-4a1e-a56d-427da9c63449"},{"id":"81300992-16d2-479c-8e4b-5d7b8048a8eb"},{"id":"5bbabbff-2550-459e-ba14-7fc3674d72ab"},{"id":"f042ca10-0f56-47d0-b54b-4eb4b98c09a1"}],"margin":0,"align":"start"}},{"type":"object","name":"Row","id":"7e3344a9-6bbe-4dca-aaff-dad40f3782e8","attributes":{"name":"Row32284","stylesheets":["\n:host(.pn-loading.pn-arc):before, .pn-loading.pn-arc:before {\n  background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJtYXJnaW46IGF1dG87IGJhY2tncm91bmQ6IG5vbmU7IGRpc3BsYXk6IGJsb2NrOyBzaGFwZS1yZW5kZXJpbmc6IGF1dG87IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzNjM2MzIiBzdHJva2Utd2lkdGg9IjEwIiByPSIzNSIgc3Ryb2tlLWRhc2hhcnJheT0iMTY0LjkzMzYxNDMxMzQ2NDE1IDU2Ljk3Nzg3MTQzNzgyMTM4Ij4gICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBkdXI9IjFzIiB2YWx1ZXM9IjAgNTAgNTA7MzYwIDUwIDUwIiBrZXlUaW1lcz0iMDsxIj48L2FuaW1hdGVUcmFuc2Zvcm0+ICA8L2NpcmNsZT48L3N2Zz4=\");\n  background-size: auto calc(min(50%, 400px));\n}",{"id":"403297a0-58ba-4a1e-a56d-427da9c63449"},{"id":"81300992-16d2-479c-8e4b-5d7b8048a8eb"},{"id":"5bbabbff-2550-459e-ba14-7fc3674d72ab"},{"id":"f042ca10-0f56-47d0-b54b-4eb4b98c09a1"}],"margin":0,"align":"start","children":[{"type":"object","name":"panel.models.markup.HTML","id":"88976625-1424-4ea8-bcae-845af71dbaa1","attributes":{"stylesheets":["\n:host(.pn-loading.pn-arc):before, .pn-loading.pn-arc:before {\n  background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJtYXJnaW46IGF1dG87IGJhY2tncm91bmQ6IG5vbmU7IGRpc3BsYXk6IGJsb2NrOyBzaGFwZS1yZW5kZXJpbmc6IGF1dG87IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzNjM2MzIiBzdHJva2Utd2lkdGg9IjEwIiByPSIzNSIgc3Ryb2tlLWRhc2hhcnJheT0iMTY0LjkzMzYxNDMxMzQ2NDE1IDU2Ljk3Nzg3MTQzNzgyMTM4Ij4gICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBkdXI9IjFzIiB2YWx1ZXM9IjAgNTAgNTA7MzYwIDUwIDUwIiBrZXlUaW1lcz0iMDsxIj48L2FuaW1hdGVUcmFuc2Zvcm0+ICA8L2NpcmNsZT48L3N2Zz4=\");\n  background-size: auto calc(min(50%, 400px));\n}",{"id":"403297a0-58ba-4a1e-a56d-427da9c63449"},{"id":"5bbabbff-2550-459e-ba14-7fc3674d72ab"},{"id":"f042ca10-0f56-47d0-b54b-4eb4b98c09a1"}],"margin":[5,10],"align":"start","text":"&lt;pre&gt;&lt;bound method Dataset.isel of &lt;xarray.Dataset&gt;\nDimensions:                                    (cast_start_time: 7034,\n                                                depth: 401)\nCoordinates:\n  * cast_start_time                            (cast_start_time) datetime64[ns] ...\n  * depth                                      (depth) float64 0.0 ... 100.0\nData variables:\n    sea_water_temperature                      (cast_start_time, depth) float64 ...\n    sea_water_practical_salinity               (cast_start_time, depth) float64 ...\n    mass_concentration_of_oxygen_in_sea_water  (cast_start_time, depth) float64 ...\nAttributes: (12/34)\n    author:                        Seth Travis\n    buoy_designation:              ORCA3\n    buoy_latitude:                 47.90733333 degrees N\n    buoy_longitude:                -122.627 degrees E\n    buoy_name:                     Hansville\n    buoy_reference_number:         3\n    ...                            ...\n    license:                       The data may be used and redistributed for...\n    sourceUrl:                     (local files)\n    standard_name_vocabulary:      CF Standard Name Table v70\n    summary:                       The Northwest Environmental Moorings progr...\n    title:                         ORCA3 - Northbuoy - L3 Depth Gridded Data ...\n    water_depth:                   100 meters&gt;&lt;/pre&gt;"}}]}}]}}]}},{"type":"object","name":"panel.models.comm_manager.CommManager","id":"8d201228-3ed5-446b-849a-283c618d00ed","attributes":{"plot_id":"4e6c5c01-9f90-42f9-bad7-b5166fec05c4","comm_id":"3cffc3224db646ef8e4912e2b767ccae","client_comm_id":"cf6d87a1b4fa4998961a7519d5422ce2"}},{"type":"object","name":"panel.models.location.Location","id":"76f4c3ca-71a8-4c5a-80da-6e66aad06099","attributes":{"reload":false}}],"defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"mode","kind":"Any","default":"warn"},{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationAreaBase1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]}]}};
+  var render_items = [{"docid":"1b9e9ebd-4fd8-4c33-92f6-09215b627c07","roots":{"4e6c5c01-9f90-42f9-bad7-b5166fec05c4":"c7ea6948-d633-4842-80c9-7dada9b6c88e"},"root_ids":["4e6c5c01-9f90-42f9-bad7-b5166fec05c4"]}];
+  var docs = Object.values(docs_json)
+  if (!docs) {
+    return
+  }
+  const py_version = docs[0].version.replace('rc', '-rc.').replace('.dev', '-dev.')
+  const is_dev = py_version.indexOf("+") !== -1 || py_version.indexOf("-") !== -1
+  function embed_document(root) {
+    var Bokeh = get_bokeh(root)
+    Bokeh.embed.embed_items_notebook(docs_json, render_items);
+    for (const render_item of render_items) {
+      for (const root_id of render_item.root_ids) {
+	const id_el = document.getElementById(root_id)
+	if (id_el.children.length && (id_el.children[0].className === 'bk-root')) {
+	  const root_el = id_el.children[0]
+	  root_el.id = root_el.id + '-rendered'
+	}
+      }
+    }
+  }
+  function get_bokeh(root) {
+    if (root.Bokeh === undefined) {
+      return null
+    } else if (root.Bokeh.version !== py_version && !is_dev) {
+      if (root.Bokeh.versions === undefined || !root.Bokeh.versions.has(py_version)) {
+	return null
+      }
+      return root.Bokeh.versions.get(py_version);
+    } else if (root.Bokeh.version === py_version) {
+      return root.Bokeh
+    }
+    return null
+  }
+  function is_loaded(root) {
+    var Bokeh = get_bokeh(root)
+    return (Bokeh != null && Bokeh.Panel !== undefined)
+  }
+  if (is_loaded(root)) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (is_loaded(root)) {
+        clearInterval(timer);
+        embed_document(root);
+      } else if (document.readyState == "complete") {
+        attempts++;
+        if (attempts > 200) {
+          clearInterval(timer);
+	  var Bokeh = get_bokeh(root)
+	  if (Bokeh == null || Bokeh.Panel == null) {
+            console.warn("Panel: ERROR: Unable to run Panel code because Bokeh or Panel library is missing");
+	  } else {
+	    console.warn("Panel: WARNING: Attempting to render but not all required libraries could be resolved.")
+	    embed_document(root)
+	  }
+        }
+      }
+    }, 25, root)
+  }
+})(window);</script></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slider</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Dates&#39;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">7000</span><span class="p">)</span>
+<span class="n">nwem_interactive</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">cast_start_time</span><span class="o">=</span><span class="n">slider</span><span class="p">)</span><span class="o">.</span><span class="n">sea_water_temperature</span><span class="o">.</span><span class="n">hvplot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id='c35674a6-d182-4856-a3f3-25cf7c8face1'>
+  <div id="df5a83f3-5ede-4b29-89c8-cad8e767cf0b" data-root-id="c35674a6-d182-4856-a3f3-25cf7c8face1" style="display: contents;"></div>
+</div>
+<script type="application/javascript">(function(root) {
+  var docs_json = {"226fea2d-fa11-4c07-b0aa-20f6a2ef5766":{"version":"3.2.1","title":"Bokeh Application","roots":[{"type":"object","name":"Row","id":"c35674a6-d182-4856-a3f3-25cf7c8face1","attributes":{"name":"Row39436","stylesheets":["\n:host(.pn-loading.pn-arc):before, .pn-loading.pn-arc:before {\n  background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJtYXJnaW46IGF1dG87IGJhY2tncm91bmQ6IG5vbmU7IGRpc3BsYXk6IGJsb2NrOyBzaGFwZS1yZW5kZXJpbmc6IGF1dG87IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzNjM2MzIiBzdHJva2Utd2lkdGg9IjEwIiByPSIzNSIgc3Ryb2tlLWRhc2hhcnJheT0iMTY0LjkzMzYxNDMxMzQ2NDE1IDU2Ljk3Nzg3MTQzNzgyMTM4Ij4gICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBkdXI9IjFzIiB2YWx1ZXM9IjAgNTAgNTA7MzYwIDUwIDUwIiBrZXlUaW1lcz0iMDsxIj48L2FuaW1hdGVUcmFuc2Zvcm0+ICA8L2NpcmNsZT48L3N2Zz4=\");\n  background-size: auto calc(min(50%, 400px));\n}",{"type":"object","name":"ImportedStyleSheet","id":"fce22ece-8d15-4179-8df7-d086b920ff84","attributes":{"url":"https://cdn.holoviz.org/panel/1.2.1/dist/css/loading.css"}},{"type":"object","name":"ImportedStyleSheet","id":"bb124531-9cd8-43a0-8c25-9624448229a1","attributes":{"url":"https://cdn.holoviz.org/panel/1.2.1/dist/css/listpanel.css"}},{"type":"object","name":"ImportedStyleSheet","id":"9438fbac-2cbf-4a6c-a863-8d0b9e5ad16a","attributes":{"url":"https://cdn.holoviz.org/panel/1.2.1/dist/bundled/theme/default.css"}},{"type":"object","name":"ImportedStyleSheet","id":"f627067b-9baf-4661-ae09-db05d0d144ac","attributes":{"url":"https://cdn.holoviz.org/panel/1.2.1/dist/bundled/theme/native.css"}}],"margin":0,"align":"start","children":[{"type":"object","name":"Column","id":"bda1e0c1-e7b3-4a95-81b3-b461cb002e70","attributes":{"name":"Column39433","stylesheets":["\n:host(.pn-loading.pn-arc):before, .pn-loading.pn-arc:before {\n  background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJtYXJnaW46IGF1dG87IGJhY2tncm91bmQ6IG5vbmU7IGRpc3BsYXk6IGJsb2NrOyBzaGFwZS1yZW5kZXJpbmc6IGF1dG87IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzNjM2MzIiBzdHJva2Utd2lkdGg9IjEwIiByPSIzNSIgc3Ryb2tlLWRhc2hhcnJheT0iMTY0LjkzMzYxNDMxMzQ2NDE1IDU2Ljk3Nzg3MTQzNzgyMTM4Ij4gICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBkdXI9IjFzIiB2YWx1ZXM9IjAgNTAgNTA7MzYwIDUwIDUwIiBrZXlUaW1lcz0iMDsxIj48L2FuaW1hdGVUcmFuc2Zvcm0+ICA8L2NpcmNsZT48L3N2Zz4=\");\n  background-size: auto calc(min(50%, 400px));\n}",{"id":"fce22ece-8d15-4179-8df7-d086b920ff84"},{"id":"bb124531-9cd8-43a0-8c25-9624448229a1"},{"id":"9438fbac-2cbf-4a6c-a863-8d0b9e5ad16a"},{"id":"f627067b-9baf-4661-ae09-db05d0d144ac"}],"margin":0,"align":"start","children":[{"type":"object","name":"Column","id":"d785101f-8dbd-41bf-8ac6-a3903a6c727e","attributes":{"name":"Column39416","stylesheets":["\n:host(.pn-loading.pn-arc):before, .pn-loading.pn-arc:before {\n  background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJtYXJnaW46IGF1dG87IGJhY2tncm91bmQ6IG5vbmU7IGRpc3BsYXk6IGJsb2NrOyBzaGFwZS1yZW5kZXJpbmc6IGF1dG87IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzNjM2MzIiBzdHJva2Utd2lkdGg9IjEwIiByPSIzNSIgc3Ryb2tlLWRhc2hhcnJheT0iMTY0LjkzMzYxNDMxMzQ2NDE1IDU2Ljk3Nzg3MTQzNzgyMTM4Ij4gICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBkdXI9IjFzIiB2YWx1ZXM9IjAgNTAgNTA7MzYwIDUwIDUwIiBrZXlUaW1lcz0iMDsxIj48L2FuaW1hdGVUcmFuc2Zvcm0+ICA8L2NpcmNsZT48L3N2Zz4=\");\n  background-size: auto calc(min(50%, 400px));\n}",{"id":"fce22ece-8d15-4179-8df7-d086b920ff84"},{"id":"bb124531-9cd8-43a0-8c25-9624448229a1"},{"id":"9438fbac-2cbf-4a6c-a863-8d0b9e5ad16a"},{"id":"f627067b-9baf-4661-ae09-db05d0d144ac"}],"margin":0,"align":"start","children":[{"type":"object","name":"Slider","id":"acb75e32-ed8b-41b0-952f-de6af2154beb","attributes":{"stylesheets":["\n:host(.pn-loading.pn-arc):before, .pn-loading.pn-arc:before {\n  background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJtYXJnaW46IGF1dG87IGJhY2tncm91bmQ6IG5vbmU7IGRpc3BsYXk6IGJsb2NrOyBzaGFwZS1yZW5kZXJpbmc6IGF1dG87IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzNjM2MzIiBzdHJva2Utd2lkdGg9IjEwIiByPSIzNSIgc3Ryb2tlLWRhc2hhcnJheT0iMTY0LjkzMzYxNDMxMzQ2NDE1IDU2Ljk3Nzg3MTQzNzgyMTM4Ij4gICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBkdXI9IjFzIiB2YWx1ZXM9IjAgNTAgNTA7MzYwIDUwIDUwIiBrZXlUaW1lcz0iMDsxIj48L2FuaW1hdGVUcmFuc2Zvcm0+ICA8L2NpcmNsZT48L3N2Zz4=\");\n  background-size: auto calc(min(50%, 400px));\n}",{"id":"fce22ece-8d15-4179-8df7-d086b920ff84"},{"id":"9438fbac-2cbf-4a6c-a863-8d0b9e5ad16a"},{"id":"f627067b-9baf-4661-ae09-db05d0d144ac"}],"margin":[5,10],"align":"start","title":"Dates","start":100,"end":7000,"value":100}}]}},{"type":"object","name":"Figure","id":"9ba18aeb-2582-4602-a4b5-35c73e653ef0","attributes":{"width":700,"height":300,"margin":[5,10],"sizing_mode":"fixed","align":"start","x_range":{"type":"object","name":"Range1d","id":"dc025f92-98b1-44e4-87bd-925a6bea4b21","attributes":{"tags":[[["depth","Depth","m"]],[]],"end":100.0,"reset_start":0.0,"reset_end":100.0}},"y_range":{"type":"object","name":"Range1d","id":"5fdd28ab-7043-4458-ab2d-fdaabaf124bf","attributes":{"tags":[[["sea_water_temperature","Sea Water Temperature","degree_C"]],{"type":"map","entries":[["invert_yaxis",false],["autorange",false]]}],"start":8.657535221603995,"end":8.860927632209528,"reset_start":8.657535221603995,"reset_end":8.860927632209528}},"x_scale":{"type":"object","name":"LinearScale","id":"b2ddcaba-7a5b-4bcf-a2ef-0cc7f8e12ec3"},"y_scale":{"type":"object","name":"LinearScale","id":"1a3e8450-3cf8-428c-830d-2186a2c5d35f"},"title":{"type":"object","name":"Title","id":"06c45877-4c52-4f12-96a1-6032832dcea9","attributes":{"text":"cast_start_time = 2010-03-17T05:00:05","text_color":"black","text_font_size":"12pt"}},"renderers":[{"type":"object","name":"GlyphRenderer","id":"bca751e0-639d-437d-918c-45d451dded97","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"bd3e477f-6c83-4ecf-bbaa-05202da2783a","attributes":{"selected":{"type":"object","name":"Selection","id":"f88464b8-52ac-42e1-a1d8-f4e36d3ec7cb","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"5293163c-ef81-4b51-a4a2-a6ba2b03cf69"},"data":{"type":"map","entries":[["depth",{"type":"ndarray","array":{"type":"bytes","data":"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AAAAAAAgTEAAAAAAAEBMQAAAAAAAYExAAAAAAACATEAAAAAAAKBMQAAAAAAAwExAAAAAAADgTEAAAAAAAABNQAAAAAAAIE1AAAAAAABATUAAAAAAAGBNQAAAAAAAgE1AAAAAAACgTUAAAAAAAMBNQAAAAAAA4E1AAAAAAAAATkAAAAAAACBOQAAAAAAAQE5AAAAAAABgTkAAAAAAAIBOQAAAAAAAoE5AAAAAAADATkAAAAAAAOBOQAAAAAAAAE9AAAAAAAAgT0AAAAAAAEBPQAAAAAAAYE9AAAAAAACAT0AAAAAAAKBPQAAAAAAAwE9AAAAAAADgT0AAAAAAAABQQAAAAAAAEFBAAAAAAAAgUEAAAAAAADBQQAAAAAAAQFBAAAAAAABQUEAAAAAAAGBQQAAAAAAAcFBAAAAAAACAUEAAAAAAAJBQQAAAAAAAoFBAAAAAAACwUEAAAAAAAMBQQAAAAAAA0FBAAAAAAADgUEAAAAAAAPBQQAAAAAAAAFFAAAAAAAAQUUAAAAAAACBRQAAAAAAAMFFAAAAAAABAUUAAAAAAAFBRQAAAAAAAYFFAAAAAAABwUUAAAAAAAIBRQAAAAAAAkFFAAAAAAACgUUAAAAAAALBRQAAAAAAAwFFAAAAAAADQUUAAAAAAAOBRQAAAAAAA8FFAAAAAAAAAUkAAAAAAABBSQAAAAAAAIFJAAAAAAAAwUkAAAAAAAEBSQAAAAAAAUFJAAAAAAABgUkAAAAAAAHBSQAAAAAAAgFJAAAAAAACQUkAAAAAAAKBSQAAAAAAAsFJAAAAAAADAUkAAAAAAANBSQAAAAAAA4FJAAAAAAADwUkAAAAAAAABTQAAAAAAAEFNAAAAAAAAgU0AAAAAAADBTQAAAAAAAQFNAAAAAAABQU0AAAAAAAGBTQAAAAAAAcFNAAAAAAACAU0AAAAAAAJBTQAAAAAAAoFNAAAAAAACwU0AAAAAAAMBTQAAAAAAA0FNAAAAAAADgU0AAAAAAAPBTQAAAAAAAAFRAAAAAAAAQVEAAAAAAACBUQAAAAAAAMFRAAAAAAABAVEAAAAAAAFBUQAAAAAAAYFRAAAAAAABwVEAAAAAAAIBUQAAAAAAAkFRAAAAAAACgVEAAAAAAALBUQAAAAAAAwFRAAAAAAADQVEAAAAAAAOBUQAAAAAAA8FRAAAAAAAAAVUAAAAAAABBVQAAAAAAAIFVAAAAAAAAwVUAAAAAAAEBVQAAAAAAAUFVAAAAAAABgVUAAAAAAAHBVQAAAAAAAgFVAAAAAAACQVUAAAAAAAKBVQAAAAAAAsFVAAAAAAADAVUAAAAAAANBVQAAAAAAA4FVAAAAAAADwVUAAAAAAAABWQAAAAAAAEFZAAAAAAAAgVkAAAAAAADBWQAAAAAAAQFZAAAAAAABQVkAAAAAAAGBWQAAAAAAAcFZAAAAAAACAVkAAAAAAAJBWQAAAAAAAoFZAAAAAAACwVkAAAAAAAMBWQAAAAAAA0FZAAAAAAADgVkAAAAAAAPBWQAAAAAAAAFdAAAAAAAAQV0AAAAAAACBXQAAAAAAAMFdAAAAAAABAV0AAAAAAAFBXQAAAAAAAYFdAAAAAAABwV0AAAAAAAIBXQAAAAAAAkFdAAAAAAACgV0AAAAAAALBXQAAAAAAAwFdAAAAAAADQV0AAAAAAAOBXQAAAAAAA8FdAAAAAAAAAWEAAAAAAABBYQAAAAAAAIFhAAAAAAAAwWEAAAAAAAEBYQAAAAAAAUFhAAAAAAABgWEAAAAAAAHBYQAAAAAAAgFhAAAAAAACQWEAAAAAAAKBYQAAAAAAAsFhAAAAAAADAWEAAAAAAANBYQAAAAAAA4FhAAAAAAADwWEAAAAAAAABZQA=="},"shape":[401],"dtype":"float64","order":"little"}],["sea_water_temperature",{"type":"ndarray","array":{"type":"bytes","data":"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"},"shape":[401],"dtype":"float64","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"cb8ce5c7-41af-4ca4-b90a-f2e279e461ca","attributes":{"filter":{"type":"object","name":"AllIndices","id":"1e49fc58-b0ec-4951-890b-e79a2d3d6ffa"}}},"glyph":{"type":"object","name":"Line","id":"e38eb0af-ba69-4d39-b15d-4a79fc824d6d","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"depth"},"y":{"type":"field","field":"sea_water_temperature"},"line_color":"#30a2da","line_width":2}},"selection_glyph":{"type":"object","name":"Line","id":"5f473242-5a89-48d3-834b-e6534893481a","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"depth"},"y":{"type":"field","field":"sea_water_temperature"},"line_color":"#30a2da","line_width":2}},"nonselection_glyph":{"type":"object","name":"Line","id":"03307283-35d3-4449-81f3-ab14e276e6b0","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"depth"},"y":{"type":"field","field":"sea_water_temperature"},"line_color":"#30a2da","line_alpha":0.1,"line_width":2}},"muted_glyph":{"type":"object","name":"Line","id":"192721d2-f430-4077-b7bd-949f70436bc5","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"depth"},"y":{"type":"field","field":"sea_water_temperature"},"line_color":"#30a2da","line_alpha":0.2,"line_width":2}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"bcb36855-9e3b-4a40-b3bb-0779bca6ee73","attributes":{"tools":[{"type":"object","name":"WheelZoomTool","id":"611b9dfa-db6e-48e3-8ff5-5457810c7b9c","attributes":{"tags":["hv_created"],"zoom_together":"none"}},{"type":"object","name":"HoverTool","id":"a4a2df3a-b948-4c82-86a3-c1535af21099","attributes":{"tags":["hv_created"],"renderers":[{"id":"bca751e0-639d-437d-918c-45d451dded97"}],"tooltips":[["Depth (m)","@{depth}"],["Sea Water Temperature (degree_C)","@{sea_water_temperature}"]]}},{"type":"object","name":"SaveTool","id":"d2ba11f9-e4d5-4b0b-ab3e-598c52e425d5"},{"type":"object","name":"PanTool","id":"52f31e2a-7fa7-4349-a0c1-e45620bc570a"},{"type":"object","name":"BoxZoomTool","id":"59145154-c7b7-4eb6-af0f-fd420df97cb1","attributes":{"overlay":{"type":"object","name":"BoxAnnotation","id":"6165f5a6-d012-4e4a-b110-9a5712e8e902","attributes":{"syncable":false,"level":"overlay","visible":false,"left_units":"canvas","right_units":"canvas","bottom_units":"canvas","top_units":"canvas","line_color":"black","line_alpha":1.0,"line_width":2,"line_dash":[4,4],"fill_color":"lightgrey","fill_alpha":0.5}}}},{"type":"object","name":"ResetTool","id":"8d10c06c-b82a-4a5d-adad-cc04b42cfc21"}],"active_drag":{"id":"52f31e2a-7fa7-4349-a0c1-e45620bc570a"},"active_scroll":{"id":"611b9dfa-db6e-48e3-8ff5-5457810c7b9c"}}},"left":[{"type":"object","name":"LinearAxis","id":"c87319f8-255a-410b-8b7c-a800918027bd","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"c8f715f0-54c6-4232-b159-d1baf5db7385","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"9332a7cb-4e2b-4509-90db-65785353f68f"},"axis_label":"Sea Water Temperature (degree_C)","major_label_policy":{"type":"object","name":"AllLabels","id":"1f748df0-a465-4610-acf9-8eee0351e2a4"}}}],"below":[{"type":"object","name":"LinearAxis","id":"bbf155ec-4b28-4cc4-8871-465150f9705b","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"637aef4b-a801-43ff-9087-1c607ac04997","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"c95f27d4-a970-49bd-8c8a-ccdb31b30c95"},"axis_label":"Depth (m)","major_label_policy":{"type":"object","name":"AllLabels","id":"f79c169c-415d-4c75-9824-09f0a92d8b0d"}}}],"center":[{"type":"object","name":"Grid","id":"733ade1c-9682-4aa2-9e4e-e4c527fb333e","attributes":{"axis":{"id":"bbf155ec-4b28-4cc4-8871-465150f9705b"},"grid_line_color":null}},{"type":"object","name":"Grid","id":"124ce185-f112-4ea2-ae82-1d50c7e0c9a6","attributes":{"dimension":1,"axis":{"id":"c87319f8-255a-410b-8b7c-a800918027bd"},"grid_line_color":null}}],"min_border_top":10,"min_border_bottom":10,"min_border_left":10,"min_border_right":10,"output_backend":"webgl"}}]}}]}},{"type":"object","name":"panel.models.comm_manager.CommManager","id":"cf014456-8873-47ea-8b52-4f6a93a2536f","attributes":{"plot_id":"c35674a6-d182-4856-a3f3-25cf7c8face1","comm_id":"bb89d32e85bc4a0c9fbf419d7ccc40f2","client_comm_id":"c1832d2455ca4d3d9329b0d132268424"}}],"defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"mode","kind":"Any","default":"warn"},{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationAreaBase1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]}]}};
+  var render_items = [{"docid":"226fea2d-fa11-4c07-b0aa-20f6a2ef5766","roots":{"c35674a6-d182-4856-a3f3-25cf7c8face1":"df5a83f3-5ede-4b29-89c8-cad8e767cf0b"},"root_ids":["c35674a6-d182-4856-a3f3-25cf7c8face1"]}];
+  var docs = Object.values(docs_json)
+  if (!docs) {
+    return
+  }
+  const py_version = docs[0].version.replace('rc', '-rc.').replace('.dev', '-dev.')
+  const is_dev = py_version.indexOf("+") !== -1 || py_version.indexOf("-") !== -1
+  function embed_document(root) {
+    var Bokeh = get_bokeh(root)
+    Bokeh.embed.embed_items_notebook(docs_json, render_items);
+    for (const render_item of render_items) {
+      for (const root_id of render_item.root_ids) {
+	const id_el = document.getElementById(root_id)
+	if (id_el.children.length && (id_el.children[0].className === 'bk-root')) {
+	  const root_el = id_el.children[0]
+	  root_el.id = root_el.id + '-rendered'
+	}
+      }
+    }
+  }
+  function get_bokeh(root) {
+    if (root.Bokeh === undefined) {
+      return null
+    } else if (root.Bokeh.version !== py_version && !is_dev) {
+      if (root.Bokeh.versions === undefined || !root.Bokeh.versions.has(py_version)) {
+	return null
+      }
+      return root.Bokeh.versions.get(py_version);
+    } else if (root.Bokeh.version === py_version) {
+      return root.Bokeh
+    }
+    return null
+  }
+  function is_loaded(root) {
+    var Bokeh = get_bokeh(root)
+    return (Bokeh != null && Bokeh.Panel !== undefined)
+  }
+  if (is_loaded(root)) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (is_loaded(root)) {
+        clearInterval(timer);
+        embed_document(root);
+      } else if (document.readyState == "complete") {
+        attempts++;
+        if (attempts > 200) {
+          clearInterval(timer);
+	  var Bokeh = get_bokeh(root)
+	  if (Bokeh == null || Bokeh.Panel == null) {
+            console.warn("Panel: ERROR: Unable to run Panel code because Bokeh or Panel library is missing");
+	  } else {
+	    console.warn("Panel: WARNING: Attempting to render but not all required libraries could be resolved.")
+	    embed_document(root)
+	  }
+        }
+      }
+    }, 25, root)
+  }
+})(window);</script></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_timerange</span><span class="p">(</span><span class="n">nwem_interactive</span><span class="p">,</span> <span class="n">date_slider</span><span class="p">):</span>
+    
+    <span class="n">nwem_to_plot</span> <span class="o">=</span> <span class="n">nwem_interactive</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">nwem_interactive</span><span class="o">.</span><span class="n">cast_dates</span> <span class="o">&gt;</span> <span class="n">date_slider</span><span class="p">,</span>
+                                          <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dates_to_plot</span> <span class="o">=</span> <span class="n">nwem_to_plot</span><span class="o">.</span><span class="n">cast_start_time</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">depths_to_plot</span> <span class="o">=</span> <span class="n">nwem_to_plot</span><span class="o">.</span><span class="n">depth</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">sst_to_plot</span> <span class="o">=</span> <span class="n">nwem_to_plot</span><span class="o">.</span><span class="n">sea_water_temperature</span><span class="o">.</span><span class="n">values</span>
+    
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+    <span class="n">cb</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">dates_to_plot</span><span class="p">,</span> <span class="n">depths_to_plot</span><span class="p">,</span> <span class="n">sst_to_plot</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cb</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    
+    <span class="c1">#(nwem_interactive.where(nwem_interactive.cast_dates &gt; date_slider,drop=True).</span>
+    <span class="c1"># sea_water_temperature.plot(x=&#39;cast_start_time&#39;))</span>
+    
+    <span class="k">return</span> <span class="n">fig</span>   
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nwem_interactive</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">nwem_interactive</span><span class="o">.</span><span class="n">cast_start_time</span> <span class="o">&gt;</span> <span class="n">date_slider</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">194</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">nwem_interactive</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">nwem_interactive</span><span class="o">.</span><span class="n">cast_start_time</span> <span class="o">&gt;</span> <span class="n">date_slider</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/site-packages/hvplot/interactive.py:449,</span> in <span class="ni">Interactive.__getattribute__</span><span class="nt">(self, name)</span>
+<span class="g g-Whitespace">    </span><span class="mi">447</span>         <span class="k">pass</span>
+<span class="g g-Whitespace">    </span><span class="mi">448</span>     <span class="k">return</span> <span class="n">new</span>
+<span class="ne">--&gt; </span><span class="mi">449</span> <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;XArrayInteractive&#39; object has no attribute &#39;cast_start_time&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mpl</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">Matplotlib</span><span class="p">(</span>
+    <span class="n">pn</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">plot_timerange</span><span class="p">,</span> <span class="n">nwem_interactive</span><span class="p">,</span> <span class="n">slider</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">pn</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span>
+    <span class="s1">&#39;Buoy data&#39;</span><span class="p">,</span> <span class="n">mpl</span>
+<span class="p">)</span><span class="o">.</span><span class="n">servable</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;main&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">193</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">mpl</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">Matplotlib</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">pn</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">plot_timerange</span><span class="p">,</span> <span class="n">nwem_interactive</span><span class="p">,</span> <span class="n">slider</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">pn</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="s1">&#39;Buoy data&#39;</span><span class="p">,</span> <span class="n">mpl</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="p">)</span><span class="o">.</span><span class="n">servable</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;main&#39;</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/site-packages/panel/pane/plot.py:250,</span> in <span class="ni">Matplotlib.__init__</span><span class="nt">(self, object, **params)</span>
+<span class="g g-Whitespace">    </span><span class="mi">249</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">object</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">250</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">251</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_managers</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/site-packages/panel/pane/image.py:45,</span> in <span class="ni">FileBase.__init__</span><span class="nt">(self, object, **params)</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">PurePath</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span>     <span class="nb">object</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">45</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="nb">object</span><span class="o">=</span><span class="nb">object</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/site-packages/panel/pane/markup.py:48,</span> in <span class="ni">HTMLBasePane.__init__</span><span class="nt">(self, object, **params)</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span>     <span class="n">params</span><span class="p">[</span><span class="s2">&quot;styles&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;style&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="n">deprecated</span><span class="p">(</span><span class="s2">&quot;1.3&quot;</span><span class="p">,</span> <span class="s2">&quot;style&quot;</span><span class="p">,</span>  <span class="s2">&quot;styles&quot;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">48</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="nb">object</span><span class="o">=</span><span class="nb">object</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/site-packages/panel/pane/base.py:161,</span> in <span class="ni">PaneBase.__init__</span><span class="nt">(self, object, **params)</span>
+<span class="g g-Whitespace">    </span><span class="mi">159</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">object</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">160</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_object_changing</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="ne">--&gt; </span><span class="mi">161</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="nb">object</span><span class="o">=</span><span class="nb">object</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">162</span>     <span class="n">applies</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">applies</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">object</span><span class="p">,</span> <span class="o">**</span><span class="p">(</span><span class="n">params</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_applies_kw</span> <span class="k">else</span> <span class="p">{}))</span>
+<span class="g g-Whitespace">    </span><span class="mi">163</span>     <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">applies</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">applies</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/site-packages/panel/reactive.py:543,</span> in <span class="ni">Reactive.__init__</span><span class="nt">(self, refs, **params)</span>
+<span class="g g-Whitespace">    </span><span class="mi">541</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">refs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">542</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_async_refs</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="ne">--&gt; </span><span class="mi">543</span>     <span class="n">params</span><span class="p">,</span> <span class="n">refs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_refs</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">refs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">544</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">545</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_refs</span> <span class="o">=</span> <span class="n">refs</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/site-packages/panel/reactive.py:606,</span> in <span class="ni">Reactive._extract_refs</span><span class="nt">(self, params, refs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">602</span>         <span class="k">continue</span>
+<span class="g g-Whitespace">    </span><span class="mi">604</span> <span class="c1"># Resolve references, allowing for Widget, Parameter and</span>
+<span class="g g-Whitespace">    </span><span class="mi">605</span> <span class="c1"># objects with dependencies</span>
+<span class="ne">--&gt; </span><span class="mi">606</span> <span class="n">ref</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolve_ref</span><span class="p">(</span><span class="n">pname</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">607</span> <span class="k">if</span> <span class="n">ref</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">608</span>     <span class="n">out_refs</span><span class="p">[</span><span class="n">pname</span><span class="p">]</span> <span class="o">=</span> <span class="n">ref</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/site-packages/panel/pane/ipywidget.py:48,</span> in <span class="ni">IPyWidget._resolve_ref</span><span class="nt">(self, pname, value)</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="k">if</span> <span class="n">pname</span> <span class="o">==</span> <span class="s1">&#39;object&#39;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">applies</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="n">value</span>
+<span class="ne">---&gt; </span><span class="mi">48</span> <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_resolve_ref</span><span class="p">(</span><span class="n">pname</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/site-packages/panel/reactive.py:557,</span> in <span class="ni">Reactive._resolve_ref</span><span class="nt">(self, pname, value)</span>
+<span class="g g-Whitespace">    </span><span class="mi">555</span> <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;_dinfo&#39;</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">556</span>     <span class="n">ref</span> <span class="o">=</span> <span class="n">value</span>
+<span class="ne">--&gt; </span><span class="mi">557</span>     <span class="n">value</span> <span class="o">=</span> <span class="n">eval_function</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">558</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Generator</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">559</span>         <span class="k">if</span> <span class="n">pname</span> <span class="o">==</span> <span class="s1">&#39;refs&#39;</span><span class="p">:</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/site-packages/panel/util/__init__.py:325,</span> in <span class="ni">eval_function</span><span class="nt">(function)</span>
+<span class="g g-Whitespace">    </span><span class="mi">323</span>         <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">dep</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">dep</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">dep</span> <span class="ow">in</span> <span class="n">arg_deps</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">324</span>         <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">dep</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">dep</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">dep</span> <span class="ow">in</span> <span class="n">kw_deps</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="ne">--&gt; </span><span class="mi">325</span> <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/site-packages/param/parameterized.py:407,</span> in <span class="ni">depends.&lt;locals&gt;._depends</span><span class="nt">(*args, **kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">405</span> <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">406</span> <span class="k">def</span> <span class="nf">_depends</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">407</span>     <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/site-packages/panel/depends.py:249,</span> in <span class="ni">_param_bind.&lt;locals&gt;.wrapped</span><span class="nt">(*wargs, **wkwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">246</span> <span class="nd">@depends</span><span class="p">(</span><span class="o">**</span><span class="n">dependencies</span><span class="p">,</span> <span class="n">watch</span><span class="o">=</span><span class="n">watch</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">247</span> <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="o">*</span><span class="n">wargs</span><span class="p">,</span> <span class="o">**</span><span class="n">wkwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">248</span>     <span class="n">combined_args</span><span class="p">,</span> <span class="n">combined_kwargs</span> <span class="o">=</span> <span class="n">combine_arguments</span><span class="p">(</span><span class="n">wargs</span><span class="p">,</span> <span class="n">wkwargs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">249</span>     <span class="k">return</span> <span class="n">eval_fn</span><span class="p">()(</span><span class="o">*</span><span class="n">combined_args</span><span class="p">,</span> <span class="o">**</span><span class="n">combined_kwargs</span><span class="p">)</span>
+
+<span class="nn">Cell In[192], line 3,</span> in <span class="ni">plot_timerange</span><span class="nt">(nwem_interactive, date_slider)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">plot_timerange</span><span class="p">(</span><span class="n">nwem_interactive</span><span class="p">,</span> <span class="n">date_slider</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="n">nwem_to_plot</span> <span class="o">=</span> <span class="n">nwem_interactive</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">nwem_interactive</span><span class="o">.</span><span class="n">cast_dates</span> <span class="o">&gt;</span> <span class="n">date_slider</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>                                           <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">dates_to_plot</span> <span class="o">=</span> <span class="n">nwem_to_plot</span><span class="o">.</span><span class="n">cast_start_time</span><span class="o">.</span><span class="n">values</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">depths_to_plot</span> <span class="o">=</span> <span class="n">nwem_to_plot</span><span class="o">.</span><span class="n">depth</span><span class="o">.</span><span class="n">values</span>
+
+<span class="ne">AttributeError</span>: &#39;function&#39; object has no attribute &#39;where&#39;
+</pre></div>
+</div>
+</div>
+</div>
+
+<div class="section">
+   
+</div>
+
+                </article>
+              
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../interactive/"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Interactive Viz</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/oceanhackweek/oceanhackweek.github.io/edit/source/interactive/holoviz_plotting_tests.ipynb">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/interactive/holoviz_plotting_tests.ipynb.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2023, OceanHackWeek.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
