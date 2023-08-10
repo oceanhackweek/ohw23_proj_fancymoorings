@@ -102,7 +102,5 @@ This page was created by folks from the following institutions:
 :hidden:
 
 moorings/index.md
-windwave/index.md
-
-holoviz_plotting_tests.ipynb
+interactive.md
 ```
