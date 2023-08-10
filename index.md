@@ -6,12 +6,13 @@ description: Pacific Moorings Page
 
 # Mooring (and other) data, but *fancy*
 
-:::{admonition} This was stolen/created during OceanHackWeek 2023, August 7 - 11!
+:::{admonition} This was stolen!
 :class: important
 
-This moorings page was created (well, it was copied and modified from the website) during OceanHackWeek 2023 in Seattle, Washington (U.S.A.). **This site is currently under development!**
+This moorings page was created (well, it was copied and modified from the OHW website) during OceanHackWeek 2023 in Seattle, August 7 - 11. **This site is currently under development!**
 
-```{button-link} ohw23/
+
+```{button-link} https://oceanhackweek.org/
 :color: primary
 :expand:
 :tooltip: OHW23
@@ -38,6 +39,11 @@ Its objectives are to:
 - Facilitate inclusive community building: Connect oceanographers across disciplines and career stages and cultivate an open science and a sharing culture.
 
 -->
+
+Here is a plotly plot! 
+
+<iframe src="first_figure.html" width="100%" height="500" style="border:1px solid black;">  </iframe>
+
 
 :::{admonition} Participant Quotes
 :class: note
