@@ -97,6 +97,4 @@ This page was created by folks from the following institutions:
 
 moorings/index.md
 interactive.md
-
-holoviz_plotting_tests.ipynb
 ```
