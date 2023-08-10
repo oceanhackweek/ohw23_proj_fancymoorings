@@ -48,7 +48,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'moorings/Mooring_E01';</script>
     <link rel="index" title="Index" href="../../genindex/" />
     <link rel="search" title="Search" href="../../search/" />
-    <link rel="next" title="Puget Sound Moorings" href="../Moorings_Puget/" />
+    <link rel="next" title="Plot Temperature subplot" href="../Puget_Sound/" />
     <link rel="prev" title="Moorings" href="../" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>  
@@ -164,8 +164,8 @@
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../windwave/">
-                        Wind and wave data
+                      <a class="nav-link nav-internal" href="../../interactive/">
+                        Interactive Viz
                       </a>
                     </li>
                 
@@ -294,8 +294,8 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../windwave/">
-                        Wind and wave data
+                      <a class="nav-link nav-internal" href="../../interactive/">
+                        Interactive Viz
                       </a>
                     </li>
                 
@@ -383,7 +383,11 @@ document.write(`
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">E01</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Moorings_Puget/">Puget Sound Moorings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Puget_Sound/">Plot Temperature subplot</a></li>
+
+
+
+
 </ul>
 </div>
 </nav></div>
@@ -443,6 +447,175 @@ document.write(`
                    <section id="e01">
 <h1>E01<a class="headerlink" href="#e01" title="Permalink to this heading">#</a></h1>
 <p>This page is a python notebook!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">erddapy</span>
+<span class="kn">from</span> <span class="nn">erddapy</span> <span class="kn">import</span> <span class="n">ERDDAP</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">xarray</span>
+<span class="kn">import</span> <span class="nn">cf_xarray</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">netCDF4</span>
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_erddap_data</span><span class="p">(</span><span class="n">erddap_url</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">data_protocol</span><span class="o">=</span><span class="s2">&quot;griddap&quot;</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function: get_erddap_data</span>
+<span class="sd">    This function uses the erddapy python library to access data from ERDDAP servers,</span>
+<span class="sd">    and to return it to users in convenient formats for python users.</span>
+<span class="sd">    Data can be pulled from &quot;tabledap&quot; or &quot;griddap&quot; formats, with different</span>
+<span class="sd">    output types, depending on the dap type.</span>
+<span class="sd">    </span>
+<span class="sd">    Inputs:</span>
+<span class="sd">    erddap_url    - The url address of the erddap server to pull data from</span>
+<span class="sd">    variables     - The selected variables within the dataset.</span>
+<span class="sd">    data_protocol - The erddap data protocol for the chosen dataset.</span>
+<span class="sd">                    Options include &quot;tabledap&quot; or &quot;griddap&quot;</span>
+<span class="sd">                    The default option is given as &quot;griddap&quot;</span>
+<span class="sd">    dataset       - The ID for the relevant dataset on the erddap server</span>
+<span class="sd">                    If no variables are given, it is assumed that all variables</span>
+<span class="sd">                    will be pulled.</span>
+<span class="sd">    constraints   - These are set by the user to help restrict the data pull</span>
+<span class="sd">                    to only the area and timeframe of interest.</span>
+<span class="sd">                    If no constraints are given, all data in a dataset is pulled.</span>
+<span class="sd">                    Constraints should be given as a dictionary, where</span>
+<span class="sd">                    each entry is a bound and/or selection of a specific axis variable</span>
+<span class="sd">                    Exs. {&quot;longitude&lt;=&quot;: &quot;min(longitude)+10&quot;, &quot;longitude&gt;=&quot;: &quot;0&quot;}</span>
+<span class="sd">                         {&quot;longitude=&quot;: &quot;140&quot;, &quot;time&gt;=&quot;: &quot;max(time)-30&quot;}</span>
+<span class="sd">    </span>
+<span class="sd">    Outputs:</span>
+<span class="sd">    erddap_data   - This variable contains the pulled data from the erddap server.</span>
+<span class="sd">                    If the data_protocol is &quot;griddap&quot;,  then erddap_data is an xarray dataset</span>
+<span class="sd">                    If the data_protocol is &quot;tabledap&quot;, then erddap_data is a pandas dataframe</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="kn">import</span> <span class="nn">erddapy</span>
+    <span class="kn">from</span> <span class="nn">erddapy</span> <span class="kn">import</span> <span class="n">ERDDAP</span>
+    <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+    <span class="kn">import</span> <span class="nn">xarray</span>
+    
+    
+    <span class="c1">############################################</span>
+    <span class="c1"># Set-up the connection to the ERDDAP server</span>
+    <span class="c1">############################################</span>
+    
+    <span class="c1"># Connect to the erddap server</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">ERDDAP</span><span class="p">(</span><span class="n">server</span><span class="o">=</span><span class="n">erddap_url</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="n">data_protocol</span><span class="p">,</span> <span class="n">response</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># Identify the dataset of interest</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">dataset_id</span> <span class="o">=</span> <span class="n">dataset</span>
+    
+    
+    <span class="c1">#########################################</span>
+    <span class="c1"># Pull the data, based upon protocol type</span>
+    <span class="c1">#########################################</span>
+    
+    <span class="c1"># GRIDDAP Protocol</span>
+    <span class="k">if</span> <span class="n">data_protocol</span> <span class="o">==</span> <span class="s2">&quot;griddap&quot;</span><span class="p">:</span>
+        
+        <span class="c1"># Initialize the connection</span>
+        <span class="n">e</span><span class="o">.</span><span class="n">griddap_initialize</span><span class="p">()</span>
+
+        <span class="c1"># Update the constraints</span>
+        <span class="k">if</span> <span class="n">constraints</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">e</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">constraints</span><span class="p">)</span>
+            <span class="n">e</span><span class="o">.</span><span class="n">griddap_initialize</span><span class="p">()</span>
+            
+        <span class="c1"># Update the selection of the variables</span>
+        <span class="k">if</span> <span class="n">variables</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">e</span><span class="o">.</span><span class="n">variables</span> <span class="o">=</span> <span class="n">variables</span>
+
+        <span class="n">erddap_data</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">to_xarray</span><span class="p">()</span>
+    
+    <span class="c1"># TABLEDAP Protocol</span>
+    <span class="k">elif</span> <span class="n">data_protocol</span> <span class="o">==</span> <span class="s2">&quot;tabledap&quot;</span><span class="p">:</span>
+
+        <span class="c1"># Update the constraints</span>
+        <span class="k">if</span> <span class="n">constraints</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">e</span><span class="o">.</span><span class="n">constraints</span> <span class="o">=</span> <span class="n">constraints</span>
+            
+        <span class="c1"># Update the selection of the variables</span>
+        <span class="k">if</span> <span class="n">variables</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">e</span><span class="o">.</span><span class="n">variables</span> <span class="o">=</span> <span class="n">variables</span>
+            
+        <span class="n">erddap_data</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+    
+    <span class="c1"># Invalid protocol given</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Invalid ERDDAP protocol. Given protocol is: &#39;</span> <span class="o">+</span> <span class="n">data_protocol</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Valid protocols include &quot;griddap&quot; or &quot;tabledap&quot;. Please restart and try again with a valid protocol&#39;</span><span class="p">)</span>
+        <span class="n">erddap_data</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    
+    <span class="c1">#############################</span>
+    <span class="k">return</span> <span class="n">erddap_data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nwem_url</span> <span class="o">=</span> <span class="s1">&#39;http://nwem.apl.washington.edu/erddap&#39;</span>
+
+<span class="n">nwem_dataset</span> <span class="o">=</span> <span class="s1">&#39;orca3_L3_depthgridded_025&#39;</span>
+
+<span class="n">variables</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;sea_water_temperature&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;sea_water_practical_salinity&quot;</span><span class="p">]</span>
+
+<span class="n">constraints</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cast_start_time&gt;=&quot;</span><span class="p">:</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%SZ&#39;</span><span class="p">)}</span>
+<span class="c1">#constraints = {&quot;cast_start_time&gt;=&quot;: &quot;max(cast_start_time)-365&quot;}</span>
+
+<span class="n">nwem_grid</span> <span class="o">=</span> <span class="n">get_erddap_data</span><span class="p">(</span><span class="n">nwem_url</span><span class="p">,</span> <span class="n">nwem_dataset</span><span class="p">,</span> 
+                <span class="n">variables</span><span class="o">=</span><span class="n">variables</span><span class="p">,</span> 
+                <span class="n">constraints</span><span class="o">=</span><span class="n">constraints</span><span class="p">,</span>
+                <span class="n">data_protocol</span><span class="o">=</span><span class="s2">&quot;griddap&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cioos_url</span> <span class="o">=</span> <span class="s1">&#39;https://data.cioospacific.ca/erddap&#39;</span>
+<span class="n">cioos_dataset</span> <span class="o">=</span> <span class="s1">&#39;IOS_CTD_Moorings&#39;</span>
+
+<span class="n">variables</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;sea_water_pressure&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;sea_water_temperature&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;sea_water_practical_salinity&quot;</span><span class="p">]</span>
+
+<span class="c1">#constraints = {&quot;time&gt;=&quot;:datetime.datetime(2022,1,1).strftime(&#39;%Y-%m-%dT%H:%M:%SZ&#39;)}</span>
+<span class="n">constraints</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;time&gt;=&quot;</span><span class="p">:</span> <span class="s2">&quot;max(time)-365&quot;</span><span class="p">}</span>
+
+<span class="n">cioos_table</span> <span class="o">=</span> <span class="n">get_erddap_data</span><span class="p">(</span><span class="n">cioos_url</span><span class="p">,</span> <span class="n">cioos_dataset</span><span class="p">,</span> 
+                <span class="n">variables</span><span class="o">=</span><span class="n">variables</span><span class="p">,</span>
+                <span class="n">constraints</span><span class="o">=</span><span class="n">constraints</span><span class="p">,</span>
+                <span class="n">data_protocol</span><span class="o">=</span><span class="s2">&quot;tabledap&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nwem_grid</span><span class="o">.</span><span class="n">sea_water_temperature</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f6a05f98550&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/8aacd8a6e285dd0ec63bda0d304f0ceae2b13a28953dbc7e49ba314c547af416.png" src="../../_images/8aacd8a6e285dd0ec63bda0d304f0ceae2b13a28953dbc7e49ba314c547af416.png" />
+</div>
+</div>
 </section>
 
 <div class="section">
@@ -469,11 +642,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../Moorings_Puget/"
+       href="../Puget_Sound/"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Puget Sound Moorings</p>
+        <p class="prev-next-title">Plot Temperature subplot</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

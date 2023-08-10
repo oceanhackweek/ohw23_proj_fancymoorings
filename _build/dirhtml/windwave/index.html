@@ -47,8 +47,7 @@
     <script src="../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'windwave/index';</script>
     <link rel="index" title="Index" href="../genindex/" />
-    <link rel="search" title="Search" href="../search/" />
-    <link rel="prev" title="Puget Sound Moorings" href="../moorings/Moorings_Puget/" /> 
+    <link rel="search" title="Search" href="../search/" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>  
 <style type="text/css">
@@ -162,9 +161,9 @@
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="#">
-                        Wind and wave data
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../interactive/">
+                        Interactive Viz
                       </a>
                     </li>
                 
@@ -292,9 +291,9 @@ document.write(`
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="#">
-                        Wind and wave data
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../interactive/">
+                        Interactive Viz
                       </a>
                     </li>
                 
@@ -430,6 +429,10 @@ document.write(`
                    <section id="wind-and-wave-data">
 <h1>Wind and wave data<a class="headerlink" href="#wind-and-wave-data" title="Permalink to this heading">#</a></h1>
 <p>This is a markdown page instead of a jupyter notebook</p>
+<p>How to export a plotly chart:
+<code class="docutils literal notranslate"><span class="pre">fig.write_html(&quot;piechart.html&quot;)</span></code></p>
+<p>To render the html, you can save it on the same folder of your index.html of your page and then include the following code on the index.html:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;iframe</span> <span class="pre">src=&quot;piechart.html&quot;</span> <span class="pre">width=&quot;100%&quot;</span> <span class="pre">height=&quot;500&quot;</span> <span class="pre">style=&quot;border:1px</span> <span class="pre">solid</span> <span class="pre">black;&quot;&gt;</span>&#160; <span class="pre">&lt;/iframe&gt;</span></code></p>
 </section>
 
 <div class="section">
@@ -446,15 +449,6 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="../moorings/Moorings_Puget/"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Puget Sound Moorings</p>
-      </div>
-    </a>
 </div></div>
   
 </div>
