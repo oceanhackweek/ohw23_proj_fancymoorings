@@ -1,17 +1,18 @@
 ### Moorings
 
-This is a draft! From here we want to link to these moorings:
+We put together python notebooks for the following moorings:
 
-* Mooring E01
-* Mooring __
+* DFO Mooring E01
+* NANOOS Puget Sound Mooring ORCA3
+* NANOOS Puget Sound Mooring NPBY1
 
-It would be very cool to be able to add more mooring pages automatically. It might have to be one by one!
+It would be very cool to be able to add more mooring pages automatically. 
 
 ```{toctree}
 :maxdepth: 2
 :hidden:
 
 
-Mooring_E01.ipynb
+erddap_DFO_moorings_E01.ipynb
 Puget_Sound.ipynb
 ```
