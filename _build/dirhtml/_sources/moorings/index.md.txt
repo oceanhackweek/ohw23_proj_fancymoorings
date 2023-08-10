@@ -13,5 +13,5 @@ It would be very cool to be able to add more mooring pages automatically. It mig
 
 
 Mooring_E01.ipynb
-Moorings_Puget.md
+Puget_Sound.ipynb
 ```
