@@ -4,12 +4,16 @@ title: Pacific Moorings Page
 description: Pacific Moorings Page
 ---
 
-# Mooring (and other) data, but *fancy*
+# Welcome to our *fancy* mooring page
+
+## Description
+
+A github pages site for displaying and downloading mooring data.
 
 :::{admonition} This was stolen!
 :class: important
 
-This moorings page was created (well, it was copied and modified from the OHW website) during OceanHackWeek 2023 in Seattle, August 7 - 11. **This site is currently under development!**
+This moorings page was created (well, it was copied and modified from the OHW website) during OceanHackWeek 2023 in Seattle, August 7 - 11.**
 
 
 ```{button-link} https://oceanhackweek.org/
@@ -21,8 +25,22 @@ Go to OceanHackWeek 2023
 <!-- https://getbootstrap.com/docs/4.0/components/buttons/ -->
 :::
 
+## Collaborators
 
-<!-- https://getbootstrap.com/docs/4.0/components/buttons/ -->
+* Seth Travis
+* Lu Guan
+* Samantha Huntington
+* Andrea Hilborn
+* Hafeez Opeyemi Oladejo
+* Tobias Ferreira
+* Veronica Martinez
+* Johnathan Evanilla
+
+## Goals
+
+* Access mooring data (such as temperature, salinity, oxygen, etc.) from the Vancouver Island and Puget Sound region
+* Visualize the data using multiple interactive plotting tools like [Streamlit](https://streamlit.io/), [Holovis](https://holoviz.org/), and [Plotly](https://plotly.com/python/)
+* Build a webpage to host the plots to highlight what data exists in this region
 
 <!--
 ## About this page
