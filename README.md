@@ -14,8 +14,10 @@ Data page for display and downloading mooring data
 * Tobias Ferreira
 * Veronica Martinez
 * Johnathan Evanilla
-
-## Background
+* Halley McVeigh
+* Hameed Ajibade
+* Christian Sarason
+* Danilo Silva
 
 ## Goals
 
@@ -29,9 +31,6 @@ Data page for display and downloading mooring data
 
 [NANOOS Moorings](https://nwem.apl.washington.edu/erddap/index.html)
 
-## Workflow/Roadmap
-
-## References
 
 
 
