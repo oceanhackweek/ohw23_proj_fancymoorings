@@ -578,12 +578,12 @@ document.write(`
 <span class="n">lat</span> <span class="o">=</span> <span class="p">(</span><span class="n">min_lat</span> <span class="o">+</span> <span class="n">max_lat</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
 <span class="c1">#m = folium.Map(location=[lat, lon], tiles=&quot;OpenStreetMap&quot;, zoom_start=8)</span>
 <span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">],</span> <span class="n">tiles</span><span class="o">=</span><span class="n">tiles</span><span class="p">,</span> <span class="n">attr</span><span class="o">=</span><span class="s2">&quot;ESRI&quot;</span><span class="p">,</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
-<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">([</span><span class="mf">47.907</span><span class="p">,</span><span class="o">-</span><span class="mf">122.627</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="s2">&quot;Hansville&quot;</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Hansville&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">([</span><span class="mf">47.761</span><span class="p">,</span><span class="o">-</span><span class="mf">122.3972</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="s2">&quot;Point Wells&quot;</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Point Wells&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">([</span><span class="mf">47.907</span><span class="p">,</span><span class="o">-</span><span class="mf">122.627</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="s2">&quot;Hansville&quot;</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Hansville&quot;</span><span class="p">,</span><span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">([</span><span class="mf">47.761</span><span class="p">,</span><span class="o">-</span><span class="mf">122.3972</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="s2">&quot;Point Wells&quot;</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Point Wells&quot;</span><span class="p">,</span><span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">([</span><span class="mf">47.8034</span><span class="p">,</span><span class="o">-</span><span class="mf">122.8029</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="s2">&quot;Dabob Bay&quot;</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Dabob Bay&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">([</span><span class="mf">47.28</span><span class="p">,</span><span class="o">-</span><span class="mf">122.728</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="s2">&quot;Carr Inlet&quot;</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Carr Inlet&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">([</span><span class="mf">47.375</span><span class="p">,</span><span class="o">-</span><span class="mf">123.0083</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="s2">&quot;Twanoh&quot;</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Twanoh&quot;</span><span class="p">,</span><span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">([</span><span class="mf">47.4218</span><span class="p">,</span><span class="o">-</span><span class="mf">123.1136</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="s2">&quot;Hoodsport&quot;</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Hoodsport&quot;</span><span class="p">,</span><span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">([</span><span class="mf">47.375</span><span class="p">,</span><span class="o">-</span><span class="mf">123.0083</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="s2">&quot;Twanoh&quot;</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Twanoh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">([</span><span class="mf">47.4218</span><span class="p">,</span><span class="o">-</span><span class="mf">123.1136</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="s2">&quot;Hoodsport&quot;</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Hoodsport&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="n">folium</span><span class="o">.</span><span class="n">Polygon</span><span class="p">([(</span><span class="n">min_lat</span><span class="p">,</span> <span class="n">min_lon</span><span class="p">),</span> <span class="p">(</span><span class="n">max_lat</span><span class="p">,</span> <span class="n">min_lon</span><span class="p">),</span> <span class="p">(</span><span class="n">max_lat</span><span class="p">,</span> <span class="n">max_lon</span><span class="p">),</span> <span class="p">(</span><span class="n">min_lat</span><span class="p">,</span> <span class="n">max_lon</span><span class="p">)],</span><span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
               <span class="n">dashArray</span><span class="o">=</span> <span class="s2">&quot;5, 5&quot;</span><span class="p">,)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="n">m</span>
@@ -618,7 +618,7 @@ document.write(`
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_023fff55026a61f07eb0cb2e48d3de66 {
+                #map_9d756d430fd8878246ad8a4ecdf02a67 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -632,14 +632,14 @@ document.write(`
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_023fff55026a61f07eb0cb2e48d3de66&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_9d756d430fd8878246ad8a4ecdf02a67&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_023fff55026a61f07eb0cb2e48d3de66 = L.map(
-                &quot;map_023fff55026a61f07eb0cb2e48d3de66&quot;,
+            var map_9d756d430fd8878246ad8a4ecdf02a67 = L.map(
+                &quot;map_9d756d430fd8878246ad8a4ecdf02a67&quot;,
                 {
                     center: [47.625, -122.75],
                     crs: L.CRS.EPSG3857,
@@ -653,34 +653,40 @@ document.write(`
 
         
     
-            var tile_layer_2308bec99c28eff64f784af723ef7acf = L.tileLayer(
+            var tile_layer_b01124dbe33ff685906a16a834774836 = L.tileLayer(
                 &quot;http://services.arcgisonline.com/arcgis/rest/services/World_Topo_Map/MapServer/MapServer/tile/{z}/{y}/{x}&quot;,
                 {&quot;attribution&quot;: &quot;ESRI&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
-            ).addTo(map_023fff55026a61f07eb0cb2e48d3de66);
+            ).addTo(map_9d756d430fd8878246ad8a4ecdf02a67);
         
     
-            var marker_cfebf9cf86fb72401b49cf927a74f2cd = L.marker(
+            var marker_c9e03dde0025d7d9693e4a68be308dc2 = L.marker(
                 [47.907, -122.627],
                 {}
-            ).addTo(map_023fff55026a61f07eb0cb2e48d3de66);
+            ).addTo(map_9d756d430fd8878246ad8a4ecdf02a67);
         
     
-        var popup_43117188568b91a009782eac05dad559 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+            var icon_3e5b9a0852ca22e653f0e3c4fa0e535b = L.AwesomeMarkers.icon(
+                {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;info-sign&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;red&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
+            );
+            marker_c9e03dde0025d7d9693e4a68be308dc2.setIcon(icon_3e5b9a0852ca22e653f0e3c4fa0e535b);
+        
+    
+        var popup_3733a1a26095ff759a712596d717000e = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_e3b1e607e2ef501fd3d94d00253de9fd = $(`&lt;div id=&quot;html_e3b1e607e2ef501fd3d94d00253de9fd&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Hansville&lt;/div&gt;`)[0];
-                popup_43117188568b91a009782eac05dad559.setContent(html_e3b1e607e2ef501fd3d94d00253de9fd);
+                var html_edc0430cfa5a0d2e1c96d078e8cf6fd4 = $(`&lt;div id=&quot;html_edc0430cfa5a0d2e1c96d078e8cf6fd4&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Hansville&lt;/div&gt;`)[0];
+                popup_3733a1a26095ff759a712596d717000e.setContent(html_edc0430cfa5a0d2e1c96d078e8cf6fd4);
             
         
 
-        marker_cfebf9cf86fb72401b49cf927a74f2cd.bindPopup(popup_43117188568b91a009782eac05dad559)
+        marker_c9e03dde0025d7d9693e4a68be308dc2.bindPopup(popup_3733a1a26095ff759a712596d717000e)
         ;
 
         
     
     
-            marker_cfebf9cf86fb72401b49cf927a74f2cd.bindTooltip(
+            marker_c9e03dde0025d7d9693e4a68be308dc2.bindTooltip(
                 `&lt;div&gt;
                      Hansville
                  &lt;/div&gt;`,
@@ -688,28 +694,34 @@ document.write(`
             );
         
     
-            var marker_660f11458c1b36cd843d8b0d04d64bd9 = L.marker(
+            var marker_3375c3133bb6b23eef5153e170dd0ed8 = L.marker(
                 [47.761, -122.3972],
                 {}
-            ).addTo(map_023fff55026a61f07eb0cb2e48d3de66);
+            ).addTo(map_9d756d430fd8878246ad8a4ecdf02a67);
         
     
-        var popup_33f727838907d188d7e288e3e77ba594 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+            var icon_a154a8a2e9111ad517c544a347377cd1 = L.AwesomeMarkers.icon(
+                {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;info-sign&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;red&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
+            );
+            marker_3375c3133bb6b23eef5153e170dd0ed8.setIcon(icon_a154a8a2e9111ad517c544a347377cd1);
+        
+    
+        var popup_2662cd75212f9bf7ab92de89f3c616a1 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_763e6b17cb000b94cbc0948bc9cbe831 = $(`&lt;div id=&quot;html_763e6b17cb000b94cbc0948bc9cbe831&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Point Wells&lt;/div&gt;`)[0];
-                popup_33f727838907d188d7e288e3e77ba594.setContent(html_763e6b17cb000b94cbc0948bc9cbe831);
+                var html_74e5c9053bfd76206ba043ac61230895 = $(`&lt;div id=&quot;html_74e5c9053bfd76206ba043ac61230895&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Point Wells&lt;/div&gt;`)[0];
+                popup_2662cd75212f9bf7ab92de89f3c616a1.setContent(html_74e5c9053bfd76206ba043ac61230895);
             
         
 
-        marker_660f11458c1b36cd843d8b0d04d64bd9.bindPopup(popup_33f727838907d188d7e288e3e77ba594)
+        marker_3375c3133bb6b23eef5153e170dd0ed8.bindPopup(popup_2662cd75212f9bf7ab92de89f3c616a1)
         ;
 
         
     
     
-            marker_660f11458c1b36cd843d8b0d04d64bd9.bindTooltip(
+            marker_3375c3133bb6b23eef5153e170dd0ed8.bindTooltip(
                 `&lt;div&gt;
                      Point Wells
                  &lt;/div&gt;`,
@@ -717,28 +729,28 @@ document.write(`
             );
         
     
-            var marker_01c0052d4a9c82ca4dba3c69b0303d54 = L.marker(
+            var marker_d1db12a929d0b0b2ed1af5c1c6fb0dba = L.marker(
                 [47.8034, -122.8029],
                 {}
-            ).addTo(map_023fff55026a61f07eb0cb2e48d3de66);
+            ).addTo(map_9d756d430fd8878246ad8a4ecdf02a67);
         
     
-        var popup_933e58f606319ae77127de2f9509f8bb = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_a0382e8f068900953aa6f18d0d9131ba = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_5dc96312b3dd4f26948ab6a8f6918cbd = $(`&lt;div id=&quot;html_5dc96312b3dd4f26948ab6a8f6918cbd&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Dabob Bay&lt;/div&gt;`)[0];
-                popup_933e58f606319ae77127de2f9509f8bb.setContent(html_5dc96312b3dd4f26948ab6a8f6918cbd);
+                var html_51e69dd0d3e919d035a9ac4c79dfbd42 = $(`&lt;div id=&quot;html_51e69dd0d3e919d035a9ac4c79dfbd42&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Dabob Bay&lt;/div&gt;`)[0];
+                popup_a0382e8f068900953aa6f18d0d9131ba.setContent(html_51e69dd0d3e919d035a9ac4c79dfbd42);
             
         
 
-        marker_01c0052d4a9c82ca4dba3c69b0303d54.bindPopup(popup_933e58f606319ae77127de2f9509f8bb)
+        marker_d1db12a929d0b0b2ed1af5c1c6fb0dba.bindPopup(popup_a0382e8f068900953aa6f18d0d9131ba)
         ;
 
         
     
     
-            marker_01c0052d4a9c82ca4dba3c69b0303d54.bindTooltip(
+            marker_d1db12a929d0b0b2ed1af5c1c6fb0dba.bindTooltip(
                 `&lt;div&gt;
                      Dabob Bay
                  &lt;/div&gt;`,
@@ -746,28 +758,28 @@ document.write(`
             );
         
     
-            var marker_02594ab0d1c9c4de793e07fdbdac8fbc = L.marker(
+            var marker_b53556e90e3a8d328c4fc4716ab8f181 = L.marker(
                 [47.28, -122.728],
                 {}
-            ).addTo(map_023fff55026a61f07eb0cb2e48d3de66);
+            ).addTo(map_9d756d430fd8878246ad8a4ecdf02a67);
         
     
-        var popup_81fbb69c30cd67397598d7eb4bc93218 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_65d76afdf779d090b25103fa06392845 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_3a47f52e1e8f9d52331120c668d9d332 = $(`&lt;div id=&quot;html_3a47f52e1e8f9d52331120c668d9d332&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Carr Inlet&lt;/div&gt;`)[0];
-                popup_81fbb69c30cd67397598d7eb4bc93218.setContent(html_3a47f52e1e8f9d52331120c668d9d332);
+                var html_4d0bef9b19e58509a4611af6e0afb29a = $(`&lt;div id=&quot;html_4d0bef9b19e58509a4611af6e0afb29a&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Carr Inlet&lt;/div&gt;`)[0];
+                popup_65d76afdf779d090b25103fa06392845.setContent(html_4d0bef9b19e58509a4611af6e0afb29a);
             
         
 
-        marker_02594ab0d1c9c4de793e07fdbdac8fbc.bindPopup(popup_81fbb69c30cd67397598d7eb4bc93218)
+        marker_b53556e90e3a8d328c4fc4716ab8f181.bindPopup(popup_65d76afdf779d090b25103fa06392845)
         ;
 
         
     
     
-            marker_02594ab0d1c9c4de793e07fdbdac8fbc.bindTooltip(
+            marker_b53556e90e3a8d328c4fc4716ab8f181.bindTooltip(
                 `&lt;div&gt;
                      Carr Inlet
                  &lt;/div&gt;`,
@@ -775,34 +787,28 @@ document.write(`
             );
         
     
-            var marker_e976d167ba8986c4d91bb35017d1c333 = L.marker(
+            var marker_e1b9b8636cd2a07eb997117dc81f5a12 = L.marker(
                 [47.375, -123.0083],
                 {}
-            ).addTo(map_023fff55026a61f07eb0cb2e48d3de66);
+            ).addTo(map_9d756d430fd8878246ad8a4ecdf02a67);
         
     
-            var icon_df7e82527efe904be8c262d08ac6dffb = L.AwesomeMarkers.icon(
-                {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;info-sign&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;red&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
-            );
-            marker_e976d167ba8986c4d91bb35017d1c333.setIcon(icon_df7e82527efe904be8c262d08ac6dffb);
-        
-    
-        var popup_1989d2f0953b94c144bc65bae4ffb3b0 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_28d5f52a20a0b051266e490f94876eeb = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_57438c7773bb0cabcaea4f9aceed1fe6 = $(`&lt;div id=&quot;html_57438c7773bb0cabcaea4f9aceed1fe6&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Twanoh&lt;/div&gt;`)[0];
-                popup_1989d2f0953b94c144bc65bae4ffb3b0.setContent(html_57438c7773bb0cabcaea4f9aceed1fe6);
+                var html_b109995edb99dc872fd191f747ba1ab8 = $(`&lt;div id=&quot;html_b109995edb99dc872fd191f747ba1ab8&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Twanoh&lt;/div&gt;`)[0];
+                popup_28d5f52a20a0b051266e490f94876eeb.setContent(html_b109995edb99dc872fd191f747ba1ab8);
             
         
 
-        marker_e976d167ba8986c4d91bb35017d1c333.bindPopup(popup_1989d2f0953b94c144bc65bae4ffb3b0)
+        marker_e1b9b8636cd2a07eb997117dc81f5a12.bindPopup(popup_28d5f52a20a0b051266e490f94876eeb)
         ;
 
         
     
     
-            marker_e976d167ba8986c4d91bb35017d1c333.bindTooltip(
+            marker_e1b9b8636cd2a07eb997117dc81f5a12.bindTooltip(
                 `&lt;div&gt;
                      Twanoh
                  &lt;/div&gt;`,
@@ -810,34 +816,28 @@ document.write(`
             );
         
     
-            var marker_d9ba30085b6f51a706e7cf863a911e60 = L.marker(
+            var marker_1761e2e087bd6f19cb116fdd57c3249f = L.marker(
                 [47.4218, -123.1136],
                 {}
-            ).addTo(map_023fff55026a61f07eb0cb2e48d3de66);
+            ).addTo(map_9d756d430fd8878246ad8a4ecdf02a67);
         
     
-            var icon_e5ffa1ecd98acb2bbb95d6d129a7e5ce = L.AwesomeMarkers.icon(
-                {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;info-sign&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;red&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
-            );
-            marker_d9ba30085b6f51a706e7cf863a911e60.setIcon(icon_e5ffa1ecd98acb2bbb95d6d129a7e5ce);
-        
-    
-        var popup_f24c7e49634d53bfc86234da36d642f7 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+        var popup_69f6809294535019f6743be1d2191149 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
 
         
             
-                var html_6a3a8cd87cdeccefd58263a91fc36030 = $(`&lt;div id=&quot;html_6a3a8cd87cdeccefd58263a91fc36030&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Hoodsport&lt;/div&gt;`)[0];
-                popup_f24c7e49634d53bfc86234da36d642f7.setContent(html_6a3a8cd87cdeccefd58263a91fc36030);
+                var html_0b81aa5f1bf1b4de918faa9b237e42ae = $(`&lt;div id=&quot;html_0b81aa5f1bf1b4de918faa9b237e42ae&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Hoodsport&lt;/div&gt;`)[0];
+                popup_69f6809294535019f6743be1d2191149.setContent(html_0b81aa5f1bf1b4de918faa9b237e42ae);
             
         
 
-        marker_d9ba30085b6f51a706e7cf863a911e60.bindPopup(popup_f24c7e49634d53bfc86234da36d642f7)
+        marker_1761e2e087bd6f19cb116fdd57c3249f.bindPopup(popup_69f6809294535019f6743be1d2191149)
         ;
 
         
     
     
-            marker_d9ba30085b6f51a706e7cf863a911e60.bindTooltip(
+            marker_1761e2e087bd6f19cb116fdd57c3249f.bindTooltip(
                 `&lt;div&gt;
                      Hoodsport
                  &lt;/div&gt;`,
@@ -845,10 +845,10 @@ document.write(`
             );
         
     
-            var polygon_db2e1e0de905d6b31da73a170496ca90 = L.polygon(
+            var polygon_53271863855505cbe366ce072b8c08a4 = L.polygon(
                 [[47.25, -123.2], [48.0, -123.2], [48.0, -122.3], [47.25, -122.3]],
                 {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;black&quot;, &quot;dashArray&quot;: &quot;5, 5&quot;, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;black&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;noClip&quot;: false, &quot;opacity&quot;: 1.0, &quot;smoothFactor&quot;: 1.0, &quot;stroke&quot;: true, &quot;weight&quot;: &quot;2&quot;}
-            ).addTo(map_023fff55026a61f07eb0cb2e48d3de66);
+            ).addTo(map_9d756d430fd8878246ad8a4ecdf02a67);
         
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
@@ -1067,6 +1067,7 @@ document.write(`
 <img alt="../../_images/54554af65baceb3f51bfdfde6d07f8cd72aac8e3dab6871a5d2f48e37dd05ae7.png" src="../../_images/54554af65baceb3f51bfdfde6d07f8cd72aac8e3dab6871a5d2f48e37dd05ae7.png" />
 </div>
 </div>
+<p>End of  Plotting</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>  <span class="c1"># 3 rows, 2 columns</span>
