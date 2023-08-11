@@ -14,7 +14,6 @@ We were only briefly able to test the use of Shiny, another commonly used intera
 Shiny has options for both Python and R interactivity.
 https://shiny.posit.co/
 
-
 <iframe src="first_figure.html" width="100%" height="500" style="border:1px solid black;">  </iframe>
 
 ```{toctree}
