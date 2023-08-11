@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Puget Sound Plotting &#8212; Pacific Moorings Page</title>
+    <title>Puget Sound Climatology Plot &#8212; Pacific Moorings Page</title>
   
   
   
@@ -45,9 +45,11 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/design-tabs.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'moorings/Puget_Sound';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'moorings/Puget_Climatology';</script>
     <link rel="index" title="Index" href="../../genindex/" />
-    <link rel="search" title="Search" href="../../search/" /> 
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Interactive Viz" href="../../interactive/interactive/" />
+    <link rel="prev" title="Puget Sound Plotting" href="../Puget_Sound1/" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>  
 <style type="text/css">
@@ -154,7 +156,7 @@
   </p>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
+                    <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="../">
                         Moorings
                       </a>
@@ -284,7 +286,7 @@ document.write(`
   </p>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
+                    <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="../">
                         Moorings
                       </a>
@@ -376,6 +378,17 @@ document.write(`
         What I do
     </div> -->
 </div></div>
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../erddap_DFO_moorings_E01/">DFO Moorings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dfo_mooring_plots_copy/">Downloading DFO Historical Mooring Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Puget_Sound1/">Puget Sound Plotting</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Puget Sound Climatology Plot</a></li>
+</ul>
+</div>
+</nav></div>
     </div>
   
   
@@ -410,7 +423,10 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">Puget Sound Plotting</li>
+    
+    <li class="breadcrumb-item"><a href="../" class="nav-link">Moorings</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Puget Sound Climatology Plot</li>
   </ul>
 </nav>
 </div>
@@ -426,8 +442,8 @@ document.write(`
                 
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
-                   <section id="puget-sound-plotting">
-<h1>Puget Sound Plotting<a class="headerlink" href="#puget-sound-plotting" title="Permalink to this heading">#</a></h1>
+                   <section id="puget-sound-climatology-plot">
+<h1>Puget Sound Climatology Plot<a class="headerlink" href="#puget-sound-climatology-plot" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">erddapy</span>
@@ -446,6 +462,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Downloading Data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_erddap_data</span><span class="p">(</span><span class="n">erddap_url</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">data_protocol</span><span class="o">=</span><span class="s2">&quot;griddap&quot;</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -543,18 +560,19 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Extracting Climatology Data for Plotting at Specific Depth for Two Mooring Sub-stations</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nwem_url</span> <span class="o">=</span> <span class="s1">&#39;http://nwem.apl.washington.edu/erddap&#39;</span>
 
-<span class="n">nwem_dataset1</span> <span class="o">=</span> <span class="s1">&#39;orca3_L3_depthgridded_025&#39;</span>
-<span class="n">nwem_dataset2</span> <span class="o">=</span> <span class="s1">&#39;npby1_L3_depthgridded_025&#39;</span>
+<span class="n">nwem_dataset1</span> <span class="o">=</span> <span class="s1">&#39;orca3_L3_depth_climatology_025&#39;</span>
+<span class="n">nwem_dataset2</span> <span class="o">=</span> <span class="s1">&#39;npby1_L3_depth_climatology_025&#39;</span>
 
 <span class="n">variables</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;sea_water_temperature&quot;</span><span class="p">,</span>
-             <span class="s2">&quot;sea_water_practical_salinity&quot;</span><span class="p">,</span><span class="s2">&quot;mass_concentration_of_oxygen_in_sea_water&quot;</span><span class="p">,</span><span class="s2">&quot;sea_water_temperature_qc_agg&quot;</span><span class="p">,</span>
-             <span class="s2">&quot;sea_water_practical_salinity_qc_agg&quot;</span><span class="p">,</span><span class="s2">&quot;mass_concentration_of_oxygen_in_sea_water_qc_agg&quot;</span><span class="p">]</span>
+             <span class="s2">&quot;sea_water_practical_salinity&quot;</span><span class="p">,</span><span class="s2">&quot;mass_concentration_of_oxygen_in_sea_water&quot;</span><span class="p">]</span>
 
-<span class="n">constraints</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cast_start_time&gt;=&quot;</span><span class="p">:</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%SZ&#39;</span><span class="p">)}</span>
+<span class="n">constraints</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;time&gt;=&quot;</span><span class="p">:</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1970</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%SZ&#39;</span><span class="p">)}</span>
+<span class="c1">#constraints = None</span>
 <span class="c1">#constraints = {&quot;cast_start_time&gt;=&quot;: &quot;max(cast_start_time)-365&quot;}</span>
 
 <span class="n">nwem_grid1</span> <span class="o">=</span> <span class="n">get_erddap_data</span><span class="p">(</span><span class="n">nwem_url</span><span class="p">,</span> <span class="n">nwem_dataset1</span><span class="p">,</span> 
@@ -566,27 +584,6 @@ document.write(`
                 <span class="n">variables</span><span class="o">=</span><span class="n">variables</span><span class="p">,</span> 
                 <span class="n">constraints</span><span class="o">=</span><span class="n">constraints</span><span class="p">,</span>
                 <span class="n">data_protocol</span><span class="o">=</span><span class="s2">&quot;griddap&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cioos_url</span> <span class="o">=</span> <span class="s1">&#39;https://data.cioospacific.ca/erddap&#39;</span>
-<span class="n">cioos_dataset</span> <span class="o">=</span> <span class="s1">&#39;IOS_CTD_Moorings&#39;</span>
-
-<span class="n">variables</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
-             <span class="s2">&quot;sea_water_pressure&quot;</span><span class="p">,</span>
-             <span class="s2">&quot;sea_water_temperature&quot;</span><span class="p">,</span>
-             <span class="s2">&quot;sea_water_practical_salinity&quot;</span><span class="p">]</span>
-
-<span class="c1">#constraints = {&quot;time&gt;=&quot;:datetime.datetime(2022,1,1).strftime(&#39;%Y-%m-%dT%H:%M:%SZ&#39;)}</span>
-<span class="n">constraints</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;time&gt;=&quot;</span><span class="p">:</span> <span class="s2">&quot;max(time)-365&quot;</span><span class="p">}</span>
-
-<span class="n">cioos_table</span> <span class="o">=</span> <span class="n">get_erddap_data</span><span class="p">(</span><span class="n">cioos_url</span><span class="p">,</span> <span class="n">cioos_dataset</span><span class="p">,</span> 
-                <span class="n">variables</span><span class="o">=</span><span class="n">variables</span><span class="p">,</span>
-                <span class="n">constraints</span><span class="o">=</span><span class="n">constraints</span><span class="p">,</span>
-                <span class="n">data_protocol</span><span class="o">=</span><span class="s2">&quot;tabledap&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -607,8 +604,15 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ds1.sea_water_temperature.values ds1.sea_water_temperature.shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">depth1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ds1</span><span class="o">.</span><span class="n">depth</span><span class="o">.</span><span class="n">values</span><span class="p">[:]);</span> <span class="n">depth2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ds2</span><span class="o">.</span><span class="n">depth</span><span class="o">.</span><span class="n">values</span><span class="p">[:]);</span> 
-<span class="n">date1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ds1</span><span class="o">.</span><span class="n">cast_start_time</span><span class="o">.</span><span class="n">values</span><span class="p">[:]);</span> <span class="n">date2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ds2</span><span class="o">.</span><span class="n">cast_start_time</span><span class="o">.</span><span class="n">values</span><span class="p">[:])</span><span class="c1">#325</span>
+<span class="n">date1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ds1</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">[:]);</span> <span class="n">date2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ds2</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">[:])</span><span class="c1">#325</span>
 <span class="n">depth_l</span><span class="o">=</span><span class="s2">&quot;50&quot;</span>
 </pre></div>
 </div>
@@ -616,14 +620,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#date2</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ds1.variables</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">date1</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">date</span><span class="p">)</span><span class="o">.</span><span class="n">dayofyear</span> <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">date1</span><span class="p">]);</span> <span class="n">date2</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">date</span><span class="p">)</span><span class="o">.</span><span class="n">dayofyear</span> <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">date2</span><span class="p">]);</span> 
 </pre></div>
 </div>
 </div>
@@ -631,31 +628,28 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">str1</span><span class="o">=</span><span class="s2">&quot;sea_water_temperature&quot;</span><span class="p">;</span> <span class="n">str2</span><span class="o">=</span><span class="s2">&quot;sea_water_practical_salinity&quot;</span><span class="p">;</span><span class="n">str3</span><span class="o">=</span><span class="s1">&#39;mass_concentration_of_oxygen_in_sea_water&#39;</span><span class="p">;</span>
-<span class="n">str4</span><span class="o">=</span><span class="s2">&quot;sea_water_temperature_qc_agg&quot;</span><span class="p">;</span> <span class="n">str5</span><span class="o">=</span><span class="s2">&quot;sea_water_practical_salinity_qc_agg&quot;</span><span class="p">;</span><span class="n">str6</span><span class="o">=</span><span class="s1">&#39;mass_concentration_of_oxygen_in_sea_water_qc_agg&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var1_sst</span><span class="o">=</span><span class="n">ds1</span><span class="p">[</span><span class="n">str1</span><span class="p">];</span> <span class="n">var1_sss</span><span class="o">=</span><span class="n">ds1</span><span class="p">[</span><span class="n">str2</span><span class="p">];</span> <span class="n">var1_oxy</span><span class="o">=</span><span class="n">ds1</span><span class="p">[</span><span class="n">str3</span><span class="p">];</span> <span class="n">var1_sstqc</span><span class="o">=</span><span class="n">ds1</span><span class="p">[</span><span class="n">str4</span><span class="p">];</span> <span class="n">var1_sssqc</span><span class="o">=</span><span class="n">ds1</span><span class="p">[</span><span class="n">str5</span><span class="p">];</span> <span class="n">var1_oxyqc</span><span class="o">=</span><span class="n">ds1</span><span class="p">[</span><span class="n">str6</span><span class="p">];</span> <span class="c1">## Accessing buoy1</span>
-<span class="n">var1_sst</span><span class="o">=</span><span class="n">var1_sst</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">var1_sstqc</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span> <span class="n">var1_sss</span><span class="o">=</span><span class="n">var1_sss</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">var1_sssqc</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span> <span class="n">var1_oxy</span><span class="o">=</span><span class="n">var1_oxy</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">var1_oxyqc</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">## Extracting only good data </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var1_sst</span><span class="o">=</span><span class="n">ds1</span><span class="p">[</span><span class="n">str1</span><span class="p">];</span> <span class="n">var1_sss</span><span class="o">=</span><span class="n">ds1</span><span class="p">[</span><span class="n">str2</span><span class="p">];</span> <span class="n">var1_oxy</span><span class="o">=</span><span class="n">ds1</span><span class="p">[</span><span class="n">str3</span><span class="p">];</span> 
 
-<span class="n">var2_sst</span><span class="o">=</span><span class="n">ds2</span><span class="p">[</span><span class="n">str1</span><span class="p">];</span> <span class="n">var2_sss</span><span class="o">=</span><span class="n">ds2</span><span class="p">[</span><span class="n">str2</span><span class="p">];</span> <span class="n">var2_oxy</span><span class="o">=</span><span class="n">ds2</span><span class="p">[</span><span class="n">str3</span><span class="p">];</span> <span class="n">var2_sstqc</span><span class="o">=</span><span class="n">ds2</span><span class="p">[</span><span class="n">str4</span><span class="p">];</span> <span class="n">var2_sssqc</span><span class="o">=</span><span class="n">ds2</span><span class="p">[</span><span class="n">str5</span><span class="p">];</span> <span class="n">var2_oxyqc</span><span class="o">=</span><span class="n">ds2</span><span class="p">[</span><span class="n">str6</span><span class="p">]</span><span class="c1">## Accessing buoy2</span>
-<span class="n">var2_sst</span><span class="o">=</span><span class="n">var2_sst</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">var2_sstqc</span><span class="o">==</span><span class="mi">1</span><span class="p">);</span> <span class="n">var2_sss</span><span class="o">=</span><span class="n">var2_sss</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">var2_sssqc</span><span class="o">==</span><span class="mi">1</span><span class="p">);</span> <span class="n">var2_oxy</span><span class="o">=</span><span class="n">var2_oxy</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">var2_oxyqc</span><span class="o">==</span><span class="mi">1</span><span class="p">);</span> 
+<span class="n">var2_sst</span><span class="o">=</span><span class="n">ds2</span><span class="p">[</span><span class="n">str1</span><span class="p">];</span> <span class="n">var2_sss</span><span class="o">=</span><span class="n">ds2</span><span class="p">[</span><span class="n">str2</span><span class="p">];</span> <span class="n">var2_oxy</span><span class="o">=</span><span class="n">ds2</span><span class="p">[</span><span class="n">str3</span><span class="p">];</span> 
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var1_sst</span><span class="o">=</span><span class="n">var1_sst</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;cast_start_time&quot;</span><span class="p">,</span><span class="n">date1</span><span class="p">))</span>
-<span class="n">var1_sss</span><span class="o">=</span><span class="n">var1_sss</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;cast_start_time&quot;</span><span class="p">,</span><span class="n">date1</span><span class="p">))</span>
-<span class="n">var1_oxy</span><span class="o">=</span><span class="n">var1_oxy</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;cast_start_time&quot;</span><span class="p">,</span><span class="n">date1</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var1_sst</span><span class="o">=</span><span class="n">var1_sst</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span><span class="n">date1</span><span class="p">))</span>
+<span class="n">var1_sss</span><span class="o">=</span><span class="n">var1_sss</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span><span class="n">date1</span><span class="p">))</span>
+<span class="n">var1_oxy</span><span class="o">=</span><span class="n">var1_oxy</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span><span class="n">date1</span><span class="p">))</span>
 
-<span class="n">var2_sst</span><span class="o">=</span><span class="n">var2_sst</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;cast_start_time&quot;</span><span class="p">,</span><span class="n">date2</span><span class="p">))</span>
-<span class="n">var2_sss</span><span class="o">=</span><span class="n">var2_sss</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;cast_start_time&quot;</span><span class="p">,</span><span class="n">date2</span><span class="p">))</span>
-<span class="n">var2_oxy</span><span class="o">=</span><span class="n">var2_oxy</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;cast_start_time&quot;</span><span class="p">,</span><span class="n">date2</span><span class="p">))</span>
+<span class="n">var2_sst</span><span class="o">=</span><span class="n">var2_sst</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span><span class="n">date2</span><span class="p">))</span>
+<span class="n">var2_sss</span><span class="o">=</span><span class="n">var2_sss</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span><span class="n">date2</span><span class="p">))</span>
+<span class="n">var2_oxy</span><span class="o">=</span><span class="n">var2_oxy</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span><span class="n">date2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -669,12 +663,13 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Plotting the Climatology Temp, Salinity, and Oxygen at depth for the two sub-stations Orca3 and Nbpy1</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>  <span class="c1"># Share x-axis</span>
-<span class="n">t1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ds1</span><span class="o">.</span><span class="n">cast_start_time</span><span class="p">,</span> <span class="n">tser1_sst</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;orca3&#39;</span><span class="p">);</span> <span class="n">t1_1</span><span class="o">=</span><span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ds2</span><span class="o">.</span><span class="n">cast_start_time</span><span class="p">,</span> <span class="n">tser2_sst</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;npby1&#39;</span><span class="p">);</span>
-<span class="n">t2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ds1</span><span class="o">.</span><span class="n">cast_start_time</span><span class="p">,</span> <span class="n">tser1_sss</span><span class="p">);</span> <span class="n">t2_2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ds2</span><span class="o">.</span><span class="n">cast_start_time</span><span class="p">,</span> <span class="n">tser2_sss</span><span class="p">)</span>
-<span class="n">t3</span> <span class="o">=</span> <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ds1</span><span class="o">.</span><span class="n">cast_start_time</span><span class="p">,</span> <span class="n">tser1_oxy</span><span class="p">);</span> <span class="n">t3_2</span> <span class="o">=</span> <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ds2</span><span class="o">.</span><span class="n">cast_start_time</span><span class="p">,</span> <span class="n">tser2_oxy</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">date1</span><span class="p">,</span> <span class="n">tser1_sst</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;orca3&#39;</span><span class="p">);</span> <span class="n">t1_1</span><span class="o">=</span><span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">date2</span><span class="p">,</span> <span class="n">tser2_sst</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;npby1&#39;</span><span class="p">);</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">date1</span><span class="p">,</span> <span class="n">tser1_sss</span><span class="p">);</span> <span class="n">t2_2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">date2</span><span class="p">,</span> <span class="n">tser2_sss</span><span class="p">)</span>
+<span class="n">t3</span> <span class="o">=</span> <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">date1</span><span class="p">,</span> <span class="n">tser1_oxy</span><span class="p">);</span> <span class="n">t3_2</span> <span class="o">=</span> <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">date2</span><span class="p">,</span> <span class="n">tser2_oxy</span><span class="p">)</span>
 
 
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Temperature (°C) @ depth &quot;</span> <span class="o">+</span> <span class="n">depth_l</span><span class="p">)</span>
@@ -696,24 +691,17 @@ document.write(`
 
 <span class="c1">#ax1.set_xticks(ds.cast_start_time[tick_positions].values)</span>
 <span class="c1">#ax2.set_xticklabels([])</span>
+<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Climatology Temp, Salinity, and Oxygen at depth for Stations Orca3 and nbpy1&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Comparing Temp, Salinity, and Oxygen at depth for Stations Orca3 and nbpy1&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
-<span class="c1">#t.legend()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9c95a99e4c8c945723632cf6735c8d9cd0dc3137e825459af023496811445aa7.png" src="../../_images/9c95a99e4c8c945723632cf6735c8d9cd0dc3137e825459af023496811445aa7.png" />
+<img alt="../../_images/c19a585219389411301a12c2ce93db23e89bd21401a1621a8e947723ccaab275.png" src="../../_images/c19a585219389411301a12c2ce93db23e89bd21401a1621a8e947723ccaab275.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#depth2-depth1</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>Data Preparation for Climatology Depth Distribution Plots</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sst1</span><span class="o">=</span><span class="n">var1_sst</span><span class="o">.</span><span class="n">transpose</span><span class="p">();</span> <span class="n">sst2</span><span class="o">=</span><span class="n">var2_sst</span><span class="o">.</span><span class="n">transpose</span><span class="p">();</span>
@@ -725,81 +713,85 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#oxy1.max() # , vmin=19,vmax=32.6  ,vmin=0.1,vmax=18</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">formatted_time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime_as_string</span><span class="p">(</span><span class="n">date1</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">formatted_time</span> <span class="o">=</span> <span class="n">date1</span>
 <span class="n">tick_positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">date1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
 <span class="n">tick_labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">formatted_time</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tick_positions</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>f, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(8, 6))  # Share x-axis</p>
-</section>
-<section id="plot-temperature-subplot">
-<h1>Plot Temperature subplot<a class="headerlink" href="#plot-temperature-subplot" title="Permalink to this heading">#</a></h1>
-<p>sc1 = ax1.pcolor(date1, depth1, sst1, cmap=”Spectral_r”)
-ax1.set_title(“Temperature (°C)”)
-ax1.set_xlabel(“”)
-ax1.set_ylabel(“Depth (m)”)
-ax1.invert_yaxis()  # Invert y axis
-#ax1.set_xticks(date[tick_positions])
-ax1.set_xticklabels([])</p>
-</section>
-<section id="plot-salinity-subplot">
-<h1>Plot Salinity subplot<a class="headerlink" href="#plot-salinity-subplot" title="Permalink to this heading">#</a></h1>
-<p>sc2 = ax2.pcolor(date1, depth1, sss1, cmap=”Spectral_r”)
-ax2.set_title(“Salinity (psu)”)
-ax2.set_xlabel(“”)
-ax2.set_ylabel(“Depth (m)”)
-ax2.invert_yaxis()  # Invert y axis
-#ax2.set_xticks(date[tick_positions])
-ax2.set_xticklabels([])</p>
-</section>
-<section id="plot-oxygen-subplot">
-<h1>Plot Oxygen subplot<a class="headerlink" href="#plot-oxygen-subplot" title="Permalink to this heading">#</a></h1>
-<p>sc3 = ax3.pcolor(date1, depth1, oxy1, cmap=”Spectral_r”)
-ax3.set_title(“Oxygen (mg/L)”)
-ax3.set_ylabel(“Depth (m)”)
-ax3.set_xlabel(“Time”)
-#ax3.xaxis.set_major_locator(plt.FixedLocator(tick_positions))
-#ax3.set_xticks(date[tick_positions])  # Set tick positions for the third row
-#ax3.set_xticklabels(tick_labels, ha=’center’)  # Set tick labels for the third row
-ax3.invert_yaxis()  # Invert y axis</p>
-</section>
-<section id="add-colorbars">
-<h1>Add colorbars<a class="headerlink" href="#add-colorbars" title="Permalink to this heading">#</a></h1>
-<p>cbar1 = f.colorbar(sc1, ax=ax1, orientation=’vertical’)
-cbar1.ax.set_ylabel(’°C’,fontweight=’bold’)
-cbar1.ax.yaxis.label.set_fontweight(‘bold’)  # Set colorbar label font weight</p>
-<p>cbar2 = f.colorbar(sc2, ax=ax2, orientation=’vertical’)
-cbar2.ax.set_ylabel(‘psu’,fontweight=’bold’)
-cbar2.ax.yaxis.label.set_fontweight(‘bold’)  # Set colorbar label font weight</p>
-<p>cbar3 = f.colorbar(sc3, ax=ax3, orientation=’vertical’)
-cbar3.ax.set_ylabel(‘mg/L’,fontweight=’bold’)
-cbar3.ax.yaxis.label.set_fontweight(‘bold’)  # Set colorbar label font weight</p>
-<p>for ax in [ax1, ax2, ax3]:
-ax.set_title(ax.get_title(), fontweight=’bold’)
-ax.set_xlabel(ax.get_xlabel(), fontweight=’bold’)
-ax.set_ylabel(ax.get_ylabel(), fontweight=’bold’)
-for label in ax.get_xticklabels() + ax.get_yticklabels():
-label.set_fontweight(‘bold’)</p>
-</section>
-<section id="adjust-layout">
-<h1>Adjust layout<a class="headerlink" href="#adjust-layout" title="Permalink to this heading">#</a></h1>
-<p>plt.tight_layout()
-plt.show()</p>
+<p>Climatology  Plot of Temperature, Salinity, and Oxygen at Orca3 Station</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>  <span class="c1"># Share x-axis</span>
+
+<span class="c1"># Plot Temperature subplot</span>
+<span class="n">sc1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">date1</span><span class="p">,</span> <span class="n">depth1</span><span class="p">,</span> <span class="n">sst1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Spectral_r&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Temperature (°C)&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>  <span class="c1"># Invert y axis</span>
+<span class="c1">#ax1.set_xticks(date[tick_positions])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([])</span>
+
+<span class="c1"># Plot Salinity subplot</span>
+<span class="n">sc2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">date1</span><span class="p">,</span> <span class="n">depth1</span><span class="p">,</span> <span class="n">sss1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Spectral_r&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Salinity (psu)&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>  <span class="c1"># Invert y axis</span>
+<span class="c1">#ax2.set_xticks(date[tick_positions])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([])</span>
+
+<span class="c1"># Plot Oxygen subplot</span>
+<span class="n">sc3</span> <span class="o">=</span> <span class="n">ax3</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">date1</span><span class="p">,</span> <span class="n">depth1</span><span class="p">,</span> <span class="n">oxy1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Spectral_r&quot;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Oxygen (mg/L)&quot;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="c1">#ax3.xaxis.set_major_locator(plt.FixedLocator(tick_positions))</span>
+<span class="c1">#ax3.set_xticks(date[tick_positions])  # Set tick positions for the third row</span>
+<span class="c1">#ax3.set_xticklabels(tick_labels, ha=&#39;center&#39;)  # Set tick labels for the third row</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>  <span class="c1"># Invert y axis</span>
+
+<span class="c1"># Add colorbars</span>
+<span class="n">cbar1</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sc1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="n">cbar1</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;°C&#39;</span><span class="p">,</span><span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">cbar1</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_fontweight</span><span class="p">(</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>  <span class="c1"># Set colorbar label font weight</span>
+
+<span class="n">cbar2</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sc2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="n">cbar2</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;psu&#39;</span><span class="p">,</span><span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">cbar2</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_fontweight</span><span class="p">(</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>  <span class="c1"># Set colorbar label font weight</span>
+
+
+<span class="n">cbar3</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sc3</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax3</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="n">cbar3</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;mg/L&#39;</span><span class="p">,</span><span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">cbar3</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_fontweight</span><span class="p">(</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>  <span class="c1"># Set colorbar label font weight</span>
+
+
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">]:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_title</span><span class="p">(),</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xlabel</span><span class="p">(),</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_ylabel</span><span class="p">(),</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">()</span> <span class="o">+</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">():</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">set_fontweight</span><span class="p">(</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="c1"># Adjust layout</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Temp, Salinity, and Oxygen Climatology at Orca3 &quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/fa37bf67d758decdf58fb20a3355e3f685036fda991325dd70753184c2db7510.png" src="../../_images/fa37bf67d758decdf58fb20a3355e3f685036fda991325dd70753184c2db7510.png" />
+</div>
+</div>
+<p>Comparing Climatology of Vertical Temperature, Salinity, and Oxygen of two Sub-Stations</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>  <span class="c1"># 3 rows, 2 columns</span>
 
 <span class="c1"># Plot Temperature subplots</span>
-<span class="n">sc1_1</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">date1</span><span class="p">,</span> <span class="n">depth1</span><span class="p">,</span> <span class="n">sst1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Spectral_r&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">6.7</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">sc1_1</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">date1</span><span class="p">,</span> <span class="n">depth1</span><span class="p">,</span> <span class="n">sst1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Spectral_r&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">19</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Temperature (°C) - Orca3&quot;</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">)</span>
@@ -808,7 +800,7 @@ plt.show()</p>
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>  <span class="c1"># Set y-axis range</span>
 <span class="c1">#axes[0, 0].set_clim([10, 22])</span>
 
-<span class="n">sc1_2</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">date2</span><span class="p">,</span> <span class="n">depth2</span><span class="p">,</span> <span class="n">sst2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Spectral_r&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">6.7</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">sc1_2</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">date2</span><span class="p">,</span> <span class="n">depth2</span><span class="p">,</span> <span class="n">sst2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Spectral_r&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">19</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Temperature (°C) - npby1&quot;</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="c1">#axes[0, 1].set_ylabel(&quot;Depth (m)&quot;)</span>
@@ -817,7 +809,7 @@ plt.show()</p>
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>  <span class="c1"># Set y-axis range</span>
 
 <span class="c1"># Plot Salinity subplots</span>
-<span class="n">sc2_1</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">date1</span><span class="p">,</span> <span class="n">depth1</span><span class="p">,</span> <span class="n">sss1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Spectral_r&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">19</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mf">32.6</span><span class="p">)</span>
+<span class="n">sc2_1</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">date1</span><span class="p">,</span> <span class="n">depth1</span><span class="p">,</span> <span class="n">sss1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Spectral_r&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">31</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Salinity (psu) - Orca3&quot;</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">)</span>
@@ -825,7 +817,7 @@ plt.show()</p>
 <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([])</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>  <span class="c1"># Set y-axis range</span>
 
-<span class="n">sc2_2</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">date2</span><span class="p">,</span> <span class="n">depth2</span><span class="p">,</span> <span class="n">sss2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Spectral_r&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">19</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mf">32.6</span><span class="p">)</span>
+<span class="n">sc2_2</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">date2</span><span class="p">,</span> <span class="n">depth2</span><span class="p">,</span> <span class="n">sss2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Spectral_r&quot;</span><span class="p">,</span>  <span class="n">vmin</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">31</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Salinity (psu) - npby1&quot;</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="c1">#axes[1, 1].set_ylabel(&quot;Depth (m)&quot;)</span>
@@ -834,14 +826,14 @@ plt.show()</p>
 <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>  <span class="c1"># Set y-axis range</span>
 
 <span class="c1"># Plot Oxygen subplots</span>
-<span class="n">sc3_1</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">date1</span><span class="p">,</span> <span class="n">depth1</span><span class="p">,</span> <span class="n">oxy1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Spectral_r&quot;</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">sc3_1</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">date1</span><span class="p">,</span> <span class="n">depth1</span><span class="p">,</span> <span class="n">oxy1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Spectral_r&quot;</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Oxygen (mg/L) - Orca3&quot;</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>  <span class="c1"># Invert y axis</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>  <span class="c1"># Set y-axis range</span>
 
-<span class="n">sc3_2</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">date2</span><span class="p">,</span> <span class="n">depth2</span><span class="p">,</span> <span class="n">oxy2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Spectral_r&quot;</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">sc3_2</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">date2</span><span class="p">,</span> <span class="n">depth2</span><span class="p">,</span> <span class="n">oxy2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Spectral_r&quot;</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Oxygen (mg/L) - npby1&quot;</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
@@ -875,15 +867,13 @@ plt.show()</p>
 
 <span class="c1"># Adjust layout</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Full Depth Comparison of Temp, Salinity, and Oxygen for Stations Orca3 and npby1&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Climatology Comparison of Temp, Salinity, and Oxygen for Stations Orca3 and npby1&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/aea8a977eab1101dcdbb9eec4fe3e4d12943acc8a774bbe639e2685a788a47f1.png" src="../../_images/aea8a977eab1101dcdbb9eec4fe3e4d12943acc8a774bbe639e2685a788a47f1.png" />
 </div>
-</div>
+<p>End of Climatology Plotting</p>
 </section>
 
 <div class="section">
@@ -900,6 +890,24 @@ plt.show()</p>
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../Puget_Sound1/"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Puget Sound Plotting</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../interactive/interactive/"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Interactive Viz</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -913,25 +921,9 @@ plt.show()</p>
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
   <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Puget Sound Plotting</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-temperature-subplot">Plot Temperature subplot</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-salinity-subplot">Plot Salinity subplot</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-oxygen-subplot">Plot Oxygen subplot</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#add-colorbars">Add colorbars</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#adjust-layout">Adjust layout</a></li>
-</ul>
-
-  </nav></div>
-
-  <div class="sidebar-secondary-item">
   
   <div class="tocsection editthispage">
-    <a href="https://github.com/oceanhackweek/oceanhackweek.github.io/edit/source/moorings/Puget_Sound.ipynb">
+    <a href="https://github.com/oceanhackweek/oceanhackweek.github.io/edit/source/moorings/Puget_Climatology.ipynb">
       <i class="fa-solid fa-pencil"></i>
       
       
@@ -945,7 +937,7 @@ plt.show()</p>
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
-    <a href="../../_sources/moorings/Puget_Sound.ipynb.txt">
+    <a href="../../_sources/moorings/Puget_Climatology.ipynb.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

@@ -35,6 +35,10 @@ Download and display mooring data on a github pages website.
 * Tobias Ferreira
 * Veronica Martinez
 * Johnathan Evanilla
+* Christian Sarason
+* Danilo Silva
+* Halley McVeigh
+* Hameed Ajibade
 
 ## Goals
 
@@ -57,10 +61,6 @@ Its objectives are to:
 - Facilitate inclusive community building: Connect oceanographers across disciplines and career stages and cultivate an open science and a sharing culture.
 
 -->
-
-Here is a plotly plot! 
-
-<iframe src="first_figure.html" width="100%" height="500" style="border:1px solid black;">  </iframe>
 
 
 :::{admonition} Participant Quotes

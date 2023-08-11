@@ -45,9 +45,11 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/design-tabs.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'moorings/Puget_Sound';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'moorings/Puget_Sound1';</script>
     <link rel="index" title="Index" href="../../genindex/" />
-    <link rel="search" title="Search" href="../../search/" /> 
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Puget Sound Climatology Plot" href="../Puget_Climatology/" />
+    <link rel="prev" title="Downloading DFO Historical Mooring Data" href="../dfo_mooring_plots_copy/" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>  
 <style type="text/css">
@@ -154,7 +156,7 @@
   </p>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
+                    <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="../">
                         Moorings
                       </a>
@@ -284,7 +286,7 @@ document.write(`
   </p>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
+                    <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="../">
                         Moorings
                       </a>
@@ -376,6 +378,17 @@ document.write(`
         What I do
     </div> -->
 </div></div>
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../erddap_DFO_moorings_E01/">DFO Moorings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dfo_mooring_plots_copy/">Downloading DFO Historical Mooring Data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Puget Sound Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Puget_Climatology/">Puget Sound Climatology Plot</a></li>
+</ul>
+</div>
+</nav></div>
     </div>
   
   
@@ -410,6 +423,9 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
+    
+    <li class="breadcrumb-item"><a href="../" class="nav-link">Moorings</a></li>
+    
     <li class="breadcrumb-item active" aria-current="page">Puget Sound Plotting</li>
   </ul>
 </nav>
@@ -446,6 +462,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Downloading the Mooring Datasets</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_erddap_data</span><span class="p">(</span><span class="n">erddap_url</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">data_protocol</span><span class="o">=</span><span class="s2">&quot;griddap&quot;</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -543,6 +560,299 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Extracting Data for Plotting at Specific Depth for Two Mooring Sub-stations</p>
+<p>Visualising the Study Area</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="kn">import</span> <span class="nn">folium</span>
+<span class="n">tiles</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;http://services.arcgisonline.com/arcgis/rest/services/&quot;</span>
+    <span class="s2">&quot;World_Topo_Map/MapServer/MapServer/tile/</span><span class="si">{z}</span><span class="s2">/</span><span class="si">{y}</span><span class="s2">/</span><span class="si">{x}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+
+<span class="c1">#set the boundary box</span>
+<span class="n">min_lat</span><span class="p">,</span> <span class="n">max_lat</span> <span class="o">=</span> <span class="mf">47.25</span><span class="p">,</span><span class="mf">48.0</span>
+<span class="n">min_lon</span><span class="p">,</span> <span class="n">max_lon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">123.2</span><span class="p">,</span><span class="o">-</span><span class="mf">122.3</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="p">(</span><span class="n">min_lon</span> <span class="o">+</span> <span class="n">max_lon</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">lat</span> <span class="o">=</span> <span class="p">(</span><span class="n">min_lat</span> <span class="o">+</span> <span class="n">max_lat</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="c1">#m = folium.Map(location=[lat, lon], tiles=&quot;OpenStreetMap&quot;, zoom_start=8)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">],</span> <span class="n">tiles</span><span class="o">=</span><span class="n">tiles</span><span class="p">,</span> <span class="n">attr</span><span class="o">=</span><span class="s2">&quot;ESRI&quot;</span><span class="p">,</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">([</span><span class="mf">47.907</span><span class="p">,</span><span class="o">-</span><span class="mf">122.627</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="s2">&quot;Hansville&quot;</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Hansville&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">([</span><span class="mf">47.761</span><span class="p">,</span><span class="o">-</span><span class="mf">122.3972</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="s2">&quot;Point Wells&quot;</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Point Wells&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">([</span><span class="mf">47.8034</span><span class="p">,</span><span class="o">-</span><span class="mf">122.8029</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="s2">&quot;Dabob Bay&quot;</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Dabob Bay&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">([</span><span class="mf">47.28</span><span class="p">,</span><span class="o">-</span><span class="mf">122.728</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="s2">&quot;Carr Inlet&quot;</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Carr Inlet&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">([</span><span class="mf">47.375</span><span class="p">,</span><span class="o">-</span><span class="mf">123.0083</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="s2">&quot;Twanoh&quot;</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Twanoh&quot;</span><span class="p">,</span><span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">([</span><span class="mf">47.4218</span><span class="p">,</span><span class="o">-</span><span class="mf">123.1136</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="s2">&quot;Hoodsport&quot;</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Hoodsport&quot;</span><span class="p">,</span><span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">Polygon</span><span class="p">([(</span><span class="n">min_lat</span><span class="p">,</span> <span class="n">min_lon</span><span class="p">),</span> <span class="p">(</span><span class="n">max_lat</span><span class="p">,</span> <span class="n">min_lon</span><span class="p">),</span> <span class="p">(</span><span class="n">max_lat</span><span class="p">,</span> <span class="n">max_lon</span><span class="p">),</span> <span class="p">(</span><span class="n">min_lat</span><span class="p">,</span> <span class="n">max_lon</span><span class="p">)],</span><span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
+              <span class="n">dashArray</span><span class="o">=</span> <span class="s2">&quot;5, 5&quot;</span><span class="p">,)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+    
+        &lt;script&gt;
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        &lt;/script&gt;
+    
+    &lt;style&gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&lt;/style&gt;
+    &lt;style&gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&lt;/style&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-1.12.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
+    
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+            &lt;style&gt;
+                #map_023fff55026a61f07eb0cb2e48d3de66 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            &lt;/style&gt;
+        
+&lt;/head&gt;
+&lt;body&gt;
+    
+    
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_023fff55026a61f07eb0cb2e48d3de66&quot; &gt;&lt;/div&gt;
+        
+&lt;/body&gt;
+&lt;script&gt;
+    
+    
+            var map_023fff55026a61f07eb0cb2e48d3de66 = L.map(
+                &quot;map_023fff55026a61f07eb0cb2e48d3de66&quot;,
+                {
+                    center: [47.625, -122.75],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 8,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_2308bec99c28eff64f784af723ef7acf = L.tileLayer(
+                &quot;http://services.arcgisonline.com/arcgis/rest/services/World_Topo_Map/MapServer/MapServer/tile/{z}/{y}/{x}&quot;,
+                {&quot;attribution&quot;: &quot;ESRI&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
+            ).addTo(map_023fff55026a61f07eb0cb2e48d3de66);
+        
+    
+            var marker_cfebf9cf86fb72401b49cf927a74f2cd = L.marker(
+                [47.907, -122.627],
+                {}
+            ).addTo(map_023fff55026a61f07eb0cb2e48d3de66);
+        
+    
+        var popup_43117188568b91a009782eac05dad559 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+        
+            
+                var html_e3b1e607e2ef501fd3d94d00253de9fd = $(`&lt;div id=&quot;html_e3b1e607e2ef501fd3d94d00253de9fd&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Hansville&lt;/div&gt;`)[0];
+                popup_43117188568b91a009782eac05dad559.setContent(html_e3b1e607e2ef501fd3d94d00253de9fd);
+            
+        
+
+        marker_cfebf9cf86fb72401b49cf927a74f2cd.bindPopup(popup_43117188568b91a009782eac05dad559)
+        ;
+
+        
+    
+    
+            marker_cfebf9cf86fb72401b49cf927a74f2cd.bindTooltip(
+                `&lt;div&gt;
+                     Hansville
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+        
+    
+            var marker_660f11458c1b36cd843d8b0d04d64bd9 = L.marker(
+                [47.761, -122.3972],
+                {}
+            ).addTo(map_023fff55026a61f07eb0cb2e48d3de66);
+        
+    
+        var popup_33f727838907d188d7e288e3e77ba594 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+        
+            
+                var html_763e6b17cb000b94cbc0948bc9cbe831 = $(`&lt;div id=&quot;html_763e6b17cb000b94cbc0948bc9cbe831&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Point Wells&lt;/div&gt;`)[0];
+                popup_33f727838907d188d7e288e3e77ba594.setContent(html_763e6b17cb000b94cbc0948bc9cbe831);
+            
+        
+
+        marker_660f11458c1b36cd843d8b0d04d64bd9.bindPopup(popup_33f727838907d188d7e288e3e77ba594)
+        ;
+
+        
+    
+    
+            marker_660f11458c1b36cd843d8b0d04d64bd9.bindTooltip(
+                `&lt;div&gt;
+                     Point Wells
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+        
+    
+            var marker_01c0052d4a9c82ca4dba3c69b0303d54 = L.marker(
+                [47.8034, -122.8029],
+                {}
+            ).addTo(map_023fff55026a61f07eb0cb2e48d3de66);
+        
+    
+        var popup_933e58f606319ae77127de2f9509f8bb = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+        
+            
+                var html_5dc96312b3dd4f26948ab6a8f6918cbd = $(`&lt;div id=&quot;html_5dc96312b3dd4f26948ab6a8f6918cbd&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Dabob Bay&lt;/div&gt;`)[0];
+                popup_933e58f606319ae77127de2f9509f8bb.setContent(html_5dc96312b3dd4f26948ab6a8f6918cbd);
+            
+        
+
+        marker_01c0052d4a9c82ca4dba3c69b0303d54.bindPopup(popup_933e58f606319ae77127de2f9509f8bb)
+        ;
+
+        
+    
+    
+            marker_01c0052d4a9c82ca4dba3c69b0303d54.bindTooltip(
+                `&lt;div&gt;
+                     Dabob Bay
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+        
+    
+            var marker_02594ab0d1c9c4de793e07fdbdac8fbc = L.marker(
+                [47.28, -122.728],
+                {}
+            ).addTo(map_023fff55026a61f07eb0cb2e48d3de66);
+        
+    
+        var popup_81fbb69c30cd67397598d7eb4bc93218 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+        
+            
+                var html_3a47f52e1e8f9d52331120c668d9d332 = $(`&lt;div id=&quot;html_3a47f52e1e8f9d52331120c668d9d332&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Carr Inlet&lt;/div&gt;`)[0];
+                popup_81fbb69c30cd67397598d7eb4bc93218.setContent(html_3a47f52e1e8f9d52331120c668d9d332);
+            
+        
+
+        marker_02594ab0d1c9c4de793e07fdbdac8fbc.bindPopup(popup_81fbb69c30cd67397598d7eb4bc93218)
+        ;
+
+        
+    
+    
+            marker_02594ab0d1c9c4de793e07fdbdac8fbc.bindTooltip(
+                `&lt;div&gt;
+                     Carr Inlet
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+        
+    
+            var marker_e976d167ba8986c4d91bb35017d1c333 = L.marker(
+                [47.375, -123.0083],
+                {}
+            ).addTo(map_023fff55026a61f07eb0cb2e48d3de66);
+        
+    
+            var icon_df7e82527efe904be8c262d08ac6dffb = L.AwesomeMarkers.icon(
+                {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;info-sign&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;red&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
+            );
+            marker_e976d167ba8986c4d91bb35017d1c333.setIcon(icon_df7e82527efe904be8c262d08ac6dffb);
+        
+    
+        var popup_1989d2f0953b94c144bc65bae4ffb3b0 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+        
+            
+                var html_57438c7773bb0cabcaea4f9aceed1fe6 = $(`&lt;div id=&quot;html_57438c7773bb0cabcaea4f9aceed1fe6&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Twanoh&lt;/div&gt;`)[0];
+                popup_1989d2f0953b94c144bc65bae4ffb3b0.setContent(html_57438c7773bb0cabcaea4f9aceed1fe6);
+            
+        
+
+        marker_e976d167ba8986c4d91bb35017d1c333.bindPopup(popup_1989d2f0953b94c144bc65bae4ffb3b0)
+        ;
+
+        
+    
+    
+            marker_e976d167ba8986c4d91bb35017d1c333.bindTooltip(
+                `&lt;div&gt;
+                     Twanoh
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+        
+    
+            var marker_d9ba30085b6f51a706e7cf863a911e60 = L.marker(
+                [47.4218, -123.1136],
+                {}
+            ).addTo(map_023fff55026a61f07eb0cb2e48d3de66);
+        
+    
+            var icon_e5ffa1ecd98acb2bbb95d6d129a7e5ce = L.AwesomeMarkers.icon(
+                {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;info-sign&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;red&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
+            );
+            marker_d9ba30085b6f51a706e7cf863a911e60.setIcon(icon_e5ffa1ecd98acb2bbb95d6d129a7e5ce);
+        
+    
+        var popup_f24c7e49634d53bfc86234da36d642f7 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+        
+            
+                var html_6a3a8cd87cdeccefd58263a91fc36030 = $(`&lt;div id=&quot;html_6a3a8cd87cdeccefd58263a91fc36030&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;Hoodsport&lt;/div&gt;`)[0];
+                popup_f24c7e49634d53bfc86234da36d642f7.setContent(html_6a3a8cd87cdeccefd58263a91fc36030);
+            
+        
+
+        marker_d9ba30085b6f51a706e7cf863a911e60.bindPopup(popup_f24c7e49634d53bfc86234da36d642f7)
+        ;
+
+        
+    
+    
+            marker_d9ba30085b6f51a706e7cf863a911e60.bindTooltip(
+                `&lt;div&gt;
+                     Hoodsport
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+        
+    
+            var polygon_db2e1e0de905d6b31da73a170496ca90 = L.polygon(
+                [[47.25, -123.2], [48.0, -123.2], [48.0, -122.3], [47.25, -122.3]],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;black&quot;, &quot;dashArray&quot;: &quot;5, 5&quot;, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;black&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;noClip&quot;: false, &quot;opacity&quot;: 1.0, &quot;smoothFactor&quot;: 1.0, &quot;stroke&quot;: true, &quot;weight&quot;: &quot;2&quot;}
+            ).addTo(map_023fff55026a61f07eb0cb2e48d3de66);
+        
+&lt;/script&gt;
+&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nwem_url</span> <span class="o">=</span> <span class="s1">&#39;http://nwem.apl.washington.edu/erddap&#39;</span>
@@ -572,34 +882,6 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cioos_url</span> <span class="o">=</span> <span class="s1">&#39;https://data.cioospacific.ca/erddap&#39;</span>
-<span class="n">cioos_dataset</span> <span class="o">=</span> <span class="s1">&#39;IOS_CTD_Moorings&#39;</span>
-
-<span class="n">variables</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
-             <span class="s2">&quot;sea_water_pressure&quot;</span><span class="p">,</span>
-             <span class="s2">&quot;sea_water_temperature&quot;</span><span class="p">,</span>
-             <span class="s2">&quot;sea_water_practical_salinity&quot;</span><span class="p">]</span>
-
-<span class="c1">#constraints = {&quot;time&gt;=&quot;:datetime.datetime(2022,1,1).strftime(&#39;%Y-%m-%dT%H:%M:%SZ&#39;)}</span>
-<span class="n">constraints</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;time&gt;=&quot;</span><span class="p">:</span> <span class="s2">&quot;max(time)-365&quot;</span><span class="p">}</span>
-
-<span class="n">cioos_table</span> <span class="o">=</span> <span class="n">get_erddap_data</span><span class="p">(</span><span class="n">cioos_url</span><span class="p">,</span> <span class="n">cioos_dataset</span><span class="p">,</span> 
-                <span class="n">variables</span><span class="o">=</span><span class="n">variables</span><span class="p">,</span>
-                <span class="n">constraints</span><span class="o">=</span><span class="n">constraints</span><span class="p">,</span>
-                <span class="n">data_protocol</span><span class="o">=</span><span class="s2">&quot;tabledap&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#nwem_grid2</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds1</span><span class="o">=</span><span class="n">nwem_grid1</span><span class="p">;</span> <span class="n">ds2</span><span class="o">=</span><span class="n">nwem_grid2</span><span class="p">;</span> 
 </pre></div>
 </div>
@@ -610,20 +892,6 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">depth1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ds1</span><span class="o">.</span><span class="n">depth</span><span class="o">.</span><span class="n">values</span><span class="p">[:]);</span> <span class="n">depth2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ds2</span><span class="o">.</span><span class="n">depth</span><span class="o">.</span><span class="n">values</span><span class="p">[:]);</span> 
 <span class="n">date1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ds1</span><span class="o">.</span><span class="n">cast_start_time</span><span class="o">.</span><span class="n">values</span><span class="p">[:]);</span> <span class="n">date2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ds2</span><span class="o">.</span><span class="n">cast_start_time</span><span class="o">.</span><span class="n">values</span><span class="p">[:])</span><span class="c1">#325</span>
 <span class="n">depth_l</span><span class="o">=</span><span class="s2">&quot;50&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#date2</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ds1.variables</span>
 </pre></div>
 </div>
 </div>
@@ -669,6 +937,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Time_Series Comparison of Temp, Salinity, and Oxygen at a depth for the two sub-stations Orca3 and Nbpy1</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>  <span class="c1"># Share x-axis</span>
@@ -696,24 +965,18 @@ document.write(`
 
 <span class="c1">#ax1.set_xticks(ds.cast_start_time[tick_positions].values)</span>
 <span class="c1">#ax2.set_xticklabels([])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Comparing Temp, Salinity, and Oxygen at depth for Stations Orca3 and nbpy1&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="c1">#t.legend()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9c95a99e4c8c945723632cf6735c8d9cd0dc3137e825459af023496811445aa7.png" src="../../_images/9c95a99e4c8c945723632cf6735c8d9cd0dc3137e825459af023496811445aa7.png" />
+<img alt="../../_images/8671adbe5b598f22646444a34b9061487c1a82ee63bbdb8c7f60de7a343abd3f.png" src="../../_images/8671adbe5b598f22646444a34b9061487c1a82ee63bbdb8c7f60de7a343abd3f.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#depth2-depth1</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>Data Preparation for Depth Distribution Plots</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sst1</span><span class="o">=</span><span class="n">var1_sst</span><span class="o">.</span><span class="n">transpose</span><span class="p">();</span> <span class="n">sst2</span><span class="o">=</span><span class="n">var2_sst</span><span class="o">.</span><span class="n">transpose</span><span class="p">();</span>
@@ -739,61 +1002,71 @@ document.write(`
 </div>
 </div>
 </div>
-<p>f, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(8, 6))  # Share x-axis</p>
-</section>
-<section id="plot-temperature-subplot">
-<h1>Plot Temperature subplot<a class="headerlink" href="#plot-temperature-subplot" title="Permalink to this heading">#</a></h1>
-<p>sc1 = ax1.pcolor(date1, depth1, sst1, cmap=”Spectral_r”)
-ax1.set_title(“Temperature (°C)”)
-ax1.set_xlabel(“”)
-ax1.set_ylabel(“Depth (m)”)
-ax1.invert_yaxis()  # Invert y axis
-#ax1.set_xticks(date[tick_positions])
-ax1.set_xticklabels([])</p>
-</section>
-<section id="plot-salinity-subplot">
-<h1>Plot Salinity subplot<a class="headerlink" href="#plot-salinity-subplot" title="Permalink to this heading">#</a></h1>
-<p>sc2 = ax2.pcolor(date1, depth1, sss1, cmap=”Spectral_r”)
-ax2.set_title(“Salinity (psu)”)
-ax2.set_xlabel(“”)
-ax2.set_ylabel(“Depth (m)”)
-ax2.invert_yaxis()  # Invert y axis
-#ax2.set_xticks(date[tick_positions])
-ax2.set_xticklabels([])</p>
-</section>
-<section id="plot-oxygen-subplot">
-<h1>Plot Oxygen subplot<a class="headerlink" href="#plot-oxygen-subplot" title="Permalink to this heading">#</a></h1>
-<p>sc3 = ax3.pcolor(date1, depth1, oxy1, cmap=”Spectral_r”)
-ax3.set_title(“Oxygen (mg/L)”)
-ax3.set_ylabel(“Depth (m)”)
-ax3.set_xlabel(“Time”)
-#ax3.xaxis.set_major_locator(plt.FixedLocator(tick_positions))
-#ax3.set_xticks(date[tick_positions])  # Set tick positions for the third row
-#ax3.set_xticklabels(tick_labels, ha=’center’)  # Set tick labels for the third row
-ax3.invert_yaxis()  # Invert y axis</p>
-</section>
-<section id="add-colorbars">
-<h1>Add colorbars<a class="headerlink" href="#add-colorbars" title="Permalink to this heading">#</a></h1>
-<p>cbar1 = f.colorbar(sc1, ax=ax1, orientation=’vertical’)
-cbar1.ax.set_ylabel(’°C’,fontweight=’bold’)
-cbar1.ax.yaxis.label.set_fontweight(‘bold’)  # Set colorbar label font weight</p>
-<p>cbar2 = f.colorbar(sc2, ax=ax2, orientation=’vertical’)
-cbar2.ax.set_ylabel(‘psu’,fontweight=’bold’)
-cbar2.ax.yaxis.label.set_fontweight(‘bold’)  # Set colorbar label font weight</p>
-<p>cbar3 = f.colorbar(sc3, ax=ax3, orientation=’vertical’)
-cbar3.ax.set_ylabel(‘mg/L’,fontweight=’bold’)
-cbar3.ax.yaxis.label.set_fontweight(‘bold’)  # Set colorbar label font weight</p>
-<p>for ax in [ax1, ax2, ax3]:
-ax.set_title(ax.get_title(), fontweight=’bold’)
-ax.set_xlabel(ax.get_xlabel(), fontweight=’bold’)
-ax.set_ylabel(ax.get_ylabel(), fontweight=’bold’)
-for label in ax.get_xticklabels() + ax.get_yticklabels():
-label.set_fontweight(‘bold’)</p>
-</section>
-<section id="adjust-layout">
-<h1>Adjust layout<a class="headerlink" href="#adjust-layout" title="Permalink to this heading">#</a></h1>
-<p>plt.tight_layout()
-plt.show()</p>
+<p>Figure for Comparing Vertical Temperature, Salinity, and Oxygen at Orca3 Sub-Station</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>  <span class="c1"># Share x-axis</span>
+
+<span class="c1"># Plot Temperature subplot</span>
+<span class="n">sc1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">date1</span><span class="p">,</span> <span class="n">depth1</span><span class="p">,</span> <span class="n">sst1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Spectral_r&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Temperature (°C)&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>  <span class="c1"># Invert y axis</span>
+<span class="c1">#ax1.set_xticks(date[tick_positions])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([])</span>
+
+<span class="c1"># Plot Salinity subplot</span>
+<span class="n">sc2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">date1</span><span class="p">,</span> <span class="n">depth1</span><span class="p">,</span> <span class="n">sss1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Spectral_r&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Salinity (psu)&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>  <span class="c1"># Invert y axis</span>
+<span class="c1">#ax2.set_xticks(date[tick_positions])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([])</span>
+
+<span class="c1"># Plot Oxygen subplot</span>
+<span class="n">sc3</span> <span class="o">=</span> <span class="n">ax3</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">date1</span><span class="p">,</span> <span class="n">depth1</span><span class="p">,</span> <span class="n">oxy1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Spectral_r&quot;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Oxygen (mg/L)&quot;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="c1">#ax3.xaxis.set_major_locator(plt.FixedLocator(tick_positions))</span>
+<span class="c1">#ax3.set_xticks(date[tick_positions])  # Set tick positions for the third row</span>
+<span class="c1">#ax3.set_xticklabels(tick_labels, ha=&#39;center&#39;)  # Set tick labels for the third row</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>  <span class="c1"># Invert y axis</span>
+
+<span class="c1"># Add colorbars</span>
+<span class="n">cbar1</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sc1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="n">cbar1</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;°C&#39;</span><span class="p">,</span><span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">cbar1</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_fontweight</span><span class="p">(</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>  <span class="c1"># Set colorbar label font weight</span>
+
+<span class="n">cbar2</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sc2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="n">cbar2</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;psu&#39;</span><span class="p">,</span><span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">cbar2</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_fontweight</span><span class="p">(</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>  <span class="c1"># Set colorbar label font weight</span>
+
+
+<span class="n">cbar3</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sc3</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax3</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="n">cbar3</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;mg/L&#39;</span><span class="p">,</span><span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">cbar3</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_fontweight</span><span class="p">(</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>  <span class="c1"># Set colorbar label font weight</span>
+
+
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">]:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_title</span><span class="p">(),</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xlabel</span><span class="p">(),</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_ylabel</span><span class="p">(),</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">()</span> <span class="o">+</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">():</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">set_fontweight</span><span class="p">(</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="c1"># Adjust layout</span>
+<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Temp, Salinity, and Oxygen for Orca3 Station&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/54554af65baceb3f51bfdfde6d07f8cd72aac8e3dab6871a5d2f48e37dd05ae7.png" src="../../_images/54554af65baceb3f51bfdfde6d07f8cd72aac8e3dab6871a5d2f48e37dd05ae7.png" />
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>  <span class="c1"># 3 rows, 2 columns</span>
@@ -875,13 +1148,13 @@ plt.show()</p>
 
 <span class="c1"># Adjust layout</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Full Depth Comparison of Temp, Salinity, and Oxygen for Stations Orca3 and npby1&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Depth Comparison of Temp, Salinity, and Oxygen for Stations Orca3 and npby1&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/aea8a977eab1101dcdbb9eec4fe3e4d12943acc8a774bbe639e2685a788a47f1.png" src="../../_images/aea8a977eab1101dcdbb9eec4fe3e4d12943acc8a774bbe639e2685a788a47f1.png" />
+<img alt="../../_images/3af2551184d80e83370923dc4318d1d221b463b9cbe14c1b381f72e22daa79b9.png" src="../../_images/3af2551184d80e83370923dc4318d1d221b463b9cbe14c1b381f72e22daa79b9.png" />
 </div>
 </div>
 </section>
@@ -900,6 +1173,24 @@ plt.show()</p>
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../dfo_mooring_plots_copy/"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Downloading DFO Historical Mooring Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Puget_Climatology/"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Puget Sound Climatology Plot</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -913,25 +1204,9 @@ plt.show()</p>
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
   <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Puget Sound Plotting</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-temperature-subplot">Plot Temperature subplot</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-salinity-subplot">Plot Salinity subplot</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-oxygen-subplot">Plot Oxygen subplot</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#add-colorbars">Add colorbars</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#adjust-layout">Adjust layout</a></li>
-</ul>
-
-  </nav></div>
-
-  <div class="sidebar-secondary-item">
   
   <div class="tocsection editthispage">
-    <a href="https://github.com/oceanhackweek/oceanhackweek.github.io/edit/source/moorings/Puget_Sound.ipynb">
+    <a href="https://github.com/oceanhackweek/oceanhackweek.github.io/edit/source/moorings/Puget_Sound1.ipynb">
       <i class="fa-solid fa-pencil"></i>
       
       
@@ -945,7 +1220,7 @@ plt.show()</p>
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
-    <a href="../../_sources/moorings/Puget_Sound.ipynb.txt">
+    <a href="../../_sources/moorings/Puget_Sound1.ipynb.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
