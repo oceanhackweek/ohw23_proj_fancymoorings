@@ -35,10 +35,10 @@ Download and display mooring data on a github pages website.
 * Tobias Ferreira
 * Veronica Martinez
 * Johnathan Evanilla
-* Christian Sarason
-* Danilo Silva
 * Halley McVeigh
 * Hameed Ajibade
+* Christian Sarason
+* Danilo Silva
 
 ## Goals
 
@@ -80,39 +80,6 @@ What light from yonder window breaks?
 
 :::
 
-## Our Team
-
-This page was created by folks from the following institutions:
-
-<div class="row">
-  <div class="col-4" style="margin-bottom: 1rem">
-
-```{image} assets/images/apl_logo_blue.jpg
-:alt: UW APL
-:width: 150px
-```
-  </div>
-  <div class="col-4" style="margin-bottom: 1rem">
-
-```{image} assets/images/DFO_Logo.svg.png
-:alt: DFO Canada
-:width: 250px
-```
-  </div>
-
-</div>
-
-<!-- <div class="row">
-  <div class="col-4" style="margin-bottom: 1rem">
-
-```{image} assets/images/logos/nasa-logo.sm.png
-:alt: NASA
-:width: 150px
-```
-
-  </div>
-</div>
--->
 
 
 ```{toctree}
