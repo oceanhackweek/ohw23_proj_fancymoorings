@@ -1,34 +1,32 @@
 import streamlit as st
-import streamlit.components.v1 as components
-import mpld3
 import matplotlib.pyplot as plt
-# import pandas as pd
-# import xarray
 from erddapy import ERDDAP
+import plotly.express as px
+from datetime import datetime
 
-"""
-Streamlit prototype
-
-Purpose: Test data visualization with Streamlit for python.
-This script takes the plotting code from erddap_dataacess.ipynb and 
-uses streamlit to create a web app displaying the plot.
-
-To run this app locally in the browser, run the following command in the terminal
-   streamlit run streamlit_mooring_app.py
-
-Installation of streamlit is required. A virtual environment is recommended.
-   pip install streamlit
-
-Next steps:
- -Add more plots
- -Add interactive features
- -Test deployment to the community cloud to create a url link that can be shared publicly
-
-Created by: 
-Veronica Martinez 
-8/9/23 
-Ocean Hack Week project
-"""
+# """
+# Streamlit prototype
+#
+# Purpose: Test data visualizations with Streamlit for python.
+# This script pulls data from a server and creates two plots
+# using streamlit. The script is then used to create a web app
+# displaying the plots. Data access and plotting code were borrowed
+# and modified from jupyter notebooks within the project repo.
+#
+# To run this app locally in the browser, run the following command in the terminal
+#    streamlit run streamlit_mooring_app.py
+#
+# Installation of streamlit is required. A virtual environment is recommended.
+#    pip install streamlit
+#
+# Next steps:
+#  -Add more interactive features
+#
+# Created by:
+# Veronica Martinez
+# 8/10/23
+# Ocean Hack Week project
+# """
 
 
 def get_erddap_data(erddap_url, dataset, data_protocol="griddap", variables=None, constraints=None):
@@ -125,32 +123,56 @@ cioos_dataset = 'IOS_CTD_Moorings'
 variables = ["time",
              "sea_water_pressure",
              "sea_water_temperature",
-             "sea_water_practical_salinity"]
+             "sea_water_practical_salinity",
+             "TEMPST01",
+             "depth",
+             "longitude",
+             "latitude",
+             "filename"]
 
-constraints = {"time>=": "max(time)-365"}
+constraints = {"time>=":datetime(2022,7,1).strftime('%Y-%m-%dT%H:%M:%SZ'),
+               "longitude>=": -128.975,
+               "longitude<=": -121.975,
+               "latitude>=": 49.1,
+               "latitude<=": 49.3}
 
-cioos_table = get_erddap_data(cioos_url, cioos_dataset,
+data = get_erddap_data(cioos_url, cioos_dataset,
                 variables=variables,
                 constraints=constraints,
                 data_protocol="tabledap")
 
+
 # Plot data
 st.title('IOS_CTD_Moorings Data Visualization')
 
-# Scatter plot
-st.subheader('Scatter Plot')
+# Interactive Plot
+st.subheader('Interactive Scatter Plot')
+st.write('Location:  (49.1 - 49.3 & 126 - 126.7)')
+st.write('Time frame:  2022-07-01 to 2022-07-21')
+
+# # Streamlit widgets for interactive filtering
+selected_variable = st.selectbox('Select Variable', ('sea_water_temperature (degC)', 'sea_water_pressure (dbar)',
+                                                     'sea_water_practical_salinity (PSS-78)'))
+plot = px.scatter(data, x=data['time (UTC)'], y=selected_variable)
+st.plotly_chart(plot)
+
+# Static Scatter plot
+# Get smaller dataset
+constraints = {"time>=": "max(time)-365"}
+data = get_erddap_data(cioos_url, cioos_dataset,
+                variables=variables,
+                constraints=constraints,
+                data_protocol="tabledap")
+
+st.subheader('Static Scatter Plot')
+st.write('Time frame:  2022-07-21')
 fig, ax = plt.subplots()
-cb = ax.scatter(cioos_table['time (UTC)'], cioos_table['sea_water_temperature (degC)'], c=cioos_table['sea_water_pressure (dbar)'], cmap='viridis')
+cb = ax.scatter(data['time (UTC)'], data['sea_water_temperature (degC)'], c=data['sea_water_pressure (dbar)'], cmap='viridis')
+ax.set_xlabel('time (UTC)')
+ax.set_ylabel('sea_water_temperature (degC)')
 fig.colorbar(cb, ax=ax)
-my_xticks = cioos_table['time (UTC)']
-plt.xticks(cioos_table['time (UTC)'], my_xticks)
-fig_html = mpld3.fig_to_html(fig)       # makes plot interactive (zoom and pan)
-components.html(fig_html, height=600)
-# st.pyplot(fig)                        # use this for static plot
+st.pyplot(fig)
 
-# # Line plot
-# st.subheader('Line Plot')
-# fig, ax = plt.subplots()
-# ax.plot(data['Timestamp'], data['Value'])
-# st.pyplot(fig)
-
+# Display data table
+df_subset=data.loc[0:,['time (UTC)','sea_water_temperature (degC)', 'sea_water_pressure (dbar)']]
+st.dataframe(df_subset)
