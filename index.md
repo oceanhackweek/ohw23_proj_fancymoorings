@@ -6,14 +6,10 @@ description: Pacific Moorings Page
 
 # Welcome to our *fancy* mooring page
 
-## Description
-
-A github pages site for displaying and downloading mooring data.
-
 :::{admonition} This was stolen!
 :class: important
 
-This moorings page was created (well, it was copied and modified from the OHW website) during OceanHackWeek 2023 in Seattle, August 7 - 11.**
+This moorings page was created (well, it was copied and modified from the OHW website) during OceanHackWeek 2023 in Seattle, August 7 - 11.
 
 
 ```{button-link} https://oceanhackweek.org/
@@ -24,6 +20,10 @@ Go to OceanHackWeek 2023
 ```
 <!-- https://getbootstrap.com/docs/4.0/components/buttons/ -->
 :::
+
+## Project Description
+
+Download and display mooring data on a github pages website.
 
 ## Collaborators
 
@@ -120,5 +120,5 @@ This page was created by folks from the following institutions:
 :hidden:
 
 moorings/index.md
-interactive.md
+interactive/interactive.md
 ```
