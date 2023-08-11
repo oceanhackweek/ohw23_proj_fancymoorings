@@ -1,0 +1,792 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Streamlit Data Visualizations of Mooring Data &#8212; Pacific Moorings Page</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'streamlit_mooring_app_instructions';</script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>  
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this site..."
+         aria-label="Search this site..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Pacific Moorings Page</p>
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../moorings/">
+                        Moorings
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../interactive/interactive/">
+                        Interactive Viz
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/oceanhackweek/ohw23_proj_fancymoorings" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/orgs/oceanhackweek/ohw23_proj_fancymoorings/issues" title="Discussions" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-comments"></i></span>
+            <label class="sr-only">Discussions</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/about/contact.html" title="Email" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-envelope"></i></span>
+            <label class="sr-only">Email</label></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../moorings/">
+                        Moorings
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../interactive/interactive/">
+                        Interactive Viz
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/oceanhackweek/ohw23_proj_fancymoorings" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/orgs/oceanhackweek/ohw23_proj_fancymoorings/issues" title="Discussions" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-comments"></i></span>
+            <label class="sr-only">Discussions</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/about/contact.html" title="Email" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-envelope"></i></span>
+            <label class="sr-only">Email</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><a href="/"><div class="profile-pic"><img src="../_static/whistling_buoy.jpg" /></div></a>
+
+<div class="bio-info">
+    <div class="name">
+        Moorings Page
+    </div>
+    <div class="focusareas">
+        BC + WA
+    </div>
+
+    <!-- <div class="whatido">
+        What I do
+    </div> -->
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Streamlit Data Visualizations of Mooring Data</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                   <section id="streamlit-data-visualizations-of-mooring-data">
+<h1>Streamlit Data Visualizations of Mooring Data<a class="headerlink" href="#streamlit-data-visualizations-of-mooring-data" title="Permalink to this heading">#</a></h1>
+<p>Purpose: Test simple data visualizations using Streamlit for python and create a shareable web app.</p>
+<p>To run this app locally in the browser, install Streamlit. A virtual environment is recommend.</p>
+<blockquote>
+<div><p><em>pip install streamlit</em></p>
+</div></blockquote>
+<p>Run the following command in the terminal. Replace the name of the file with the name of your app.</p>
+<blockquote>
+<div><p><em>streamlit run streamlit_mooring_app.py</em></p>
+</div></blockquote>
+<section id="import-modules">
+<h2>Import modules<a class="headerlink" href="#import-modules" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>plotly
+<span class="kn">import</span> <span class="nn">streamlit</span> <span class="k">as</span> <span class="nn">st</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">erddapy</span> <span class="kn">import</span> <span class="n">ERDDAP</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: plotly in /home/jovyan/.local/lib/python3.9/site-packages (5.15.0)
+Requirement already satisfied: packaging in /opt/conda/lib/python3.9/site-packages (from plotly) (23.1)
+Requirement already satisfied: tenacity&gt;=6.2.0 in /home/jovyan/.local/lib/python3.9/site-packages (from plotly) (8.2.2)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="access-mooring-data-from-erddap-server">
+<h2>Access mooring data from ERDDAP server<a class="headerlink" href="#access-mooring-data-from-erddap-server" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_erddap_data</span><span class="p">(</span><span class="n">erddap_url</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">data_protocol</span><span class="o">=</span><span class="s2">&quot;griddap&quot;</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function: get_erddap_data</span>
+<span class="sd">    This function uses the erddapy python library to access data from ERDDAP servers,</span>
+<span class="sd">    and to return it to users in convenient formats for python users.</span>
+<span class="sd">    Data can be pulled from &quot;tabledap&quot; or &quot;griddap&quot; formats, with different</span>
+<span class="sd">    output types, depending on the dap type.</span>
+
+<span class="sd">    Inputs:</span>
+<span class="sd">    erddap_url    - The url address of the erddap server to pull data from</span>
+<span class="sd">    variables     - The selected variables within the dataset.</span>
+<span class="sd">    data_protocol - The erddap data protocol for the chosen dataset.</span>
+<span class="sd">                    Options include &quot;tabledap&quot; or &quot;griddap&quot;</span>
+<span class="sd">                    The default option is given as &quot;griddap&quot;</span>
+<span class="sd">    dataset       - The ID for the relevant dataset on the erddap server</span>
+<span class="sd">                    If no variables are given, it is assumed that all variables</span>
+<span class="sd">                    will be pulled.</span>
+<span class="sd">    constraints   - These are set by the user to help restrict the data pull</span>
+<span class="sd">                    to only the area and timeframe of interest.</span>
+<span class="sd">                    If no constraints are given, all data in a dataset is pulled.</span>
+<span class="sd">                    Constraints should be given as a dictionary, where</span>
+<span class="sd">                    each entry is a bound and/or selection of a specific axis variable</span>
+<span class="sd">                    Exs. {&quot;longitude&lt;=&quot;: &quot;min(longitude)+10&quot;, &quot;longitude&gt;=&quot;: &quot;0&quot;}</span>
+<span class="sd">                         {&quot;longitude=&quot;: &quot;140&quot;, &quot;time&gt;=&quot;: &quot;max(time)-30&quot;}</span>
+
+<span class="sd">    Outputs:</span>
+<span class="sd">    erddap_data   - This variable contains the pulled data from the erddap server.</span>
+<span class="sd">                    If the data_protocol is &quot;griddap&quot;,  then erddap_data is an xarray dataset</span>
+<span class="sd">                    If the data_protocol is &quot;tabledap&quot;, then erddap_data is a pandas dataframe</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+
+
+    <span class="c1">############################################</span>
+    <span class="c1"># Set-up the connection to the ERDDAP server</span>
+    <span class="c1">############################################</span>
+
+    <span class="c1"># Connect to the erddap server</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">ERDDAP</span><span class="p">(</span><span class="n">server</span><span class="o">=</span><span class="n">erddap_url</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="n">data_protocol</span><span class="p">,</span> <span class="n">response</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Identify the dataset of interest</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">dataset_id</span> <span class="o">=</span> <span class="n">dataset</span>
+
+    <span class="c1">#########################################</span>
+    <span class="c1"># Pull the data, based upon protocol type</span>
+    <span class="c1">#########################################</span>
+
+    <span class="c1"># GRIDDAP Protocol</span>
+    <span class="k">if</span> <span class="n">data_protocol</span> <span class="o">==</span> <span class="s2">&quot;griddap&quot;</span><span class="p">:</span>
+
+        <span class="c1"># Initialize the connection</span>
+        <span class="n">e</span><span class="o">.</span><span class="n">griddap_initialize</span><span class="p">()</span>
+
+        <span class="c1"># Update the constraints</span>
+        <span class="k">if</span> <span class="n">constraints</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">e</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">constraints</span><span class="p">)</span>
+            <span class="n">e</span><span class="o">.</span><span class="n">griddap_initialize</span><span class="p">()</span>
+
+        <span class="c1"># Update the selection of the variables</span>
+        <span class="k">if</span> <span class="n">variables</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">e</span><span class="o">.</span><span class="n">variables</span> <span class="o">=</span> <span class="n">variables</span>
+
+        <span class="n">erddap_data</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">to_xarray</span><span class="p">()</span>
+
+    <span class="c1"># TABLEDAP Protocol</span>
+    <span class="k">elif</span> <span class="n">data_protocol</span> <span class="o">==</span> <span class="s2">&quot;tabledap&quot;</span><span class="p">:</span>
+
+        <span class="c1"># Update the constraints</span>
+        <span class="k">if</span> <span class="n">constraints</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">e</span><span class="o">.</span><span class="n">constraints</span> <span class="o">=</span> <span class="n">constraints</span>
+
+        <span class="c1"># Update the selection of the variables</span>
+        <span class="k">if</span> <span class="n">variables</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">e</span><span class="o">.</span><span class="n">variables</span> <span class="o">=</span> <span class="n">variables</span>
+
+        <span class="n">erddap_data</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+
+    <span class="c1"># Invalid protocol given</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Invalid ERDDAP protocol. Given protocol is: &#39;</span> <span class="o">+</span> <span class="n">data_protocol</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Valid protocols include &quot;griddap&quot; or &quot;tabledap&quot;. Please restart and try again with a valid protocol&#39;</span><span class="p">)</span>
+        <span class="n">erddap_data</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1">#############################</span>
+    <span class="k">return</span> <span class="n">erddap_data</span>
+
+
+<span class="c1"># Get data</span>
+<span class="n">cioos_url</span> <span class="o">=</span> <span class="s1">&#39;https://data.cioospacific.ca/erddap&#39;</span>
+<span class="n">cioos_dataset</span> <span class="o">=</span> <span class="s1">&#39;IOS_CTD_Moorings&#39;</span>
+
+<span class="n">variables</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;sea_water_pressure&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;sea_water_temperature&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;sea_water_practical_salinity&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;TEMPST01&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;depth&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;longitude&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;latitude&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;filename&quot;</span><span class="p">]</span>
+
+<span class="n">constraints</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;time&gt;=&quot;</span><span class="p">:</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%SZ&#39;</span><span class="p">),</span>
+               <span class="s2">&quot;longitude&gt;=&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">128.975</span><span class="p">,</span>
+               <span class="s2">&quot;longitude&lt;=&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">121.975</span><span class="p">,</span>
+               <span class="s2">&quot;latitude&gt;=&quot;</span><span class="p">:</span> <span class="mf">49.1</span><span class="p">,</span>
+               <span class="s2">&quot;latitude&lt;=&quot;</span><span class="p">:</span> <span class="mf">49.3</span><span class="p">}</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">get_erddap_data</span><span class="p">(</span><span class="n">cioos_url</span><span class="p">,</span> <span class="n">cioos_dataset</span><span class="p">,</span>
+                <span class="n">variables</span><span class="o">=</span><span class="n">variables</span><span class="p">,</span>
+                <span class="n">constraints</span><span class="o">=</span><span class="n">constraints</span><span class="p">,</span>
+                <span class="n">data_protocol</span><span class="o">=</span><span class="s2">&quot;tabledap&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># print(data.head())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="make-some-plots">
+<h2>Make some plots<a class="headerlink" href="#make-some-plots" title="Permalink to this heading">#</a></h2>
+<p>First we’ll start with a simple interactive plot with a selection box to select a variable to plot against time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;IOS_CTD_Moorings Data Visualization&#39;</span><span class="p">)</span>
+
+<span class="c1"># Interactive Plot</span>
+<span class="c1"># Streamlit allows you to add formatted text to your app</span>
+<span class="n">st</span><span class="o">.</span><span class="n">subheader</span><span class="p">(</span><span class="s1">&#39;Interactive Scatter Plot&#39;</span><span class="p">)</span>
+<span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Location:  (49.1 - 49.3 &amp; 126 - 126.7)&#39;</span><span class="p">)</span>
+<span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Time frame:  2022-07-01 to 2022-07-21&#39;</span><span class="p">)</span>
+
+<span class="c1"># # Streamlit widgets for interactive filtering</span>
+<span class="n">selected_variable</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">selectbox</span><span class="p">(</span><span class="s1">&#39;Select Variable&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;sea_water_temperature (degC)&#39;</span><span class="p">,</span> <span class="s1">&#39;sea_water_pressure (dbar)&#39;</span><span class="p">,</span>
+                                                     <span class="s1">&#39;sea_water_practical_salinity (PSS-78)&#39;</span><span class="p">))</span>
+<span class="c1"># Plotly express is part of the Plotly library. It contains built in interactive</span>
+<span class="c1"># features like zoom, pan, and hovering data labels </span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;time (UTC)&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">selected_variable</span><span class="p">)</span>
+<span class="n">st</span><span class="o">.</span><span class="n">plotly_chart</span><span class="p">(</span><span class="n">plot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-08-11 16:21:07.206 
+  <span class=" -Color -Color-Bold -Color-Bold-Yellow">Warning:</span> to view this Streamlit app on a browser, run it with the following
+  command:
+
+    streamlit run /opt/conda/lib/python3.9/site-packages/ipykernel_launcher.py [ARGUMENTS]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeltaGenerator()
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we’ll make a static scatter plot with a table of data values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get a smaller dataset</span>
+<span class="n">constraints</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;time&gt;=&quot;</span><span class="p">:</span> <span class="s2">&quot;max(time)-365&quot;</span><span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">get_erddap_data</span><span class="p">(</span><span class="n">cioos_url</span><span class="p">,</span> <span class="n">cioos_dataset</span><span class="p">,</span>
+                <span class="n">variables</span><span class="o">=</span><span class="n">variables</span><span class="p">,</span>
+                <span class="n">constraints</span><span class="o">=</span><span class="n">constraints</span><span class="p">,</span>
+                <span class="n">data_protocol</span><span class="o">=</span><span class="s2">&quot;tabledap&quot;</span><span class="p">)</span>
+
+<span class="n">st</span><span class="o">.</span><span class="n">subheader</span><span class="p">(</span><span class="s1">&#39;Static Scatter Plot&#39;</span><span class="p">)</span>
+<span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Time frame:  2022-07-21&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">cb</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;time (UTC)&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;sea_water_temperature (degC)&#39;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;sea_water_pressure (dbar)&#39;</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time (UTC)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;sea_water_temperature (degC)&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cb</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="c1"># Here we&#39;ll use streamlit to display a matplotlib.pyplot figure</span>
+<span class="n">st</span><span class="o">.</span><span class="n">pyplot</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+
+<span class="c1"># Display a data table to accompany the plot</span>
+<span class="n">df_subset</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:,[</span><span class="s1">&#39;time (UTC)&#39;</span><span class="p">,</span><span class="s1">&#39;sea_water_temperature (degC)&#39;</span><span class="p">,</span> <span class="s1">&#39;sea_water_pressure (dbar)&#39;</span><span class="p">]]</span>
+<span class="n">st</span><span class="o">.</span><span class="n">dataframe</span><span class="p">(</span><span class="n">df_subset</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DeltaGenerator()
+</pre></div>
+</div>
+<img alt="../_images/6d87d620b6ac130aaf875d224fbe15da9e03050d515854bc1332663c0af6e8fb.png" src="../_images/6d87d620b6ac130aaf875d224fbe15da9e03050d515854bc1332663c0af6e8fb.png" />
+</div>
+</div>
+</section>
+<section id="app-complete">
+<h2>App complete!<a class="headerlink" href="#app-complete" title="Permalink to this heading">#</a></h2>
+<p>Up to this point, we completed pulling data from an online server and plotting it two different ways using the streamlit library.
+Now we need to preview and deploy the app</p>
+</section>
+<section id="run-the-app">
+<h2>Run the app<a class="headerlink" href="#run-the-app" title="Permalink to this heading">#</a></h2>
+<p>To run the app, make sure your file is saved as a .py python file rather than a jupyter notebook file. Then open up a terminal window and run the following command, replacing my_app.py with the path to your app file.</p>
+<blockquote>
+<div><p><em>streamlit run my_app.py</em></p>
+</div></blockquote>
+<p>A browser window should open displaying the plots you created</p>
+</section>
+<section id="share-your-app">
+<h2>Share your app<a class="headerlink" href="#share-your-app" title="Permalink to this heading">#</a></h2>
+<p>To share your app, you have two options. You may set up a private server to host your application or you can deploy it on Streamlit’s free community cloud. Once deployed, you will have a url that can be publically shared. Step by step instructions can be found on the <a class="reference external" href="https://blog.streamlit.io/host-your-streamlit-app-for-free/#:~:text=Connect%20your%20account%20to%20GitHub,-There%20are%20two&amp;text=On%20the%20authorization%20page%2C%20click%20on%20%E2%80%9CAuthorize%20streamlit.%22&amp;text=This%20will%20let%20Community%20Cloud,%2C%20click%20%E2%80%9CAuthorize%20streamlit.%22&amp;text=Now%20you're%20ready%20to%20deploy%20Streamlit%20apps!">Streamlit website</a></p>
+<p>Deployed web app for this notebook example can be viewed <a class="reference external" href="https://mooringapp-5davsitseswj6tfudqtvqh.streamlit.app/">here</a></p>
+</section>
+</section>
+
+<div class="section">
+   
+</div>
+
+                </article>
+              
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-modules">Import modules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#access-mooring-data-from-erddap-server">Access mooring data from ERDDAP server</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-some-plots">Make some plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#app-complete">App complete!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-app">Run the app</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#share-your-app">Share your app</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/oceanhackweek/oceanhackweek.github.io/edit/source/streamlit_mooring_app_instructions.ipynb">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+  <div class="tocsection sourcelink">
+    <a href="../_sources/streamlit_mooring_app_instructions.ipynb.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2023, OceanHackWeek.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

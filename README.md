@@ -2,7 +2,7 @@
 
 ## Description
 
-Data page for display and downloading mooring data
+Data page for display and downloading mooring data.
 
 ## Collaborators
 
