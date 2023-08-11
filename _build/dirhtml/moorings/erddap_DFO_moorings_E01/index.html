@@ -1,0 +1,1272 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>DFO Moorings &#8212; Pacific Moorings Page</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'moorings/erddap_DFO_moorings_E01';</script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Downloading DFO Historical Mooring Data" href="../dfo_mooring_plots_copy/" />
+    <link rel="prev" title="Moorings" href="../" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>  
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this site..."
+         aria-label="Search this site..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Pacific Moorings Page</p>
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../">
+                        Moorings
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../interactive/interactive/">
+                        Interactive Viz
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/oceanhackweek/ohw23_proj_fancymoorings" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/orgs/oceanhackweek/ohw23_proj_fancymoorings/issues" title="Discussions" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-comments"></i></span>
+            <label class="sr-only">Discussions</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/about/contact.html" title="Email" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-envelope"></i></span>
+            <label class="sr-only">Email</label></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../">
+                        Moorings
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../interactive/interactive/">
+                        Interactive Viz
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/oceanhackweek/ohw23_proj_fancymoorings" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/orgs/oceanhackweek/ohw23_proj_fancymoorings/issues" title="Discussions" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-comments"></i></span>
+            <label class="sr-only">Discussions</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="/about/contact.html" title="Email" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fas fa-envelope"></i></span>
+            <label class="sr-only">Email</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><a href="/"><div class="profile-pic"><img src="../../_static/whistling_buoy.jpg" /></div></a>
+
+<div class="bio-info">
+    <div class="name">
+        Moorings Page
+    </div>
+    <div class="focusareas">
+        BC + WA
+    </div>
+
+    <!-- <div class="whatido">
+        What I do
+    </div> -->
+</div></div>
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">DFO Moorings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dfo_mooring_plots_copy/">Downloading DFO Historical Mooring Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Puget_Sound/">Plot Temperature subplot</a></li>
+
+
+
+
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../" class="nav-link">Moorings</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">DFO Moorings</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                   <section id="dfo-moorings">
+<h1>DFO Moorings<a class="headerlink" href="#dfo-moorings" title="Permalink to this heading">#</a></h1>
+<section id="mooring-ctd-time-series-visulization-e01">
+<h2>Mooring CTD time series visulization - E01<a class="headerlink" href="#mooring-ctd-time-series-visulization-e01" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import python packages needed</span>
+<span class="kn">import</span> <span class="nn">erddapy</span>
+<span class="kn">from</span> <span class="nn">erddapy</span> <span class="kn">import</span> <span class="n">ERDDAP</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">xarray</span>
+<span class="kn">import</span> <span class="nn">cf_xarray</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">netCDF4</span>
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="develop-a-function-to-download-mooring-data-from-erddap-server">
+<h3>1. develop a function to download mooring data from ERDDAP server<a class="headerlink" href="#develop-a-function-to-download-mooring-data-from-erddap-server" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_erddap_data</span><span class="p">(</span><span class="n">erddap_url</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">data_protocol</span><span class="o">=</span><span class="s2">&quot;griddap&quot;</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function: get_erddap_data</span>
+<span class="sd">    This function uses the erddapy python library to access data from ERDDAP servers,</span>
+<span class="sd">    and to return it to users in convenient formats for python users.</span>
+<span class="sd">    Data can be pulled from &quot;tabledap&quot; or &quot;griddap&quot; formats, with different</span>
+<span class="sd">    output types, depending on the dap type.</span>
+<span class="sd">    </span>
+<span class="sd">    Inputs:</span>
+<span class="sd">    erddap_url    - The url address of the erddap server to pull data from</span>
+<span class="sd">    variables     - The selected variables within the dataset.</span>
+<span class="sd">    data_protocol - The erddap data protocol for the chosen dataset.</span>
+<span class="sd">                    Options include &quot;tabledap&quot; or &quot;griddap&quot;</span>
+<span class="sd">                    The default option is given as &quot;griddap&quot;</span>
+<span class="sd">    dataset       - The ID for the relevant dataset on the erddap server</span>
+<span class="sd">                    If no variables are given, it is assumed that all variables</span>
+<span class="sd">                    will be pulled.</span>
+<span class="sd">    constraints   - These are set by the user to help restrict the data pull</span>
+<span class="sd">                    to only the area and timeframe of interest.</span>
+<span class="sd">                    If no constraints are given, all data in a dataset is pulled.</span>
+<span class="sd">                    Constraints should be given as a dictionary, where</span>
+<span class="sd">                    each entry is a bound and/or selection of a specific axis variable</span>
+<span class="sd">                    Exs. {&quot;longitude&lt;=&quot;: &quot;min(longitude)+10&quot;, &quot;longitude&gt;=&quot;: &quot;0&quot;}</span>
+<span class="sd">                         {&quot;longitude=&quot;: &quot;140&quot;, &quot;time&gt;=&quot;: &quot;max(time)-30&quot;}</span>
+<span class="sd">    </span>
+<span class="sd">    Outputs:</span>
+<span class="sd">    erddap_data   - This variable contains the pulled data from the erddap server.</span>
+<span class="sd">                    If the data_protocol is &quot;griddap&quot;,  then erddap_data is an xarray dataset</span>
+<span class="sd">                    If the data_protocol is &quot;tabledap&quot;, then erddap_data is a pandas dataframe</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="kn">import</span> <span class="nn">erddapy</span>
+    <span class="kn">from</span> <span class="nn">erddapy</span> <span class="kn">import</span> <span class="n">ERDDAP</span>
+    <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+    <span class="kn">import</span> <span class="nn">xarray</span>
+    
+    
+    <span class="c1">############################################</span>
+    <span class="c1"># Set-up the connection to the ERDDAP server</span>
+    <span class="c1">############################################</span>
+    
+    <span class="c1"># Connect to the erddap server</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">ERDDAP</span><span class="p">(</span><span class="n">server</span><span class="o">=</span><span class="n">erddap_url</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="n">data_protocol</span><span class="p">,</span> <span class="n">response</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># Identify the dataset of interest</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">dataset_id</span> <span class="o">=</span> <span class="n">dataset</span>
+    
+    
+    <span class="c1">#########################################</span>
+    <span class="c1"># Pull the data, based upon protocol type</span>
+    <span class="c1">#########################################</span>
+    
+    <span class="c1"># GRIDDAP Protocol</span>
+    <span class="k">if</span> <span class="n">data_protocol</span> <span class="o">==</span> <span class="s2">&quot;griddap&quot;</span><span class="p">:</span>
+        
+        <span class="c1"># Initialize the connection</span>
+        <span class="n">e</span><span class="o">.</span><span class="n">griddap_initialize</span><span class="p">()</span>
+
+        <span class="c1"># Update the constraints</span>
+        <span class="k">if</span> <span class="n">constraints</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">e</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">constraints</span><span class="p">)</span>
+            <span class="n">e</span><span class="o">.</span><span class="n">griddap_initialize</span><span class="p">()</span>
+            
+        <span class="c1"># Update the selection of the variables</span>
+        <span class="k">if</span> <span class="n">variables</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">e</span><span class="o">.</span><span class="n">variables</span> <span class="o">=</span> <span class="n">variables</span>
+
+        <span class="n">erddap_data</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">to_xarray</span><span class="p">()</span>
+    
+    <span class="c1"># TABLEDAP Protocol</span>
+    <span class="k">elif</span> <span class="n">data_protocol</span> <span class="o">==</span> <span class="s2">&quot;tabledap&quot;</span><span class="p">:</span>
+
+        <span class="c1"># Update the constraints</span>
+        <span class="k">if</span> <span class="n">constraints</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">e</span><span class="o">.</span><span class="n">constraints</span> <span class="o">=</span> <span class="n">constraints</span>
+            
+        <span class="c1"># Update the selection of the variables</span>
+        <span class="k">if</span> <span class="n">variables</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">e</span><span class="o">.</span><span class="n">variables</span> <span class="o">=</span> <span class="n">variables</span>
+            
+        <span class="n">erddap_data</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+    
+    <span class="c1"># Invalid protocol given</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Invalid ERDDAP protocol. Given protocol is: &#39;</span> <span class="o">+</span> <span class="n">data_protocol</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Valid protocols include &quot;griddap&quot; or &quot;tabledap&quot;. Please restart and try again with a valid protocol&#39;</span><span class="p">)</span>
+        <span class="n">erddap_data</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    
+    <span class="c1">#############################</span>
+    <span class="k">return</span> <span class="n">erddap_data</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-and-map-the-data-search-polygon-for-e01">
+<h3>2. Set and map the data search polygon for E01<a class="headerlink" href="#set-and-map-the-data-search-polygon-for-e01" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># show the bounding polygon for E01 data search</span>
+
+<span class="kn">import</span> <span class="nn">folium</span>
+
+<span class="c1">#set the boundary box</span>
+<span class="n">min_lat</span><span class="p">,</span> <span class="n">max_lat</span> <span class="o">=</span> <span class="mf">49.28</span><span class="p">,</span> <span class="mf">49.30</span>
+<span class="n">min_lon</span><span class="p">,</span> <span class="n">max_lon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">126.62</span><span class="p">,</span> <span class="o">-</span><span class="mf">126.60</span>
+
+<span class="n">lon</span> <span class="o">=</span> <span class="p">(</span><span class="n">min_lon</span> <span class="o">+</span> <span class="n">max_lon</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">lat</span> <span class="o">=</span> <span class="p">(</span><span class="n">min_lat</span> <span class="o">+</span> <span class="n">max_lat</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">],</span> <span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;OpenStreetMap&quot;</span><span class="p">,</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">folium</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span>
+    <span class="p">[(</span><span class="n">min_lat</span><span class="p">,</span> <span class="n">min_lon</span><span class="p">),</span> <span class="p">(</span><span class="n">max_lat</span><span class="p">,</span> <span class="n">min_lon</span><span class="p">),</span> <span class="p">(</span><span class="n">max_lat</span><span class="p">,</span> <span class="n">max_lon</span><span class="p">),</span> <span class="p">(</span><span class="n">min_lat</span><span class="p">,</span> <span class="n">max_lon</span><span class="p">)],</span>
+    <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+    
+        &lt;script&gt;
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        &lt;/script&gt;
+    
+    &lt;style&gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&lt;/style&gt;
+    &lt;style&gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&lt;/style&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-1.12.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
+    
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+            &lt;style&gt;
+                #map_b45fc9caceaf0e09f235500ab4a4901d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            &lt;/style&gt;
+        
+&lt;/head&gt;
+&lt;body&gt;
+    
+    
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_b45fc9caceaf0e09f235500ab4a4901d&quot; &gt;&lt;/div&gt;
+        
+&lt;/body&gt;
+&lt;script&gt;
+    
+    
+            var map_b45fc9caceaf0e09f235500ab4a4901d = L.map(
+                &quot;map_b45fc9caceaf0e09f235500ab4a4901d&quot;,
+                {
+                    center: [49.29, -126.61],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 5,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_5845d1184f2bee2e6f40b48dc70718f6 = L.tileLayer(
+                &quot;https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
+                {&quot;attribution&quot;: &quot;Data by \u0026copy; \u003ca target=\&quot;_blank\&quot; href=\&quot;http://openstreetmap.org\&quot;\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\&quot;_blank\&quot; href=\&quot;http://www.openstreetmap.org/copyright\&quot;\u003eODbL\u003c/a\u003e.&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
+            ).addTo(map_b45fc9caceaf0e09f235500ab4a4901d);
+        
+    
+            var polygon_27de95137fad56c9034f694beeac9d49 = L.polygon(
+                [[49.28, -126.62], [49.3, -126.62], [49.3, -126.6], [49.28, -126.6]],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#3388ff&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#3388ff&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;noClip&quot;: false, &quot;opacity&quot;: 1.0, &quot;smoothFactor&quot;: 1.0, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_b45fc9caceaf0e09f235500ab4a4901d);
+        
+&lt;/script&gt;
+&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
+</div>
+</section>
+<section id="e01-moored-ctd-data-download">
+<h3>3. E01 moored CTD data download<a class="headerlink" href="#e01-moored-ctd-data-download" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#get DFO mooring E01 data from cioos erddap server</span>
+<span class="n">cioos_url</span> <span class="o">=</span> <span class="s1">&#39;https://data.cioospacific.ca/erddap&#39;</span>
+<span class="n">cioos_dataset</span> <span class="o">=</span> <span class="s1">&#39;IOS_CTD_Moorings&#39;</span>
+
+<span class="n">variables</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;depth&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;latitude&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;longitude&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;sea_water_pressure&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;sea_water_temperature&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;sea_water_practical_salinity&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;TEMPS901&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;TEMPS902&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;TEMPS601&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;TEMPS602&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;TEMPST01&quot;</span><span class="p">]</span>
+
+<span class="c1">#constraints = {&quot;time&gt;=&quot;:datetime.datetime(2022,1,1).strftime(&#39;%Y-%m-%dT%H:%M:%SZ&#39;)}</span>
+<span class="c1">#constraints = {&quot;time&gt;=&quot;: &quot;max(time)-365&quot;}</span>
+<span class="n">constraints</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;latitude&gt;=&quot;</span><span class="p">:</span> <span class="mf">49.28</span><span class="p">,</span>
+    <span class="s2">&quot;latitude&lt;=&quot;</span><span class="p">:</span> <span class="mf">49.30</span><span class="p">,</span>
+    <span class="s2">&quot;longitude&gt;=&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">126.62</span><span class="p">,</span>
+    <span class="s2">&quot;longitude&lt;=&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">126.60</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">cioos_table</span> <span class="o">=</span> <span class="n">get_erddap_data</span><span class="p">(</span><span class="n">cioos_url</span><span class="p">,</span> <span class="n">cioos_dataset</span><span class="p">,</span> 
+                <span class="n">variables</span><span class="o">=</span><span class="n">variables</span><span class="p">,</span>
+                <span class="n">constraints</span><span class="o">=</span><span class="n">constraints</span><span class="p">,</span>
+                <span class="n">data_protocol</span><span class="o">=</span><span class="s2">&quot;tabledap&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check the downloaded data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cioos_table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time (UTC)</th>
+      <th>depth (m)</th>
+      <th>latitude (degrees_north)</th>
+      <th>longitude (degrees_east)</th>
+      <th>sea_water_pressure (dbar)</th>
+      <th>sea_water_temperature (degC)</th>
+      <th>sea_water_practical_salinity (PSS-78)</th>
+      <th>TEMPS901 (deg_C)</th>
+      <th>TEMPS902 (deg_C)</th>
+      <th>TEMPS601 (deg_C)</th>
+      <th>TEMPS602 (deg_C)</th>
+      <th>TEMPST01 (deg_C)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2008-04-28T20:00:01Z</td>
+      <td>73.502020</td>
+      <td>49.288185</td>
+      <td>-126.60239</td>
+      <td>74.146</td>
+      <td>NaN</td>
+      <td>32.9249</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7.5953</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2008-04-28T20:00:21Z</td>
+      <td>73.502020</td>
+      <td>49.288185</td>
+      <td>-126.60239</td>
+      <td>74.146</td>
+      <td>NaN</td>
+      <td>32.9276</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7.5958</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2008-04-28T20:00:41Z</td>
+      <td>73.448494</td>
+      <td>49.288185</td>
+      <td>-126.60239</td>
+      <td>74.092</td>
+      <td>NaN</td>
+      <td>32.9293</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7.5964</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2008-04-28T20:01:01Z</td>
+      <td>73.484170</td>
+      <td>49.288185</td>
+      <td>-126.60239</td>
+      <td>74.128</td>
+      <td>NaN</td>
+      <td>32.9304</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7.5981</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2008-04-28T20:01:21Z</td>
+      <td>73.466330</td>
+      <td>49.288185</td>
+      <td>-126.60239</td>
+      <td>74.110</td>
+      <td>NaN</td>
+      <td>32.9298</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7.5972</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1128615</th>
+      <td>2022-07-14T23:00:07Z</td>
+      <td>97.252230</td>
+      <td>49.288330</td>
+      <td>-126.60290</td>
+      <td>98.110</td>
+      <td>7.1191</td>
+      <td>33.7387</td>
+      <td>7.1191</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1128616</th>
+      <td>2022-07-14T23:30:07Z</td>
+      <td>97.026276</td>
+      <td>49.288330</td>
+      <td>-126.60290</td>
+      <td>97.882</td>
+      <td>7.1316</td>
+      <td>33.7315</td>
+      <td>7.1316</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1128617</th>
+      <td>2022-07-15T00:00:07Z</td>
+      <td>96.897440</td>
+      <td>49.288330</td>
+      <td>-126.60290</td>
+      <td>97.752</td>
+      <td>7.1474</td>
+      <td>33.7214</td>
+      <td>7.1474</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1128618</th>
+      <td>2022-07-15T00:30:07Z</td>
+      <td>96.605090</td>
+      <td>49.288330</td>
+      <td>-126.60290</td>
+      <td>97.457</td>
+      <td>7.1669</td>
+      <td>33.7088</td>
+      <td>7.1669</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1128619</th>
+      <td>2022-07-15T01:00:07Z</td>
+      <td>96.442560</td>
+      <td>49.288330</td>
+      <td>-126.60290</td>
+      <td>97.293</td>
+      <td>7.1878</td>
+      <td>33.6931</td>
+      <td>7.1878</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>1128620 rows × 12 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cioos_table</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cioos_table_1</span> <span class="o">=</span> <span class="n">cioos_table</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time (UTC)&#39;</span><span class="p">:</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span>
+                                            <span class="s1">&#39;depth (m)&#39;</span><span class="p">:</span> <span class="s1">&#39;depth&#39;</span><span class="p">,</span> 
+                                            <span class="s1">&#39;latitude (degrees_north)&#39;</span><span class="p">:</span> <span class="s1">&#39;latitude&#39;</span><span class="p">,</span>
+                                            <span class="s1">&#39;longitude (degrees_east)&#39;</span><span class="p">:</span> <span class="s1">&#39;longitude&#39;</span><span class="p">,</span>
+                                            <span class="s1">&#39;sea_water_pressure (dbar)&#39;</span><span class="p">:</span> <span class="s1">&#39;sea_water_pressure&#39;</span><span class="p">,</span>
+                                            <span class="s1">&#39;sea_water_temperature (degC)&#39;</span><span class="p">:</span> <span class="s1">&#39;sea_water_temperature&#39;</span><span class="p">,</span>
+                                            <span class="s1">&#39;sea_water_practical_salinity (PSS-78)&#39;</span><span class="p">:</span> <span class="s1">&#39;sea_water_pratical_salinity&#39;</span><span class="p">,</span>
+                                            <span class="s1">&#39;TEMPS901 (deg_C)&#39;</span><span class="p">:</span> <span class="s1">&#39;TEMPS901&#39;</span><span class="p">,</span>
+                                            <span class="s1">&#39;TEMPS902 (deg_C)&#39;</span><span class="p">:</span> <span class="s1">&#39;TEMPS902&#39;</span><span class="p">,</span>
+                                            <span class="s1">&#39;TEMPS601 (deg_C)&#39;</span><span class="p">:</span> <span class="s1">&#39;TEMPS601&#39;</span><span class="p">,</span>
+                                            <span class="s1">&#39;TEMPS602 (deg_C)&#39;</span><span class="p">:</span> <span class="s1">&#39;TEMPS602&#39;</span><span class="p">,</span>
+                                            <span class="s1">&#39;TEMPST01 (deg_C)&#39;</span><span class="p">:</span> <span class="s1">&#39;TEMPST01&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cioos_table_1</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># could drop columns without real data</span>
+<span class="n">cioos_table_1</span> <span class="o">=</span> <span class="n">cioos_table_1</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;TEMPS901&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMPS902&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMPS601&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMPS602&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cioos_table_1</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="check-and-plot-the-instrument-depths-e01">
+<h3>4. Check and plot the instrument depths &#64; E01<a class="headerlink" href="#check-and-plot-the-instrument-depths-e01" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cioos_table_1</span><span class="o">.</span><span class="n">depth</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../../_images/fbbb15c4e74cc77ac1691473d2cfb764acafc170ca16ea32d37ca3d17e65d9ae.png" src="../../_images/fbbb15c4e74cc77ac1691473d2cfb764acafc170ca16ea32d37ca3d17e65d9ae.png" />
+</div>
+</div>
+</section>
+<section id="plot-temperature-and-salinity-time-series-at-three-different-depths-at-e01">
+<h3>5. Plot Temperature and Salinity time series at three different depths at E01<a class="headerlink" href="#plot-temperature-and-salinity-time-series-at-three-different-depths-at-e01" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#cioos_e01_35 = cioos_table_1[(cioos_table_1[&quot;depth&quot;] &gt;= 30) &amp; (cioos_table_1[&quot;depth&quot;] &lt;= 40)]</span>
+<span class="c1">#cioos_e01_75 = cioos_table_1[(cioos_table_1[&quot;depth&quot;] &gt;= 70) &amp; (cioos_table_1[&quot;depth&quot;] &lt;= 80)]</span>
+<span class="c1">#cioos_e01_95 = cioos_table_1[(cioos_table_1[&quot;depth&quot;] &gt;= 90) &amp; (cioos_table_1[&quot;depth&quot;] &lt;= 100)]</span>
+<span class="c1">#newtime_35= pd.DatetimeIndex(cioos_e01_35[&#39;time&#39;].values)</span>
+
+<span class="k">def</span> <span class="nf">plot_dfo_E01_mooring</span><span class="p">(</span><span class="n">depth</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">depth</span> <span class="o">==</span> <span class="mi">35</span><span class="p">:</span>
+        <span class="n">cioos_e01</span> <span class="o">=</span> <span class="n">cioos_table_1</span><span class="p">[(</span><span class="n">cioos_table_1</span><span class="p">[</span><span class="s2">&quot;depth&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">30</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">cioos_table_1</span><span class="p">[</span><span class="s2">&quot;depth&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">40</span><span class="p">)]</span>
+    <span class="k">elif</span> <span class="n">depth</span> <span class="o">==</span> <span class="mi">75</span><span class="p">:</span>
+        <span class="n">cioos_e01</span> <span class="o">=</span> <span class="n">cioos_table_1</span><span class="p">[(</span><span class="n">cioos_table_1</span><span class="p">[</span><span class="s2">&quot;depth&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">cioos_table_1</span><span class="p">[</span><span class="s2">&quot;depth&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">80</span><span class="p">)]</span>
+    <span class="k">elif</span> <span class="n">depth</span> <span class="o">==</span> <span class="mi">95</span><span class="p">:</span>
+        <span class="n">cioos_e01</span> <span class="o">=</span> <span class="n">cioos_table_1</span><span class="p">[(</span><span class="n">cioos_table_1</span><span class="p">[</span><span class="s2">&quot;depth&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">cioos_table_1</span><span class="p">[</span><span class="s2">&quot;depth&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">)]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;invalid input depth&quot;</span><span class="p">)</span>
+    
+    <span class="n">newtime</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">cioos_e01</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">newtime</span><span class="p">,</span> <span class="n">cioos_e01</span><span class="o">.</span><span class="n">sea_water_temperature</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+    <span class="c1">#ax[0].plot(newtime, cioos_e01.sea_water_temperature, linewidth=0.05, c=&#39;orange&#39;)</span>
+    <span class="c1">#ax[0].plot(newtime, cioos_e01.TEMPST01, &#39;.&#39;, linewidth=0.05, c=&#39;orange&#39;)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">newtime</span><span class="p">,</span> <span class="n">cioos_e01</span><span class="o">.</span><span class="n">TEMPST01</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Temperature&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Sea Water Temperature (C)&#39;</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">newtime</span><span class="p">,</span> <span class="n">cioos_e01</span><span class="o">.</span><span class="n">sea_water_pratical_salinity</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    <span class="c1">#ax[1].plot(newtime, cioos_e01.sea_water_pratical_salinity, linewidth=0.05, c=&#39;blue&#39;)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Salinity&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Sea Water Salinity (psu)&#39;</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;DFO Mooring Station E01 at depth </span><span class="si">{}</span><span class="s2"> metres&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">depth</span><span class="p">)))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_dfo_E01_mooring</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/90d7bb9fe229d7690b3b3cafb393f07d7ec64031c6b775197aef7d2ad6446f2b.png" src="../../_images/90d7bb9fe229d7690b3b3cafb393f07d7ec64031c6b775197aef7d2ad6446f2b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_dfo_E01_mooring</span><span class="p">(</span><span class="mi">75</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/335860272bb0eeccd963721c385d55cb787bd668bb8012fc21a50f461c644211.png" src="../../_images/335860272bb0eeccd963721c385d55cb787bd668bb8012fc21a50f461c644211.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_dfo_E01_mooring</span><span class="p">(</span><span class="mi">95</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/00cebfe42d4acce645a5bbd4c5f5495cf192519b9fcba3ad1a8c960fb60803d0.png" src="../../_images/00cebfe42d4acce645a5bbd4c5f5495cf192519b9fcba3ad1a8c960fb60803d0.png" />
+</div>
+</div>
+</section>
+<section id="compare-the-temperature-and-salinity-time-series-from-three-depths">
+<h3>6. Compare the temperature and salinity time series from three depths<a class="headerlink" href="#compare-the-temperature-and-salinity-time-series-from-three-depths" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_dfo_E01_mooring</span><span class="p">(</span><span class="n">variable</span><span class="p">):</span>
+    <span class="n">cioos_e01_35</span> <span class="o">=</span> <span class="n">cioos_table_1</span><span class="p">[(</span><span class="n">cioos_table_1</span><span class="p">[</span><span class="s2">&quot;depth&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">30</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">cioos_table_1</span><span class="p">[</span><span class="s2">&quot;depth&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">40</span><span class="p">)]</span>
+    <span class="n">cioos_e01_75</span> <span class="o">=</span> <span class="n">cioos_table_1</span><span class="p">[(</span><span class="n">cioos_table_1</span><span class="p">[</span><span class="s2">&quot;depth&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">cioos_table_1</span><span class="p">[</span><span class="s2">&quot;depth&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">80</span><span class="p">)]</span>
+    <span class="n">cioos_e01_95</span> <span class="o">=</span> <span class="n">cioos_table_1</span><span class="p">[(</span><span class="n">cioos_table_1</span><span class="p">[</span><span class="s2">&quot;depth&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">cioos_table_1</span><span class="p">[</span><span class="s2">&quot;depth&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">)]</span>
+    
+    <span class="n">newtime_35</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">cioos_e01_35</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">newtime_75</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">cioos_e01_75</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">newtime_95</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">cioos_e01_95</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    <span class="nb">vars</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="s2">&quot;Temperature&quot;</span><span class="p">,</span> <span class="s2">&quot;Salinity&quot;</span><span class="p">]</span>
+    
+    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Temperature&#39;</span><span class="p">:</span>
+        <span class="c1">#fig, ax = plt.subplots(1, figsize=(15, 8), sharex=True)</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">newtime_35</span><span class="p">,</span> <span class="n">cioos_e01_35</span><span class="o">.</span><span class="n">sea_water_temperature</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;#FF0000&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;35m&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">newtime_35</span><span class="p">,</span> <span class="n">cioos_e01_35</span><span class="o">.</span><span class="n">TEMPST01</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;#FF0000&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">newtime_75</span><span class="p">,</span> <span class="n">cioos_e01_75</span><span class="o">.</span><span class="n">sea_water_temperature</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;#FFA500&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;75m&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">newtime_75</span><span class="p">,</span> <span class="n">cioos_e01_75</span><span class="o">.</span><span class="n">TEMPST01</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;#FFA500&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">newtime_95</span><span class="p">,</span> <span class="n">cioos_e01_95</span><span class="o">.</span><span class="n">sea_water_temperature</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;#FFFF00&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;95m&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">newtime_95</span><span class="p">,</span> <span class="n">cioos_e01_95</span><span class="o">.</span><span class="n">TEMPST01</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;#FFFF00&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Temperature Time Series @ E01&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Sea Water Temperature (C)&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span>
+        <span class="c1">#plt.suptitle((&quot;DFO Mooring Station E01  {} time series&quot;.format(str(index)))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>         
+    <span class="k">elif</span> <span class="nb">str</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Salinity&#39;</span><span class="p">:</span>
+        <span class="c1">#fig, ax = plt.subplots(1, figsize=(15, 8), sharex=True)</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">newtime_35</span><span class="p">,</span> <span class="n">cioos_e01_35</span><span class="o">.</span><span class="n">sea_water_pratical_salinity</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;#7BC8F6&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;35m&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">newtime_75</span><span class="p">,</span> <span class="n">cioos_e01_75</span><span class="o">.</span><span class="n">sea_water_pratical_salinity</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;#0343DF&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;75m&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">newtime_95</span><span class="p">,</span> <span class="n">cioos_e01_95</span><span class="o">.</span><span class="n">sea_water_pratical_salinity</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;#0000FF&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;95m&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Salinity Time Series @ E01&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Sea Water Salinity (psu)&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower left&quot;</span><span class="p">)</span>
+        <span class="c1">#plt.suptitle((&quot;DFO Mooring Station E01  {} time series&quot;.format(str(index)))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>                      
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid input variable&quot;</span><span class="p">)</span>                             
+   
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_dfo_E01_mooring</span><span class="p">(</span><span class="s2">&quot;Temperature&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/7c87e0039f2fd0388b0abf7c884eba83de541fb391da753511afd891065b1634.png" src="../../_images/7c87e0039f2fd0388b0abf7c884eba83de541fb391da753511afd891065b1634.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_dfo_E01_mooring</span><span class="p">(</span><span class="s2">&quot;Salinity&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/9f509b3e72c909b60123ce9ff6834733f0b81f6bb516c7c4633f7a82e68bef92.png" src="../../_images/9f509b3e72c909b60123ce9ff6834733f0b81f6bb516c7c4633f7a82e68bef92.png" />
+</div>
+</div>
+</section>
+<section id="to-do-list">
+<h3>7. To do list:<a class="headerlink" href="#to-do-list" title="Permalink to this heading">#</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  calculate and plot daily climatology
+  calculate and plot daily anomalies
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+<div class="section">
+   
+</div>
+
+                </article>
+              
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Moorings</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../dfo_mooring_plots_copy/"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Downloading DFO Historical Mooring Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mooring-ctd-time-series-visulization-e01">Mooring CTD time series visulization - E01</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#develop-a-function-to-download-mooring-data-from-erddap-server">1. develop a function to download mooring data from ERDDAP server</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-and-map-the-data-search-polygon-for-e01">2. Set and map the data search polygon for E01</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e01-moored-ctd-data-download">3. E01 moored CTD data download</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-and-plot-the-instrument-depths-e01">4. Check and plot the instrument depths @ E01</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-temperature-and-salinity-time-series-at-three-different-depths-at-e01">5. Plot Temperature and Salinity time series at three different depths at E01</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-the-temperature-and-salinity-time-series-from-three-depths">6. Compare the temperature and salinity time series from three depths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#to-do-list">7. To do list:</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/oceanhackweek/oceanhackweek.github.io/edit/source/moorings/erddap_DFO_moorings_E01.ipynb">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/moorings/erddap_DFO_moorings_E01.ipynb.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2023, OceanHackWeek.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

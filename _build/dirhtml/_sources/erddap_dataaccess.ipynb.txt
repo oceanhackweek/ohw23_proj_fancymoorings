@@ -1,0 +1,758 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "6c5aa766-2bc6-4b3c-a02d-28cd6214307a",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "import erddapy\n",
+    "from erddapy import ERDDAP\n",
+    "import numpy as np\n",
+    "import pandas as pd\n",
+    "import xarray\n",
+    "import cf_xarray\n",
+    "import datetime\n",
+    "import netCDF4\n",
+    "from netCDF4 import Dataset\n",
+    "\n",
+    "import matplotlib\n",
+    "from matplotlib import pyplot as plt"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "c473c538-93af-411f-98e5-e5603726f955",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "def get_erddap_data(erddap_url, dataset, data_protocol=\"griddap\", variables=None, constraints=None):\n",
+    "    \"\"\"\n",
+    "    Function: get_erddap_data\n",
+    "    This function uses the erddapy python library to access data from ERDDAP servers,\n",
+    "    and to return it to users in convenient formats for python users.\n",
+    "    Data can be pulled from \"tabledap\" or \"griddap\" formats, with different\n",
+    "    output types, depending on the dap type.\n",
+    "    \n",
+    "    Inputs:\n",
+    "    erddap_url    - The url address of the erddap server to pull data from\n",
+    "    variables     - The selected variables within the dataset.\n",
+    "    data_protocol - The erddap data protocol for the chosen dataset.\n",
+    "                    Options include \"tabledap\" or \"griddap\"\n",
+    "                    The default option is given as \"griddap\"\n",
+    "    dataset       - The ID for the relevant dataset on the erddap server\n",
+    "                    If no variables are given, it is assumed that all variables\n",
+    "                    will be pulled.\n",
+    "    constraints   - These are set by the user to help restrict the data pull\n",
+    "                    to only the area and timeframe of interest.\n",
+    "                    If no constraints are given, all data in a dataset is pulled.\n",
+    "                    Constraints should be given as a dictionary, where\n",
+    "                    each entry is a bound and/or selection of a specific axis variable\n",
+    "                    Exs. {\"longitude<=\": \"min(longitude)+10\", \"longitude>=\": \"0\"}\n",
+    "                         {\"longitude=\": \"140\", \"time>=\": \"max(time)-30\"}\n",
+    "    \n",
+    "    Outputs:\n",
+    "    erddap_data   - This variable contains the pulled data from the erddap server.\n",
+    "                    If the data_protocol is \"griddap\",  then erddap_data is an xarray dataset\n",
+    "                    If the data_protocol is \"tabledap\", then erddap_data is a pandas dataframe\n",
+    "    \"\"\"\n",
+    "    \n",
+    "    import erddapy\n",
+    "    from erddapy import ERDDAP\n",
+    "    import pandas as pd\n",
+    "    import xarray\n",
+    "    \n",
+    "    \n",
+    "    ############################################\n",
+    "    # Set-up the connection to the ERDDAP server\n",
+    "    ############################################\n",
+    "    \n",
+    "    # Connect to the erddap server\n",
+    "    e = ERDDAP(server=erddap_url, protocol=data_protocol, response='csv')\n",
+    "    \n",
+    "    # Identify the dataset of interest\n",
+    "    e.dataset_id = dataset\n",
+    "    \n",
+    "    \n",
+    "    #########################################\n",
+    "    # Pull the data, based upon protocol type\n",
+    "    #########################################\n",
+    "    \n",
+    "    # GRIDDAP Protocol\n",
+    "    if data_protocol == \"griddap\":\n",
+    "        \n",
+    "        # Initialize the connection\n",
+    "        e.griddap_initialize()\n",
+    "\n",
+    "        # Update the constraints\n",
+    "        if constraints is not None:\n",
+    "            e.constraints.update(constraints)\n",
+    "            e.griddap_initialize()\n",
+    "            \n",
+    "        # Update the selection of the variables\n",
+    "        if variables is not None:\n",
+    "            e.variables = variables\n",
+    "\n",
+    "        erddap_data = e.to_xarray()\n",
+    "    \n",
+    "    # TABLEDAP Protocol\n",
+    "    elif data_protocol == \"tabledap\":\n",
+    "\n",
+    "        # Update the constraints\n",
+    "        if constraints is not None:\n",
+    "            e.constraints = constraints\n",
+    "            \n",
+    "        # Update the selection of the variables\n",
+    "        if variables is not None:\n",
+    "            e.variables = variables\n",
+    "            \n",
+    "        erddap_data = e.to_pandas()\n",
+    "    \n",
+    "    # Invalid protocol given\n",
+    "    else:\n",
+    "        print('Invalid ERDDAP protocol. Given protocol is: ' + data_protocol)\n",
+    "        print('Valid protocols include \"griddap\" or \"tabledap\". Please restart and try again with a valid protocol')\n",
+    "        erddap_data = None\n",
+    "    \n",
+    "    \n",
+    "    #############################\n",
+    "    return erddap_data"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "8b03607d-8987-4e57-bacf-127ca6f9185c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#check pudget sound mooring data\n",
+    "nwem_url = 'http://nwem.apl.washington.edu/erddap'\n",
+    "\n",
+    "nwem_dataset = 'orca3_L3_depthgridded_025'\n",
+    "\n",
+    "variables = [\"sea_water_temperature\",\n",
+    "             \"sea_water_practical_salinity\"]\n",
+    "\n",
+    "constraints = {\"cast_start_time>=\":datetime.datetime(2022,1,1).strftime('%Y-%m-%dT%H:%M:%SZ')}\n",
+    "#constraints = {\"cast_start_time>=\": \"max(cast_start_time)-365\"}\n",
+    "\n",
+    "nwem_grid = get_erddap_data(nwem_url, nwem_dataset, \n",
+    "                variables=variables, \n",
+    "                constraints=constraints,\n",
+    "                data_protocol=\"griddap\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "e019a977-dd0f-4ef9-9c1f-0dedd9f9cc50",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "nwem_grid"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "54772eb8-ba21-422f-85ab-c50e088277fc",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "nwem_grid.sea_water_temperature.sel(depth=30).plot()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "378d1e85-c895-40f4-86f6-6b377df9ba26",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# show the bounding polygon to search E01 data\n",
+    "\n",
+    "import folium\n",
+    "\n",
+    "#set the boundary box\n",
+    "min_lat, max_lat = 49.28, 49.30\n",
+    "min_lon, max_lon = -126.62, -126.60\n",
+    "\n",
+    "lon = (min_lon + max_lon) / 2\n",
+    "lat = (min_lat + max_lat) / 2\n",
+    "\n",
+    "m = folium.Map(location=[lat, lon], tiles=\"OpenStreetMap\", zoom_start=5)\n",
+    "\n",
+    "folium.Polygon(\n",
+    "    [(min_lat, min_lon), (max_lat, min_lon), (max_lat, max_lon), (min_lat, max_lon)],\n",
+    "    fill=True,\n",
+    ").add_to(m)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a6ba8531-fa31-4c40-b456-199acaa35a75",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "#check DFO mooring E01 data\n",
+    "cioos_url = 'https://data.cioospacific.ca/erddap'\n",
+    "cioos_dataset = 'IOS_CTD_Moorings'\n",
+    "\n",
+    "variables = [\"time\",\n",
+    "             \"depth\",\n",
+    "             \"latitude\",\n",
+    "             \"longitude\",\n",
+    "             \"sea_water_pressure\",\n",
+    "             \"sea_water_temperature\",\n",
+    "             \"sea_water_practical_salinity\",\n",
+    "             \"TEMPS901\",\n",
+    "             \"TEMPS902\",\n",
+    "             \"TEMPS601\",\n",
+    "             \"TEMPS602\",\n",
+    "             \"TEMPST01\"]\n",
+    "\n",
+    "#constraints = {\"time>=\":datetime.datetime(2022,1,1).strftime('%Y-%m-%dT%H:%M:%SZ')}\n",
+    "#constraints = {\"time>=\": \"max(time)-365\"}\n",
+    "constraints = {\n",
+    "    \"latitude>=\": 49.28,\n",
+    "    \"latitude<=\": 49.30,\n",
+    "    \"longitude>=\": -126.62,\n",
+    "    \"longitude<=\": -126.60,\n",
+    "}\n",
+    "\n",
+    "cioos_table = get_erddap_data(cioos_url, cioos_dataset, \n",
+    "                variables=variables,\n",
+    "                constraints=constraints,\n",
+    "                data_protocol=\"tabledap\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "2c1748f3-23e4-4271-862f-03fe2000cb54",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "cioos_table"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "8a4a8230-a00c-40d3-91c3-033ad22fbc22",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "cioos_table.columns"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "4dd62328-081c-4b4c-af6e-32511fa6ccf3",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "cioos_table_1 = cioos_table.rename(columns={'time (UTC)': 'time',\n",
+    "                                            'depth (m)': 'depth', \n",
+    "                                            'latitude (degrees_north)': 'latitude',\n",
+    "                                            'longitude (degrees_east)': 'longitude',\n",
+    "                                            'sea_water_pressure (dbar)': 'sea_water_pressure',\n",
+    "                                            'sea_water_temperature (degC)': 'sea_water_temperature',\n",
+    "                                            'sea_water_practical_salinity (PSS-78)': 'sea_water_pratical_salinity',\n",
+    "                                            'TEMPS901 (deg_C)': 'TEMPS901',\n",
+    "                                            'TEMPS902 (deg_C)': 'TEMPS902',\n",
+    "                                            'TEMPS601 (deg_C)': 'TEMPS601',\n",
+    "                                            'TEMPS602 (deg_C)': 'TEMPS602',\n",
+    "                                            'TEMPST01 (deg_C)': 'TEMPST01'})"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "1fe451d0-7968-42a2-86bc-37fd5e822134",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "cioos_table_1.columns"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "4a756653-295e-4c58-b1d1-0a3337cb15de",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "#confirm the time is in string\n",
+    "type(cioos_table_1.time[0])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "7b4dd7f0-2622-4efb-8bd5-d1edad114713",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "cioos_table_1 = cioos_table_1.reset_index().set_index('time')\n",
+    "cioos_table_1.sea_water_temperature.plot()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "b5bfe793-a4e8-43e2-a518-f6ad4a9f39d5",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "cioos_table_1.sea_water_pratical_salinity.plot()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "1ae82f34-ecf5-41a8-9ba0-06968a6f23e3",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "cioos_table_1.TEMPS901.plot()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "1d39b4f8-2c2b-4303-8b75-2fa8b6fd008b",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "cioos_table_1.TEMPST01.plot() "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d7f4becd-6d56-468a-b3a0-50b1e6c9bfa3",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# confirm the na values for TEMPST01\n",
+    "cioos_table_1.TEMPST01.dropna()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "65828b6d-d8f6-4f59-9883-f64753c5fdd8",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "cioos_table_1.TEMPS902.plot()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "b60ea62f-e66a-421a-97ab-f21f24522d07",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# confirm the na values for TEMPS902\n",
+    "cioos_table_1.TEMPS902.dropna()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "eec0c4a4-e636-441d-be4e-90f476b1948e",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "cioos_table_1.TEMPS601.plot()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "6f382cc7-466d-4f0b-860d-9ea2a350ecbc",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# confirm the na values for TEMPS601\n",
+    "cioos_table_1.TEMPS601.dropna()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "dfbb24d2-b296-4656-b6cd-486cd8b5ad4f",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "cioos_table_1.TEMPS602.plot()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "c62c665d-03f4-4cda-89f5-d4867b15a599",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# confirm the na values for TEMPS602\n",
+    "cioos_table_1.TEMPS602.dropna()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "8e5ff36c-5d75-491b-b765-ac5d5da2f333",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# could drop columns without real data\n",
+    "cioos_table_1 = cioos_table_1.drop(['TEMPS901', 'TEMPS902', 'TEMPS601', 'TEMPS602'], axis=1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "2184e403-b18a-46c9-8b78-ca4198c33a24",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "cioos_table_1.columns"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "1daf6f67-c8c1-4fe4-9485-8291dd6b8222",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "cioos_table_1.depth.plot()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "3833a9bd-f93e-4bb6-a429-460024cbcf43",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "cioos_table_1[(cioos_table_1[\"depth\"] >= 30) & (cioos_table_1[\"depth\"] <= 40)].TEMPST01.plot()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "8d19bfbe-40fa-4faf-b2f2-90794441ff18",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "cioos_e01_35 = cioos_table_1[(cioos_table_1[\"depth\"] >= 30) & (cioos_table_1[\"depth\"] <= 40)]\n",
+    "cioos_e01_75 = cioos_table_1[(cioos_table_1[\"depth\"] >= 70) & (cioos_table_1[\"depth\"] <= 80)]\n",
+    "cioos_e01_95 = cioos_table_1[(cioos_table_1[\"depth\"] >= 90) & (cioos_table_1[\"depth\"] <= 100)]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "221b83c4-9c4d-464a-b6dd-e5a2f9b48fd7",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "cioos_e01_35.columns"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a0b372ea-e81d-4011-b66e-dde5e3b94fe0",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "cioos_e01_35.index"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d1b5d08a-3e74-4d2b-ad56-a0df85684815",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "fig, ax = plt.subplots(2, figsize=(15, 8), sharex=True)\n",
+    "   \n",
+    "ax[0].plot(cioos_e01_35.index, cioos_e01_35.sea_water_temperature, linewidth=0.05, c='orange')\n",
+    "ax[0].set_title('Temperature')\n",
+    "   \n",
+    "ax[1].plot(cioos_e01_35.index, cioos_e01_35.sea_water_pratical_salinity, linewidth=0.5, c='blue')\n",
+    "ax[1].set_title(\"Salinity\")\n",
+    "    \n",
+    "    \n",
+    "fig.subplots_adjust(hspace=0.5)\n",
+    "#plt.suptitle(\"DFO Mooring Station E01 at depth {} metres\".format(str(mooring_depth)))\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "7db43f22-fa85-46d2-9af0-523d1eb7406b",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "fig, ax = plt.subplots(2, figsize=(15, 8), sharex=True)\n",
+    "ax[0].plot(cioos_e01_35.index, cioos_e01_35.sea_water_temperature, linewidth=0.05, c='orange')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "88e1bc6a-c968-4d03-9615-2de75e4b51ae",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "f640aae1-9cfa-4927-9ce9-57caa36ca04f",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d18ace0e-8380-415a-a865-87b43744d17a",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "269d97a3-2984-4660-9b9f-86fd70930b04",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "#cioos_xarray = cioos_table_1.to_xarray\n",
+    "cioos_e01_35x = cioos_e01_35.to_xarray()\n",
+    "#cioos_e01_75x = cioos_e01_75.to_xarray\n",
+    "#cioos_e01_95x = cioos_e01_95.to_xarray"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "2d0cce8a-f8aa-4660-b988-f68112f415e0",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "cioos_e01_35x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a3e77c02-952a-473b-a071-e3a2211ce6eb",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "#confirm the date type is string\n",
+    "type(cioos_e01_35x.time.values[0])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "9ac10a40-c4fa-4353-82eb-cc28ea181a99",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "#cioos_e01_35x['time'] = pd.DatetimeIndex(cioos_e01_35x['time'].values)\n",
+    "cioos_e01_35x['time']  = [pd.Timestamp(ii) for ii in pd.DatetimeIndex(cioos_e01_35x['time'].values)]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "7e9cfe93-c7cd-41da-ab9e-866c6dff3faf",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "cioos_e01_35x.sea_water_temperature.plot()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "f5b73bba-4689-4147-99e3-a323688b2ce5",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "cioos_e01_35x.sea_water_temperature.plot.line()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "b486417c-96e8-4b1f-868d-2e265be7eb10",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "cioos_e01_35.TEMPST01.plot()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "8ae77933-f42d-4a4a-8618-5e2603b7eef5",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d035964c-c78c-402e-a5e7-81a9a1ad526e",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "ca930523-a20d-4fac-8bdd-d08a3f42f2d3",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "fig, ax = plt.subplots()\n",
+    "cb = ax.scatter(cioos_table['time (UTC)'],\n",
+    "           cioos_table['sea_water_temperature (degC)'], \n",
+    "           c=cioos_table['sea_water_pressure (dbar)'])\n",
+    "fig.colorbar(cb,ax=ax)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "46c17493-cd52-4715-bee3-7a3a5a4a5763",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d275364a-3e30-4dfe-939d-9cedd2a13e3f",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.16"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
