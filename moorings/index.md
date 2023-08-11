@@ -9,6 +9,8 @@ We put together python notebooks for the following moorings:
 
 It would be very cool to be able to add more mooring pages automatically. 
 
+![Puget Sound Climatology](Climatology.png)
+
 ```{toctree}
 :maxdepth: 2
 :hidden:
