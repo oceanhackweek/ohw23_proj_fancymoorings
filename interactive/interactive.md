@@ -10,6 +10,7 @@ Different python libraries that have interactivity options:
 ### Streamlit:
 
 * [https://streamlit.io/](https://streamlit.io/) - Main streamlit interactive web app page
+* [Interactive plot example](https://mooringapp-5davsitseswj6tfudqtvqh.streamlit.app/)
 
 ### Shiny:
 
