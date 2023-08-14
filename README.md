@@ -36,8 +36,3 @@ Data page for display and downloading mooring data.
 [CIOOS Moorings](https://catalogue.cioospacific.ca/dataset/ca-cioos_82656721-88e6-4543-90f1-edc35c0f42c9)
 
 [NANOOS Moorings](https://nwem.apl.washington.edu/erddap/index.html)
-
-## Project Presentation
-
-
-
